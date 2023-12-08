@@ -1,0 +1,112 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+.action {
+    position: fixed;
+    bottom: 400px;
+    right: -15px;
+    width: 100px;
+   /* height: 34px;*/
+    transition: background .2s linear;
+    will-change: background-color,width;
+    /*background: #fff;*/
+    /*border-radius: 50%;*/
+    cursor: pointer;
+    /* box-shadow: 0 5px 5px rgba(0,0,0,0.1);*/
+}
+@media (max-width: 992px) {
+    .action {
+        position:fixed;
+        bottom: 530px;
+        right:-14px;
+        width: 90px;
+        /*height: 34px;*/
+        /*background: #fff;*/
+        /*border-radius: 50%;*/
+        cursor: pointer;
+        /*box-shadow: 0 5px 5px rgba(0,0,0,0.1);*/
+    }
+
+        .action ul {
+            position: absolute;
+            bottom: -18rem;
+            /*right: 80px;*/
+            background: #fff;
+            min-width: 320px;
+            padding: 20px;
+            border-radius: 20px;
+            opacity: 0;
+            visibility: hidden;
+            /*transition: 0.2s;*/
+        }
+        .action:hover ul {
+            bottom: -80px;
+            right: 80px;
+            opacity: 1;
+            visibility: visible;
+            transition: 0.2s;
+        }
+}
+
+    .action span {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 2em;
+        /*transition: 1s ease-in-out;*/
+    }
+    /*.action.active span{
+    transform: rotate(135deg);
+}*/
+
+    .action ul {
+        position: absolute;
+        top:-8rem;
+        right: 100px;
+        background: #fff;
+        min-width: 320px;
+        padding: 20px;
+        border-radius: 20px;
+        opacity: 0;
+        visibility:hidden;
+       /* transition:0.2s; */ 
+    }
+
+.action:hover ul {
+    position: absolute;
+    bottom: -10rem;
+    /*right: 100px;*/  
+    opacity: 1;
+    visibility: visible;
+    transition: 0.2s;
+}
+
+
+
+    .action ul li {
+        list-style: none;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        /*padding:10px 0;*/
+       /* transition: 2s;*/
+    }
+
+        .action ul li:hover {
+            font-weight: 600;
+        }
+
+        .action ul li:not(:last-child) {
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
