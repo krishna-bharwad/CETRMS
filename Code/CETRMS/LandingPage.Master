@@ -1,0 +1,771 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="LandingPage.Master.cs" Inherits="Universal_Education.LandingPage" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+     <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="180x180" href="LandingPageAsset/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="LandingPageAsset/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="LandingPageAsset/img/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="LandingPageAsset/img/favicon.png">
+
+  <title>Universal Education - Frontpage one</title>
+  <link rel="stylesheet" href="LandingPageAsset/css/theme.min.css">
+<link rel="stylesheet" href="./LandingPageAsset/social-media-icons.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+ <style>
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local(''),
+       url('LandingPageAsset/fonts/inter-v12-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('LandingPageAsset/fonts/inter-v12-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+@font-face {
+  font-family: 'Metropolis';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: local(''),
+       url('LandingPageAsset/fonts/inter-v12-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('LandingPageAsset/fonts/inter-v12-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local(''),
+       url('LandingPageAsset/fonts/inter-v12-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('LandingPageAsset/fonts/inter-v12-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local(''),
+       url('LandingPageAsset/fonts/inter-v12-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('LandingPageAsset/fonts/inter-v12-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+footer{
+/*background:#325d5d;*/
+background: rgb(5,62,73);
+background: linear-gradient(90deg, rgba(5,62,73,1) 0%, rgba(102,172,172,1) 48%, rgba(0,151,255,1) 100%);
+opacity:0.8;
+}
+
+/* Set a style for all buttons */
+.button{
+ /* background-color: #04AA6D;
+  color: white;
+  padding: 8px 5px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 28%;
+  border-radius:10px;
+  position:relative;*/
+
+ 
+    font-family: Montserrat-Bold;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #fff;
+    text-transform: uppercase;
+    width: 28%;
+    height: 45px;
+    border-radius: 25px;
+    background: #57b846;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    -moz-transition: all .4s;
+    transition: all .4s;
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.button {
+    outline: none!important;
+    border: none;   
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 8px 5px;
+  background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+/*.container {
+  padding: 16px;
+}*/
+
+span.psw {
+  float: right;  
+}
+
+
+
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+a {
+    font-family: Metropolis;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #fff;
+    text-decoration:none;
+    margin: 0;
+    transition: all .4s;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    -moz-transition: all .4s;
+}
+a:hover{
+    color:#ffffff;
+    cursor:pointer;
+}
+a:focus{
+    color:#ffffff;
+    cursor:pointer;
+}
+.txt1 {
+    font-family: Metropolis;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #000;
+}
+ 
+.topnav-right {
+  float: right;
+}
+
+
+footer{
+    border-radius:50px;
+    border-bottom-left-radius:0;
+    border-bottom-right-radius:0;
+}
+       
+
+
+        [data-tab-info] {
+            display: none;
+        }
+   
+        .active[data-tab-info] {
+            display: block;
+        }
+          
+        .tab-content {
+            font-size: 30px;
+            font-family: sans-serif;
+            font-weight: bold;
+            color: rgb(82, 75, 75);
+        }
+          
+        .tabs {
+            font-size: 15px;
+            color: rgb(255, 255, 255);
+            display: flex;
+            margin: 0;
+        }
+          
+        .tabs span {
+            background: rgb(28, 145, 38);
+            padding: 10px;
+            border: 1px solid rgb(255, 255, 255);
+        }
+          
+        .tabs span:hover {
+            background: rgb(29, 185, 112);
+            cursor: pointer;
+            color: black;
+        }
+
+
+
+
+  .social-menu ul{
+    position: absolute;
+    top: auto;
+    
+    padding: 0;
+    margin: 0;
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+
+.social-menu ul li{
+    list-style: none;
+    margin: 0 15px;
+}
+
+.social-menu ul li .fa{
+    font-size: 30px;
+    line-height: 60px;
+    transition: .3s;
+    color: #000;
+}
+
+.social-menu ul li .fab:hover{
+    color: #fff;
+}
+
+.social-menu ul li a{
+    position: relative;
+    display: block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #fff;
+    text-align: center;
+    transition: .6s;
+    box-shadow: 0 5px 4px rgba(0,0,0,.5);
+}
+
+.social-menu ul li a:hover{
+    transform: translate(0, -10%);
+}
+
+.social-menu ul li:nth-child(1) a:hover{
+    background-color: #E4405F;
+}
+.social-menu ul li:nth-child(2) a:hover{
+    background-color: #0077b5;
+}
+/*.social-menu ul li:nth-child(3) a:hover{
+    background-color: #0077b5;
+}
+.social-menu ul li:nth-child(4) a:hover{
+    background-color: #000;
+}*/
+.card {
+/*  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+*/  max-width:100%;
+  margin: auto;
+  text-align: left;
+  font-family: arial;
+}
+
+.fs-5{
+    font-size:1.00rem !important
+}
+   
+
+
+</style>
+<link rel="stylesheet" href="LandingPageAsset/loginModal.css" />
+<link rel="stylesheet" href="LandingPageAsset/MenuCard.css" />
+<link rel="stylesheet" href="LandingPageAsset/Hamburger_Menu.css"/>
+<link rel="stylesheet" href="LandingPageAsset/Megamenu.css"/>
+<link rel="stylesheet" href="LandingPageAsset/Hamburger_menu1.css"/>
+ 
+</head>
+<body class="bg-light text-white mt-0" data-bs-spy="scroll" data-bs-target="#navScroll">
+    <form runat="server">
+       <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+		<ul class="exo-menu">
+           <li><a href="#"><img src="LandingPageAsset/img/UE-LOGO-2.png" width="100"/></a></li>
+			<li><a class="active" href="#"><i class="fa fa-home"></i> Home</a></li>
+			<li class="drop-down"><a href="#"><i class="fa fa-cogs"></i> Flyout</a>
+				<!--Drop Down-->
+				<ul class="drop-down-ul animated fadeIn">
+				<li class="flyout-right"><a href="#">Flyout Right</a><!--Flyout Right-->
+					<ul class="animated fadeIn">
+						<li><a href="#">Mobile</a></li>
+						<li><a href="#">Computer</a></li>
+						<li><a href="#">Watch</a></li>
+					</ul>
+				</li>
+				
+				<li class="flyout-left"><a href="#">Flyout Left</a><!--Flyout Left-->
+					<ul class="animated fadeIn">
+						<li><a href="#">Mobile</a></li>
+						<li><a href="#">Computer</a></li>
+						<li><a href="#">Watch</a></li>
+					</ul>			
+				</li>
+				
+				<li><a href="#">No Flyout</a></li>
+				 
+				</ul>
+				<!--//End drop down-->
+			
+			</li>
+			<li><a href="#"><i class="fa fa-cogs"></i> Services</a></li>
+			<li><a href="#"><i class="fa fa-briefcase"></i> Portfolio</a></li>
+			<li class="mega-drop-down"><a href="#"><i class="fa fa-list"></i> Mega Menu</a>
+				<div class="animated fadeIn mega-menu">
+					<div class="mega-menu-wrap">
+						<div class="row">
+						<div class="col-md-4">
+							<h4 class="row mega-title">Feature</h4>
+								<img class="img-responsive" src="https://3.bp.blogspot.com/-rUk36pd-LbM/VcLb48X4f-I/AAAAAAAAGCI/Y_UxBAgEqwA/s1600/Magento_themes.jpg">
+							</div>
+							<div class="col-md-2">
+									<h4 class="row mega-title">Standers</h4>
+								<ul class="stander">
+									<li><a href="#">Mobile</a></li>
+									<li><a href="#">Computer</a></li>
+									<li><a href="#">Watch</a></li>
+									<li><a href="#">laptop</a></li>
+									<li><a href="#">Camera</a></li>
+									<li><a href="#">I pad</a></li>
+									<li><a class="view-more btn- btn-sm" href="#">View more</a></li>
+								</ul>
+							</div>
+							<div class="col-md-3">
+								<h4 class="row mega-title">Description</h4>
+								<ul class="description">
+									<li><a href="#">Women</a>
+										<span>Description of Women</span>
+									</li>
+									<li><a href="#">Men</a>
+											<span>Description of men Cloths</span>
+									</li>
+									<li><a href="#">Kids</a>
+											<span>Description of Kids Cloths</span>
+									</li>
+									<li><a href="#">Others</a>
+											<span>Description of Others Cloths</span>
+									</li>
+									<li>
+									<a class="view-more btn btn-sm " href="#">View more</a>
+											 
+									</li>
+								</ul>
+							</div>
+							<div class="col-md-3">
+							<h4 class="row mega-title">Icon + Description</h4>
+								<ul class="icon-des">
+									<li><a href="#"><i class="fa fa-globe"></i>Web</a></li>
+									<li><a href="#"><i class="fa fa-mobile"></i>Mobile</a></li>
+									<li><a href="#"><i class="fa fa-arrows-h"></i>Responsive</a></li>
+									<li><a href="#"><i class="fa fa-desktop"></i>Desktop</a></li>
+									<li><a href="#"><i class="fa fa-paint-brush"></i>UI/UX</a></li>
+								</ul>
+							</div>
+							
+						</div>
+					</div>	
+				</div>
+			</li>
+			<li class="blog-drop-down"><a href="#"><i class="fa fa-bullhorn"></i> Blog</a>
+				<div class="Blog animated fadeIn">
+					<div class="col-md-4">
+						<img class="img-responsive" src="https://2.bp.blogspot.com/-VG_e0pKfrDo/VcLb6JwZqfI/AAAAAAAAGCk/8ZgA9kZqTQ8/s1600/images3.jpg">
+						<div class="blog-des">
+					<h4 class="blog-title">Lorem ipsum dolor sit amet</h4>
+							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod 
+							tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
+							nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. 
+							Duis autem vel eum iriure dolor in hendrerit in vulputate. </p>
+							<a class="view-more btn- btn-sm" href="#">Read More</a>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<img class="img-responsive" src="https://3.bp.blogspot.com/-hUt5FrdZHio/VcLb5dlwTBI/AAAAAAAAGCU/UUH5N1JkoQc/s1600/images1.jpg">
+						<div class="blog-des">
+						<h4 class="blog-title">Lorem ipsum dolor sit amet</h4>
+							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod 
+							tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
+							nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. 
+							Duis autem vel eum iriure dolor in hendrerit in vulputate. </p>
+									<a class="view-more btn- btn-sm" href="#">Read More</a>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<img class="img-responsive" src="https://4.bp.blogspot.com/-A7U1uPlSq6Y/VcLb5kKHCkI/AAAAAAAAGCc/7WghyndTEuY/s1600/images2.jpg">
+						<div class="blog-des">
+						<h4 class="blog-title">Lorem ipsum dolor sit amet</h4>
+							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod 
+							tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
+							nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. 
+							Duis autem vel eum iriure dolor in hendrerit in vulputate. </p>
+									<a class="view-more btn- btn-sm" href="#">Read More</a>
+						</div>
+					</div>
+					 
+					
+				</div>
+			</li>					
+            <li>
+                <asp:LinkButton ID="SigninLB" runat="server" type="button" CssClass="btn- btn-sm btn-success" data-toggle="modal" data-target="#myModal">
+                    Sign IN
+                </asp:LinkButton>               
+            </li>
+            <li>
+                <asp:LinkButton ID="SignupLB" runat="server" type="button" CssClass="btn- btn-sm btn-success" data-toggle="modal" data-target="#SignUpModel">
+                    Sign UP
+                </asp:LinkButton>
+            </li>
+			<a href="#" class="toggle-menu visible-xs-block">|||</a>		
+	</ul>
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+           
+        <footer class="bg-success text-orange border-top border-light ">
+            <div class="container py-vh-4 text-secondary fw-lighter">
+                <div class="row">
+                    <div class="col-12 col-lg-5 py-4 text-center text-lg-start">
+                        <a class="navbar-brand pe-md-4 fs-4 col-12 col-md-auto text-center" href="index.html">
+                            <img src="LandingPageAsset/img/UE-LOGO-2.png" width="240" height="120" fill="currentColor" class="bi bi-stack" viewBox="0 0 16 16">
+                                <path d="m14.12 10.163 1.715.858c.22.11.22.424 0 .534L8.267 15.34a.598.598 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.598.598 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.598.598 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535L7.733.063z" />
+                                <path d="m14.12 6.576 1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.598.598 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.659z" />                           
+                        </a>
+
+                    </div>
+                    <div class="col border-end border-light">
+                        <span class="h6 text-white">UNIVERSAL ABROAD</span>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <asp:HyperLink ID="HomeHL" runat="server" NavigateUrl="#" CssClass="link-fancy link-fancy-light">HOME</asp:HyperLink>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="link-fancy link-fancy-light">ABOUT US</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#" class="link-fancy link-fancy-light">CONTACT US</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="link-fancy link-fancy-light">LOGIN</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col border-end border-light">
+                        <span class="h6 text-white">PRODUCT</span>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a href="#" class="link-fancy link-fancy-light">CANDIDATE <br/> APPLICATION</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="link-fancy link-fancy-light">EMPLOYER <br/> APPLICATION</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <span class="h6 text-white">SUPPORT</span>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a href="#" class="link-fancy link-fancy-light">EMAIL</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="link-fancy link-fancy-light">CHAT</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        <div class="container text-center small py-vh-2 border-top border-light">
+            <div class="row">
+                <div class="col">
+                <div class="d-flex footer-nav-left mt-4">
+                    <a href="https://www.facebook.com/ZURB/"><img class="footer-social-icon" src="LandingPageAsset/img/facebook-svgrepo-com.svg" width="30" height="30" alt="ZURB Foundation Facebook"></a>
+                    <a href="https://twitter.com/ZURBfoundation"><img class="footer-social-icon" src="LandingPageAsset/img/linkedin-1-svgrepo-com.svg" width="30" height="30" alt="ZURB Foundation Twitter"></a>
+                    <a href="https://www.youtube.com/user/zurb"><img class="footer-social-icon" src="LandingPageAsset/img/twitter-svgrepo-com.svg" width="30" height="30" alt="ZURB Foundation Youtube"></a>
+                    <a href="https://get.foundation/get-involved/support.html"><img class="footer-social-icon" src="LandingPageAsset/img/youtube-svgrepo-com.svg" width="30" height="30" alt="Get Involved with Zurb Foundation"></a>
+                </div>
+            </div>
+            <div class="col">
+                <a href="#" class="link-fancy link-fancy-light mt-0" style="text-decoration:none;" target="_blank"><span>Copyright © 2023</span> UniversalEducation. All Rights Reserved.</a>
+            </div>
+            <div class="col text-lg-end">
+                <a href="#">Terms & Condition</a> | <a href="#">Privacy</a>
+            </div>
+            </div>
+        </div>
+        </footer>
+
+<!-- MIS Login Modal -->
+    <div class="modal fade bd-example-modal-xl" id="myModal" data-easein="flipXIn" >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content ">
+            <div class="login-box box">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              <div class="modal-header">
+                <div class="modal-title">
+                    <img src="LandingPageAsset/img/UE-LOGO-2.png" style="width:220px;height:80px;">
+                </div>
+              </div>
+              <div class="modal-body">
+                    <div class="title">MIS Login</div>
+                  <div class="input-group">
+                      <asp:TextBox ID="UserNameTXT" runat="server" CssClass="input--style-3" placeholder="Your user-name*" ></asp:TextBox>
+                  </div>
+                  <div class="input-group">
+                      <asp:TextBox ID="PasswordTXT" runat="server" TextMode="Password" CssClass="input--style-3" placeholder="Your password*" ></asp:TextBox>
+                  </div>
+                  <div class="extra">
+                      <div class="row">
+                        <asp:CheckBox ID="RememberMeCHK" runat="server" Text="Remember Me" />
+                      </div>
+                  </div>
+                  <div class="p-t-10">
+                      <asp:Button ID="UELoginBTN" runat="server" Text="Sign In" CssClass="btn btn--pill btn--signin" OnClick="UESigninLB_Click" />
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <asp:Label ID="UELoginLBL" runat="server" Font-Italic="true" ForeColor="Red" Visible="false"></asp:Label>
+              </div>
+            </div>
+      </div>
+    </div>
+        </div>
+           
+<!-- Client SignUp The Modal -->
+    <div class="modal fade  bd-signup-modal-xl1" id="SignUpModel" tabindex="-1" aria-labelledby="bdsignupmodalxl1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="login-box box">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                    <div class="modal-header">
+                        <div class="modal-title">
+                            <img src="LandingPageAsset/img/UE-LOGO-2.png" style="width:220px;height:80px;">
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                    <div class="title">Sign Up</div>
+                        <div class="row">
+                            <div class="col-12">
+                                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="pills-Employer-tab" data-bs-toggle="pill" data-bs-target="#pills-Employer" type="button" role="tab" aria-controls="pills-Employer" aria-selected="true">Employer</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="pills-Candidate-tab" data-bs-toggle="pill" data-bs-target="#pills-Candidate" type="button" role="tab" aria-controls="pills-Candidate" aria-selected="false">Candidate</button>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="pills-tabContent">
+                                    <div class="tab-pane fade show active" id="pills-Employer" role="tabpanel" aria-labelledby="pills-Employer-tab">
+                                        <div class="input-group">
+                                            <asp:TextBox ID="CETRMS_EmployerUserNameTXT" runat="server" CssClass="input--style-3" placeholder="Employer Username"></asp:TextBox>
+                                        </div>
+                                        <div class="input-group">
+                                            <asp:TextBox ID="CETRMS_EmployerEmailTXT" runat="server" CssClass="input--style-3" placeholder="Employer Email"></asp:TextBox>
+                                        </div>
+                                        <div class="input-group">
+                                            <asp:TextBox ID="CETRMS_EmployerPasswordTXT" runat="server" TextMode="Password" CssClass="input--style-3" placeholder="Employer Password"></asp:TextBox>
+                                        </div>
+                                        <div class="input-group">
+                                            <asp:Textbox ID="CETRMS_EmployerEmployerRePasswordTXT" runat="server" TextMode="Password" CssClass="input--style-3" placeholder="Employer Confirm Password"></asp:Textbox>
+                                        </div>
+                                        <asp:LinkButton ID="CETRMS_EmployerSingUpLB" runat="server" type="submit" OnClick="EmployerPersonalProfileSignup" CssClass="btn btn--pill btn--signin">Employer Signup</asp:LinkButton>
+                                    </div>
+                                    <div class="tab-pane fade" id="pills-Candidate" role="tabpanel" aria-labelledby="pills-Candidate-tab">
+                                        <div class="input-group">
+                                            <asp:TextBox ID="CETRMS_CandidateUserNameTXT" runat="server" CssClass="input--style-3" placeholder="Candidate Username"></asp:TextBox>
+                                        </div>
+                                        <div class="input-group">
+                                            <asp:TextBox ID="CETRMS_CandidateEmailTXT" runat="server" CssClass="input--style-3" placeholder="Candidate Email"></asp:TextBox>
+                                        </div>
+                                        <div class="input-group">
+                                            <asp:TextBox ID="CETRMS_CandidatePasswordTXT" runat="server" TextMode="Password" CssClass="input--style-3" placeholder="Candidate Password"></asp:TextBox>
+                                        </div>
+                                        <div class="input-group">
+                                            <asp:Textbox ID="CETRMS_CandidateRePasswordTXT" runat="server" TextMode="Password" CssClass="input--style-3" placeholder="Candidate Confirm Password"></asp:Textbox>
+                                        </div>
+                                        <asp:LinkButton ID="CETRMS_CandidateSignUpLB" runat="server" type="submit" OnClick="CandidatePersonalProfileSignup" CssClass="btn btn--pill btn--signin">Candidate Signup</asp:LinkButton>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 justify-content-center" style="color:#339dad;">
+                                OR Sign-up by
+                            <asp:HiddenField ID="loginProspectHF" runat="server" />
+                            </div>
+                        </div>
+                        <div class="row p-2 bd-highlight">
+                            <div class="col-sm">
+                            <asp:HiddenField ID="HiddenField2" runat="server" />
+                                <div class="flex--item Google-Signup" data-ga="[&quot;sign up&quot;,&quot;Sign Up Started - Google&quot;,&quot;New Post&quot;,null,null]">
+                                    <asp:LinkButton ID="LinkButton9" runat="server" OnClick="GoogleSignUp">
+                                    <svg aria-hidden="true" class="native svg-icon iconGoogle" width="40" height="40"  viewBox="0 0 18 18"><path fill="#4285F4" d="M16.51 8H8.98v3h4.3c-.18 1-.74 1.48-1.6 2.04v2.01h2.6a7.8 7.8 0 0 0 2.38-5.88c0-.57-.05-.66-.15-1.18Z"/><path fill="#34A853" d="M8.98 17c2.16 0 3.97-.72 5.3-1.94l-2.6-2a4.8 4.8 0 0 1-7.18-2.54H1.83v2.07A8 8 0 0 0 8.98 17Z"/><path fill="#FBBC05" d="M4.5 10.52a4.8 4.8 0 0 1 0-3.04V5.41H1.83a8 8 0 0 0 0 7.18l2.67-2.07Z"/><path fill="#EA4335" d="M8.98 4.18c1.17 0 2.23.4 3.06 1.2l2.3-2.3A8 8 0 0 0 1.83 5.4L4.5 7.49a4.77 4.77 0 0 1 4.48-3.3Z"/></svg> 
+                                    </asp:LinkButton>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="flex--item Facebook-Signup" data-ga="[&quot;sign up&quot;,&quot;Sign Up Started - Facebook&quot;,&quot;New Post&quot;,null,null]">
+                                    <asp:LinkButton ID="LinkButton10" runat="server" OnClick="FacebookSignUp">
+                                    <svg aria-hidden="true" class="svg-icon iconFacebook" width="40" height="40"  viewBox="0 0 18 18"><path fill="#4167B2" d="M3 1a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H3Zm6.55 16v-6.2H7.46V8.4h2.09V6.61c0-2.07 1.26-3.2 3.1-3.2.88 0 1.64.07 1.87.1v2.16h-1.29c-1 0-1.19.48-1.19 1.18V8.4h2.39l-.31 2.42h-2.08V17h-2.5Z"/></svg>
+                                    </asp:LinkButton>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+      
+    </form>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+<script src="LandingPageAsset/js/bootstrap.bundle.min.js"></script>
+<script src="LandingPageAsset/js/aos.js"></script>
+<script src="LandingPageAsset/Hamburger_menu.js"></script>
+<script src="LandingPageAsset/Megamenu.js"></script>
+<script>
+    AOS.init({
+        duration: 800, // values from 0 to 3000, with step 50ms
+    });
+</script>
+
+<script src="https://assets.codepen.io/7773162/vanilla-tilt.min.js"></script>
+    
+<script>
+    VanillaTilt.init(document.querySelectorAll(".box"), {
+        max: 1,
+        speed: 300,
+        easing: "cubic-bezier(.03,.98,.52,.99)",
+        scale: 1.05,
+    });
+</script>
+
+<script>
+    let scrollpos = window.scrollY
+    const header = document.querySelector(".navbar")
+    const header_height = header.offsetHeight
+
+    const add_class_on_scroll = () => header.classList.add("scrolled", "shadow-sm")
+    const remove_class_on_scroll = () => header.classList.remove("scrolled", "shadow-sm")
+
+    window.addEventListener('scroll', function () {
+        scrollpos = window.scrollY;
+
+        if (scrollpos >= header_height) { add_class_on_scroll() }
+        else { remove_class_on_scroll() }
+
+        console.log(scrollpos)
+    })
+</script>
+
+
+<script type="text/javascript">
+    const tabs = document.querySelectorAll('[data-tab-value]')
+    const tabInfos = document.querySelectorAll('[data-tab-info]')
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const target = document
+                .querySelector(tab.dataset.tabValue);
+
+            tabInfos.forEach(tabInfo => {
+                tabInfo.classList.remove('active')
+            })
+            target.classList.add('active');
+        })
+    })
+</script>
+<script>
+    function SetEmployerSignUp() {
+        var InterviewType = document.getElementById('loginProspectHF');
+
+        InterviewType.value = "Employer";
+        document.getElementById('SignUpformImage').style.backgroundImage = "./images/EmployerSignUpform.jpg";
+    }
+    function SetCandidateSignUp() {
+        var InterviewType = document.getElementById('loginProspectHF');
+
+        InterviewType.value = "Candidate";
+        document.getElementById('SignUpformImage').style.backgroundImage = "./images/CandidateSignUpform.jpg";
+    }
+</script>   
+     <script src="https://kit.fontawesome.com/66aa7c98b3.js" crossorigin="anonymous"></script>
+   
+</body>
+</html>

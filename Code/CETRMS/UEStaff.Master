@@ -1,0 +1,831 @@
+﻿<%@  Master Language="C#" AutoEventWireup="true" CodeBehind="UEStaff.master.cs" Inherits="CETRMS.UEStaff" %>
+
+
+<%@ Register assembly="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" namespace="Microsoft.Reporting.WebForms" tagprefix="rsweb" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="refresh" content="60">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="icon" type="text/x-html-insertion" href="IndexAssets/UeLogoWhitebg.png" />
+    <title>Universal Education</title>
+   <!-- Bootstrap -->
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- Font Awesome -->
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+    <!-- NProgress -->
+    <link href="vendors/nprogress/nprogress.css" rel="stylesheet"/>
+        <!-- fullCalendar -->
+    <script src="CalendarAsset/fullcalendar/main.js"></script>
+    <link rel="stylesheet" href="CalendarAsset/fullcalendar/main.css" />
+    
+    <!-- iCheck -->
+    <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet"/>
+	
+    <!-- bootstrap-progressbar -->
+    <link href="vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet"/>
+    <!-- JQVMap -->
+    <link href="vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+    <!-- bootstrap-daterangepicker -->
+    <link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet"/>
+	<!-- NProgress -->
+	<link href="vendors/nprogress/nprogress.css" rel="stylesheet"/>
+	<!-- iCheck -->
+	<link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet"/>
+	<!-- bootstrap-wysiwyg -->
+	<%--<link href="vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">--%>
+	<!-- Select2 -->
+	<link href="vendors/select2/dist/css/select2.min.css" rel="stylesheet"/>
+	<!-- Switchery -->
+	<link href="vendors/switchery/dist/switchery.min.css" rel="stylesheet"/>
+	<!-- starrr -->
+	<link href="vendors/starrr/dist/starrr.css" rel="stylesheet"/>
+	<!-- bootstrap-daterangepicker -->
+	<link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet"/>
+    <!-- Custom Theme Style -->
+    <link href="build/css/custom.min.css" rel="stylesheet"/>
+    <script src="vendors/jquery/dist/jquery.min.js" type="text/javascript"></script>
+       <!-- Google Font: Source Sans Pro -->
+    <!-- Google Font: Source Sans Pro -->
+<%--  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">--%>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Rasa&display=swap" rel="stylesheet"/>
+  <!-- Font Awesome -->
+    
+    
+    <!-- Theme style -->
+<%--  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">--%>
+     <!-- Bootstrap -->
+<%--    <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>--%>
+    <link rel="stylesheet" href="LandingPageAsset/Button.css"/>
+    <link rel="stylesheet" href="LandingPageAsset/Card.css"/>
+    <link rel="stylesheet" href="LandingPageAsset/Tabs.css"/>
+    <link rel="stylesheet" href="LandingPageAsset/Calendar.css"/>
+     <link rel="stylesheet" href="responsive.css"/>
+    <style>
+        *{
+          font-family: 'Rasa', serif;
+          font-weight:400;
+        }
+       
+        hr {
+            margin-top: 0.5rem;
+            margin-bottom: 0.7rem;
+            border: 0;
+            border-top: 1px solid rgba(0,0,0,.1);
+        }
+        dl, ol, ul {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        .fa{
+            font-size:14px;
+        }
+
+        label{
+            display: inline-block;
+            margin-bottom: 0.2rem;
+            font-size: 16px;
+        }
+        #ReferralPaymentModal{
+            line-height:2.2rem;
+        }
+        .form-control {
+            display: block;
+            height: calc(1em + 0.45rem + 2px);
+            padding: 0rem 0.4rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.0;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        }
+        .form-group{
+            margin-bottom:0;
+        }
+        .img-fluid {
+            max-width: 80%;
+            height: auto;
+            width: 86px;
+            height:86px;
+        }
+        .btn-group-sm > .btn, .btn-sm {
+            padding: 0.25rem 0.5rem;
+            font-size:16px;
+            line-height: 1.0;            
+        }
+        /*.card {
+            position: relative;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #fff;
+            background-clip: border-box;*/
+            /* border: 1px solid rgba(0,0,0,.125); */
+            /*border-radius: 0.25rem;
+        }*/
+        .card-body {
+            flex: 1 1 auto;
+            padding: 0.4rem;
+        }
+        
+        .pb-2, .py-2{
+                padding-bottom: .2rem!important;
+        }
+        .pt-2, .py-2{
+            padding-top: .2rem!important;
+        }
+        h1, h2, h3, h4, h5, h6,
+        .h1, .h2, .h3, .h4, .h5, .h6 {
+            margin-bottom: .5rem;
+            font-weight: 500;
+            line-height: 1.0;
+        }
+        p{
+            /*line-height:0.9rem;*/
+            margin-bottom:0;
+        }
+        button, input, optgroup, select, textarea{
+            padding:3px;
+            font-size:16px;
+        }
+        .mb-4{
+            margin-bottom:1rem!important;
+        }
+        .custom-select {
+            display: inline-block;
+            width: 100%;
+            height: calc(1em + 0.45rem + 2px);
+            padding: 0rem 0.4rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.0;
+            color: #495057;
+            vertical-align: middle;
+            background: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e) no-repeat right 0.75rem center/8px 10px;
+            background-color: #fff;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+        .table td{
+            font-size:16px;
+        }
+        .table td, .table th {
+            padding: 0.70rem;
+            vertical-align: top;
+            line-height:1.0rem;
+            border-top: 1px solid #dee2e6;
+        }
+        .modal-footer-referral {
+            align-items: center;
+            -ms-flex-pack: end;
+            justify-content: flex-end;
+            padding: 1rem;
+            border-top: 1px solid #dee2e6;
+            border-bottom-right-radius: 0.3rem;
+            border-bottom-left-radius: 0.3rem;
+        }
+
+        /*.mainColContainer*/ .x_panel{
+            height: auto;
+        }
+        
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="nav-md footer_fixed menu_fixed">
+   <form id="form1" runat="server">
+       <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods = "true"></asp:ScriptManager>
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col menu_fixed">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+            <a href="#dashboard" class="site_title"><img src="IndexAssets/UeLogoWhitebg.png" style="width:55px;height:55px;"/>
+            <span> <img src="IndexAssets/Uetext.png" style="width:130px;height:38px; position: relative; top:0;" /> </span>
+            </a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <asp:image ID="ProfilePicImg" runat="server" class="img-circle profile_img" Visible="false"/>
+              </div>
+                <div class="profile_info">
+                    <div class="row">
+                        <div class="col-12">
+                            <span>Welcome,</span>
+                            <%-- <h2>John Doe</h2>--%>
+                            <asp:Label ID="UserNameLBL" runat="server"></asp:Label>
+                            <asp:Label ID="DesignationLBL" runat="server"></asp:Label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <ul class="nav side-menu">
+                  <li><a href="Dashboard.aspx"><i class="fa fa-dashboard"></i> Dashboard</a>
+                    
+                  </li>
+                  <li><a><i class="fa fa-user"></i> Interview <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li>
+                            <a href="ScheduleInterviewPage.aspx">Propose Interview</a>
+                        </li>
+                        <li>
+                            <a href="UpcomingInterviews.aspx">Upcoming Interview</a>
+                        </li>
+                        <li>
+                            <a href="ZoomMeetings.aspx">Zoom Meetings</a>
+                        </li>
+                        
+                        
+                    </ul>
+                  </li> 
+
+
+                  <li><a><i class="fa fa-users"></i> Referrals<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li>
+                            <a href="ReferralDetails.aspx">Referral Details</a>
+                       </li>
+                    </ul>
+                  </li>                     
+                </ul>
+              
+               
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-edit"></i> Reports<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                     <%-- <li><a href="TestReport.aspx">Test Report</a></li>--%>
+                       <li><a href="#Candidate">Candidate</a>
+                                <ul class="nav subchild_menu">
+                                    <li><a href="CandidateList.aspx">Candidate List</a></li>
+                                   <%-- <li><a href="PrintCandidateProfile.aspx">Candidate Details</a></li>--%>
+                                    <%--<li><a href="CandidateDetails.aspx">Candidate Under Selection Process</a></li>
+                                    <li><a href="CandidateDetails.aspx">Candidate Final Selected</a></li>
+                                    <li><a href="CandidateDetails.aspx">Candidate Rejected</a></li>--%>
+                                </ul>
+                        </li>
+
+                        <li><a href="#Employer">Employer</a>
+                                <ul class="nav subchild_menu">
+                                    <li><a href="EmployerList.aspx">Employer List</a></li>
+                                    <%--<li><a href="PrintEmployerDetails.aspx">Employer Details</a></li>--%>
+                                    <%--<li><a href="InactiveEmployersWithFilledVacacny.aspx">Inactive Employers With Filled Vacacny</a></li>
+                                    <li><a href="EmployersWithNoVacancy.aspx">Employers With No Vacancy</a></li>--%>
+                                    
+                                </ul>
+                        </li>
+
+                        <li><a href="#Vacancy">Vacancy</a>
+                                <ul class="nav subchild_menu">
+                                    <li><a href="VacancyList.aspx">Vacancy List</a></li>
+                                   <%-- <li><a href="PrintJobVacancyDetails.aspx">Vacancy Details</a></li>--%>
+                                    <%--<li><a href="VacanciesUnderScheduledInterview.aspx">Vacancies Under Scheduled Interview</a></li>
+                                    <li><a href="CloseVacanciesAfterFinalSelection.aspx">Close Vacancies After Final Selection</a></li>--%>
+                                    
+                                </ul>
+                        </li>
+                       <%-- <li><a href="#Interview">Interview</a>
+                                <ul class="nav subchild_menu">
+                                    <li><a href="EmployerOnBoarded.aspx">Propose Interview Report</a></li>
+                                    <li><a href="ActiveEmployersWithOpenVacancy.aspx">Upcoming Interview Report</a></li>
+                                    <li><a href="InactiveEmployersWithFilledVacacny.aspx">Zoom Meetings Report</a></li>
+                                    <li><a href="EmployersWithNoVacancy.aspx">Employers With No Vacancy</a></li>
+                                    
+                                </ul>
+                        </li>--%>
+
+                        <li><a href="#SignUp">Sign Up List</a>
+                                <ul class="nav subchild_menu">
+                                    <li><a href="NewCandidateRegistrationList.aspx">All Candidate List</a></li>
+                                   <li><a href="AllEmployerList.aspx">All Employer List</a></li>
+                                    
+                                </ul>
+                        </li>
+
+                    </ul>
+                  </li>
+                </ul>
+
+
+                <ul class="nav side-menu">
+                      <li><a href="Settings.aspx"><i class="fa fa-cog" aria-hidden="true"></i>Settings</a>                         
+                      </li>
+                  </ul>
+
+                <ul class="nav side-menu">
+                <li><a href="TestimonialList.aspx"><i class="fa fa-comment-o" aria-hidden="true"></i>Testimonial</a>
+                    <%--<ul class="nav child_menu">
+                     
+                       <li><a href="#Candidate">Candidate</a>
+                                <ul class="nav subchild_menu">
+                                    <li><a href="CandidateList.aspx">Candidate List</a></li>
+                                   
+                                    
+                                </ul>
+                        </li>
+
+                        <li><a href="#Employer">Employer</a>
+                                <ul class="nav subchild_menu">
+                                    <li><a href="EmployerList.aspx">Employer List</a></li>
+                                    
+                                    
+                                    
+                                </ul>
+                        </li>
+
+                        <li><a href="#Vacancy">Vacancy</a>
+                                <ul class="nav subchild_menu">
+                                    <li><a href="VacancyList.aspx">Vacancy List</a></li>
+                                   
+                                    
+                                    
+                                </ul>
+                        </li>
+                       
+                    </ul>--%>
+                </li>
+                </ul>
+              </div>
+              <div class="menu_section">
+              </div>
+            </div>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+         <%--     <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>--%>
+<%--                <div class="row d-flex">
+                    <div class="col-sm-3"><p class="text-white">Version:</p></div>
+                    <div class="col-sm-4"><asp:Label ID="VersionLBL" runat="server" CssClass="text-white"></asp:Label></div>
+                </div>--%>
+<%--                <div class="row d-flex">
+                    <div class="col-sm-12"><p class="text-white">Date published:</p></div>
+                </div>--%>
+<%--                <div class="row d-flex">
+                    <div class="col-sm-12"><asp:Label ID="VersionLBL" runat="server" CssClass="text-white"></asp:Label></div>
+                </div>--%>
+                <div class="row d-flex">
+                    <div class="col-sm-12"><asp:Label ID="PublishDateLBL" runat="server" CssClass="text-white"></asp:Label></div>
+                </div>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+              <nav class="nav navbar-nav">
+              <ul class=" navbar-right">
+                <li class="nav-item dropdown open" style="padding-left:5px;">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+                        <asp:Label ID="DateLBL" runat="server"></asp:Label>
+                        <asp:Image ID="profilepic2img" runat="server" Visible="false" />
+                        <asp:Label ID="UEAdminLBL" runat="server">UE Admin</asp:Label>
+                  </a>
+                  <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="#" data-toggle="modal" data-target="#UpdateInfo-modal">
+                          <asp:Label ID="ProfileLBL" runat="server"> Update Profile </asp:Label></a>
+
+                      <a class="dropdown-item"  data-toggle="modal" data-target="#changePassword">
+                          <asp:Label ID="ChangePasswordLBL" runat="server">Change Password</asp:Label></a>
+
+                      <a class="dropdown-item" href="#" data-toggle="modal" data-target="#signout-modal">
+                          <asp:Label ID="SignOutLBL" runat="server">Sign Out</asp:Label><span></span></a>
+                  </div>
+                  <div class="modal fade" id="changePassword" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="changePasswordLabel" aria-hidden="true">
+                               <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <!-- Modal Header -->
+                                        <div class="modal-header text-center d-block p-5 border-bottom-0">
+                                            <h3 class="modal-title">Change Password</h3>
+                                            <button type="button" class="close position-absolute" style="right: 15px; top: 8px;" data-dismiss="modal">&times;</button>
+                                        </div>
+
+                                        <!-- Modal body -->
+                                        <div class="modal-body">
+                                            <div class="text-center py-4">
+                                                <div class="row mb-3">
+                                                    <div class="col-12 mb-3">
+                                                        <asp:TextBox ID="OldPasswordTXT" runat="server" TextMode="Password" placeholder="Enter old password here" CssClass="form-control"></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-12 mb-3">
+                                                        <asp:TextBox ID="NewPasswordTXT" runat="server" TextMode="Password" placeholder="Enter new password here" CssClass="form-control"></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-12 mb-3">
+                                                        <asp:TextBox ID="ReNewPasswordTXT" runat="server" TextMode="Password" placeholder="Retype new password here" CssClass="form-control"></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-3 mb-3"></div>
+                                                    <div class="col-3 mb-3">
+                                                          <%--<a  data-toggle="modal" data-target="#UpdatePassword">--%> 
+                                                        
+                                                       <asp:Button ID="UpdatePasswordBTN" Text="Update" runat="server" CssClass="btn btn-primary b-btn mx-3" OnClick="UpdatePasswordBTN_Click" 
+                                                           OnClientClick="return ValidateChangePasswordControls()" /><%--</a>--%>
+                                                        
+                                                          
+                                                             </div>
+                                                    <div class="col-3 mb-3">
+                                                        <button class="btn btn-secondary mx-3" data-dismiss="modal">Cancel</button>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-12 mb-3">
+                                                        <asp:Label ID="ChangePasswordInfoLBL" runat="server" ForeColor="Red" Font-Italic="true"></asp:Label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    <div class="modal fade" id="signout-modal">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+
+                                        <!-- Modal Header -->
+                                        <div class="modal-header text-center d-block p-5 border-bottom-0">
+                                            <h3 class="modal-title">Sign Out?</h3>
+                                            <button type="button" class="close position-absolute" style="right: 15px; top: 8px;" data-dismiss="modal">&times;</button>
+                                        </div>
+
+                                        <!-- Modal body -->
+                                        <div class="modal-body">
+                                            <p class="text-center">Are you sure you want to Sign Out?</p>
+                                            <div class="text-center py-4">
+
+                                                <asp:Button ID="SignOutBTN" Text="Sign Out" runat="server" class="btn btn-primary b-btn mx-3" OnClick="SignOutBTN_Click"/>
+                                                <!--<button type="submit" class="btn btn-primary b-btn mx-3">Sign Out</button>-->
+                                                <button class="btn btn-secondary mx-3" data-dismiss="modal">Cancel</button>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                    <div class="modal fade" id="UpdateInfo-modal">
+                        <div class="modal-dialog modal-xl modal-dialog-centered">
+                            <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="modal-header text-center d-block p-5 border-bottom-0">
+                                    <h3 class="modal-title">Update User Info</h3>
+                                    <button type="button" class="close position-absolute" style="right: 15px; top: 8px;" data-dismiss="modal">&times;</button>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <div class="row mb-4">
+                                                    <div class="col-12">
+                                                        <asp:Image ID="StaffPhotoIMG" runat="server" Width="200px" Height="240px" />
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-4">
+                                                    <div class="col-md-12">
+                                                        <asp:FileUpload ID="PhotoUpload" runat="server" CssClass=" font-size-small"/>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <asp:Button ID="PhotoUploadBTN" runat="server" Text="Upload" CssClass="btn btn-outline-secondary  font-size-small" OnClick="PhotoUploadBTN_Click" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-9">
+                                                <div class="row mb-3">
+                                                    <div class="col-2 mb-3">
+                                                        User Id:
+                                                    </div>
+                                                    <div class="col-2 mb-3">
+                                                        <asp:Label ID="MemberIdLBL" runat="server" CssClass="form-control"></asp:Label>
+                                                    </div>
+                                                    <div class="col-2 mb-3">
+                                                        Staff Team:
+                                                    </div>
+                                                    <div class="col-6 mb-3">
+                                                        <asp:DropDownList ID="StaffTeamDDL" runat="server" CssClass="custom-select form-control-border" Enabled="false">
+                                                            <asp:ListItem Value="2">Support Team</asp:ListItem>
+                                                            <asp:ListItem Value="3">Sales Team</asp:ListItem>
+                                                            <asp:ListItem Value="4">Technical Staff</asp:ListItem>
+                                                            <asp:ListItem Value="5">Marketing</asp:ListItem>
+                                                            <asp:ListItem Value="6">Account</asp:ListItem>
+                                                            <asp:ListItem Value="8">Quality Analysis</asp:ListItem>
+                                                            <asp:ListItem Value="9">Management</asp:ListItem>
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-2 mb-3">
+                                                        Name:
+                                                    </div>
+                                                    <div class="col-4 mb-3">
+                                                        <asp:TextBox ID="NameTXT" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
+                                                    </div>
+                                                    <div class="col-2 mb-3">
+                                                        Designation:
+                                                    </div>
+                                                    <div class="col-4 mb-3">
+                                                        <asp:TextBox ID="DesignationTXT" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mb-3">
+                                                    <div class="col-2 mb-3">
+                                                        Address:
+                                                    </div>
+                                                    <div class="col-10 mb-3">
+                                                        <asp:TextBox ID="AddressTXT" runat="server" CssClass="form-control"></asp:TextBox>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mb-3">
+                                                    <div class="col-2 mb-3">
+                                                        Mobile No.:
+                                                    </div>
+                                                    <div class="col-4 mb-3">
+                                                        <asp:TextBox ID="MobileNoTXT" runat="server" CssClass="form-control" MaxLength="10"></asp:TextBox>
+                                                    </div>
+                                                    <div class="col-2 mb-3">
+                                                        Email Id:
+                                                    </div>
+                                                    <div class="col-4 mb-3">
+                                                        <asp:TextBox ID="EmailIdTXT" runat="server" CssClass="form-control"></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-3 mb-3">
+                                                        Staff Member Status:
+                                                    </div>
+                                                    <div class="col-3 mb-3">
+                                                        <asp:DropDownList ID="UserStatusDDL" runat="server" CssClass="custom-select form-control-border" Enabled="false">
+                                                            <asp:ListItem Value="0">Inactive</asp:ListItem>
+                                                            <asp:ListItem Value="1">Active</asp:ListItem>
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-4 mb-3"></div>
+                                                    <div class="col-4 mb-3">
+                                                        <asp:Button ID="UpdateBTN" runat="server" Text="Update" CssClass="btn  btn-primary btn-block" OnClick="UpdateBTN_Click"/>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-4 mb-3">
+                                                        <asp:Label ID="UpdateUserDataLBL" runat="server" ForeColor="Red" Font-Italic="true" Visible="true"></asp:Label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li role="presentation" class="nav-item dropdown open">
+                  <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
+                    <%--<i class="fa fa-envelope-o"></i>--%>
+                    <img src="LandingPageAsset/img/ne1.png"/>
+                    <span class="badge bg-green"><asp:Label ID="UnreadNotificationCountLBL" runat="server"></asp:Label></span>
+                  </a>
+                    <asp:Literal ID="NotficationListLit" runat="server"></asp:Literal>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+                <asp:ContentPlaceHolder ID="PageTitle" runat="server">
+                </asp:ContentPlaceHolder>
+              <%--<div class="title_left">
+                <h3>
+                    
+                </h3>
+              </div>--%>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 mainColContainer">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>
+                    <asp:ContentPlaceHolder ID="PageSubTitle" runat="server">
+                    </asp:ContentPlaceHolder>
+                    </h2>                   
+                  </div>
+                  <div class="x_content">
+                      <asp:ContentPlaceHolder ID="PageContent" runat="server">
+
+                      </asp:ContentPlaceHolder>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Designed by <a href="https://www.coder-edge.com/">Coder Edge Technologies</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+    </form>
+    
+    <!-- jQuery -->
+    <script src="vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  
+    <!-- FastClick -->
+    <script src="vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <%--<script src="vendors/gauge.js/dist/gauge.min.js"></script>--%>
+    <!-- bootstrap-progressbar -->
+    <script src="vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="vendors/iCheck/icheck.min.js"></script>
+    <!-- Skycons -->
+    <%--<script src="vendors/skycons/skycons.js"></script>--%>
+    <!-- Flot -->
+<%--    <script src="vendors/Flot/jquery.flot.js"></script>
+    <script src="vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="vendors/Flot/jquery.flot.time.js"></script>
+    <script src="vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="vendors/Flot/jquery.flot.resize.js"></script>--%>
+    <!-- Flot plugins -->
+    <script src="vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="vendors/DateJS/build/date.js"></script>
+    <!-- JQVMap -->
+    <script src="vendors/jqvmap/dist/jquery.vmap.js"></script>
+<%--    <script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>--%>
+    <!-- bootstrap-daterangepicker -->
+    <script src="vendors/moment/min/moment.min.js"></script>
+    <script src="vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+	<!-- bootstrap-wysiwyg -->
+	<%--<script src="vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
+	<script src="vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
+	<script src="vendors/google-code-prettify/src/prettify.js"></script>--%>
+	<!-- FastClick -->
+<%--	<script src="vendors/fastclick/lib/fastclick.js"></script>--%>
+	<!-- NProgress -->
+	<script src="vendors/nprogress/nprogress.js"></script>
+	<!-- bootstrap-progressbar -->
+	<script src="vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+	<!-- iCheck -->
+	<script src="vendors/iCheck/icheck.min.js"></script>
+	<!-- bootstrap-daterangepicker -->
+	<script src="vendors/moment/min/moment.min.js"></script>
+    
+	<!-- jQuery Tags Input -->
+	<script src="vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
+	<!-- Switchery -->
+	<script src="vendors/switchery/dist/switchery.min.js"></script>
+	<!-- Select2 -->
+	<script src="vendors/select2/dist/js/select2.full.min.js"></script>
+	<!-- Parsley -->
+	<%--<script src="vendors/parsleyjs/dist/parsley.min.js"></script>--%>
+	<!-- Autosize -->
+	<script src="vendors/autosize/dist/autosize.min.js"></script>
+	<!-- jQuery autocomplete -->
+	<script src="vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
+	<!-- starrr -->
+	<script src="vendors/starrr/dist/starrr.js"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="build/js/custom.min.js"></script>
+     <!-- FontAwesome Scripts -->
+    <script src="https://kit.fontawesome.com/57350847db.js" crossorigin="anonymous"></script>
+
+    <script src="LandingPageAsset/Tabs.js"></script>
+
+<script type="text/javascript">
+    function SetTarget() {
+        document.forms[0].target = "_blank";
+    }
+
+    function ValidateChangePasswordControls() {
+        var OldPasswordCtrl = document.getElementById('OldPasswordTXT');
+        var NewPasswordCtrl = document.getElementById('NewPasswordTXT');
+        var RePasswordCtrl = document.getElementById('ReNewPasswordTXT');
+
+        let OldPasswordText = OldPasswordCtrl.value;
+        let NewPasswordText = NewPasswordCtrl.value;
+        let RePasswordText = RePasswordCtrl.value;
+
+        if (OldPasswordText.trim() == "") {
+            alert("Old Password cannot be left blank.");
+            return false;
+        }
+        if (NewPasswordText.trim() == "") {
+            alert("New Password cannot be left blank.");
+            return false;
+        }
+        if (RePasswordText.trim() == "") {
+            alert("Retyped new Password cannot be left blank.");
+            return false;
+        }
+
+        if (NewPasswordText.trim() != RePasswordText.trim()) {
+            alert("New Password and Retyped password is not same.");
+            return false;
+        }
+    }
+</script>
+
+
+<script>
+    function openTab(evt, Tabname) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(Tabname).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+</script>
+    <%-- BOOTSTRAP SCRIPT --%>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function fn_dropDown() {
+            console.log("dropdown buttn clicked");
+        }
+    </script>
+
+</body>
+</html>

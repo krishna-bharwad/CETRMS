@@ -1,4 +1,5 @@
 ﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.19.4\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props" Condition="Exists('packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.19.4\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props')" />
   <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -23,6 +24,9 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <WebGreaseLibPath>packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
+    <DockerLaunchUrl>http://{ServiceIPAddress}</DockerLaunchUrl>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,7 +47,100 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls, Version=1.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IdentityModel.Abstractions, Version=7.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.Abstractions.7.0.3\lib\net472\Microsoft.IdentityModel.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=7.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.JsonWebTokens.7.0.3\lib\net472\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=7.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.Logging.7.0.3\lib\net472\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=7.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.Tokens.7.0.3\lib\net472\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportViewer.WebForms.10.0.40219.1\lib\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RestSharp, Version=110.2.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>packages\RestSharp.110.2.0\lib\net471\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=7.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\System.IdentityModel.Tokens.Jwt.7.0.3\lib\net472\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms" />
+    <Reference Include="System.Security.Cryptography.Encoding" />
+    <Reference Include="System.Security.Cryptography.Primitives" />
+    <Reference Include="System.Security.Cryptography.X509Certificates" />
+    <Reference Include="System.Text.Encodings.Web, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Encodings.Web.7.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=7.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Json.7.0.2\lib\net462\System.Text.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -53,6 +150,10 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -60,6 +161,9 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -67,11 +171,551 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="Aboutus.aspx" />
+    <Content Include="AllEmployerList.aspx" />
+    <Content Include="AllNotifications.aspx" />
+    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\Antlr3.Runtime.pdb" />
+    <Content Include="bin\AspNet.ScriptManager.bootstrap.dll" />
+    <Content Include="bin\AspNet.ScriptManager.jQuery.dll" />
+    <Content Include="bin\EnvDTE.dll" />
+    <Content Include="bin\Microsoft.AspNet.FriendlyUrls.dll" />
+    <Content Include="bin\Microsoft.AspNet.FriendlyUrls.xml" />
+    <Content Include="bin\Microsoft.AspNet.Web.Optimization.WebForms.dll" />
+    <Content Include="bin\Microsoft.Bcl.AsyncInterfaces.dll" />
+    <Content Include="bin\Microsoft.Bcl.AsyncInterfaces.xml" />
+    <Content Include="bin\Microsoft.IdentityModel.Abstractions.dll" />
+    <Content Include="bin\Microsoft.IdentityModel.Abstractions.xml" />
+    <Content Include="bin\Microsoft.IdentityModel.JsonWebTokens.dll" />
+    <Content Include="bin\Microsoft.IdentityModel.JsonWebTokens.xml" />
+    <Content Include="bin\Microsoft.IdentityModel.Logging.dll" />
+    <Content Include="bin\Microsoft.IdentityModel.Logging.xml" />
+    <Content Include="bin\Microsoft.IdentityModel.Tokens.dll" />
+    <Content Include="bin\Microsoft.IdentityModel.Tokens.xml" />
+    <Content Include="bin\Microsoft.MSXML.dll" />
+    <Content Include="bin\Microsoft.ReportViewer.Common.dll" />
+    <Content Include="bin\Microsoft.ReportViewer.DataVisualization.dll" />
+    <Content Include="bin\Microsoft.ReportViewer.Design.dll" />
+    <Content Include="bin\Microsoft.ReportViewer.ProcessingObjectModel.dll" />
+    <Content Include="bin\Microsoft.ReportViewer.WebDesign.dll" />
+    <Content Include="bin\Microsoft.ReportViewer.WebForms.dll" />
+    <Content Include="bin\Microsoft.ReportViewer.WinForms.dll" />
+    <Content Include="bin\Microsoft.ScriptManager.MSAjax.dll" />
+    <Content Include="bin\Microsoft.ScriptManager.WebForms.dll" />
+    <Content Include="bin\Microsoft.SqlServer.Types.dll" />
+    <Content Include="bin\Microsoft.VisualStudio.OLE.Interop.dll" />
+    <Content Include="bin\Microsoft.VisualStudio.Shell.Interop.8.0.dll" />
+    <Content Include="bin\Microsoft.VisualStudio.Shell.Interop.dll" />
+    <Content Include="bin\Microsoft.VisualStudio.TextManager.Interop.8.0.dll" />
+    <Content Include="bin\Microsoft.VisualStudio.TextManager.Interop.dll" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Newtonsoft.Json.xml" />
+    <Content Include="bin\RestSharp.dll" />
+    <Content Include="bin\RestSharp.xml" />
+    <Content Include="bin\stdole.dll" />
+    <Content Include="bin\System.Buffers.dll" />
+    <Content Include="bin\System.IdentityModel.Tokens.Jwt.dll" />
+    <Content Include="bin\System.IdentityModel.Tokens.Jwt.xml" />
+    <Content Include="bin\System.Memory.dll" />
+    <Content Include="bin\System.Memory.xml" />
+    <Content Include="bin\System.Numerics.Vectors.dll" />
+    <Content Include="bin\System.Runtime.CompilerServices.Unsafe.dll" />
+    <Content Include="bin\System.Runtime.CompilerServices.Unsafe.xml" />
+    <Content Include="bin\System.Text.Encodings.Web.dll" />
+    <Content Include="bin\System.Text.Encodings.Web.xml" />
+    <Content Include="bin\System.Text.Json.dll" />
+    <Content Include="bin\System.Text.Json.xml" />
+    <Content Include="bin\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="bin\System.Threading.Tasks.Extensions.xml" />
+    <Content Include="bin\System.ValueTuple.dll" />
+    <Content Include="bin\System.Web.Optimization.dll" />
+    <Content Include="bin\System.Web.Optimization.xml" />
+    <Content Include="bin\WebGrease.dll" />
+    <Content Include="CandidateList.aspx" />
+    <Content Include="CandidateMobile.aspx" />
+    <Content Include="CandidateMobileApplication.aspx" />
+    <Content Include="CandidateProfile.aspx" />
+    <Content Include="CandidateSignUp.aspx" />
+    <Content Include="Contact.aspx" />
+    <Content Include="Dashboard.aspx" />
+    <Content Include="EmployerDetails.aspx" />
+    <Content Include="EmployerList.aspx" />
+    <Content Include="EmployerMobileApplication.aspx" />
+    <Content Include="EmployerSignUp.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="InterviewDetails.aspx" />
+    <Content Include="InterviewList.aspx" />
+    <Content Include="JobVacancyDetails.aspx" />
+    <Content Include="JobVacanyList.aspx" />
+    <Content Include="MobileApp.css" />
+    <Content Include="NewCandidateRegistrationList.aspx" />
+    <Content Include="Newindex.aspx" />
+    <Content Include="PaymentDetails.aspx" />
+    <Content Include="PaymentList.aspx" />
+    <Content Include="PrintCandidateList.aspx" />
+    <Content Include="PrintCandidateProfile.aspx" />
+    <Content Include="PrintCandidateSignup.aspx" />
+    <Content Include="PrintEmployerDetails.aspx" />
+    <Content Include="PrintEmployerList.aspx" />
+    <Content Include="PrintEmployerSignUp.aspx" />
+    <Content Include="PrintInterviewList.aspx" />
+    <Content Include="PrintJobVacancyDetails.aspx" />
+    <Content Include="PrintPaymentInvoice.aspx" />
+    <Content Include="PrintPaymentList.aspx" />
+    <Content Include="PrintReferralPaidList.aspx" />
+    <Content Include="PrintVacancyList.aspx" />
+    <Content Include="PrivacyPolicy.aspx" />
+    <Content Include="ReferralDetails.aspx" />
+    <Content Include="ReferredCandidateSignUp.aspx" />
+    <Content Include="ScheduleInterviewPage.aspx" />
+    <Content Include="SearchCandidateList.aspx" />
+    <Content Include="SearchVacancyList.aspx" />
+    <Content Include="Settings.aspx" />
+    <Content Include="TermsCondition.aspx" />
+    <Content Include="TestimonialList.aspx" />
+    <Content Include="UECWS.asmx" />
+    <Content Include="UEEWS.asmx" />
+    <Content Include="UpcomingInterviews.aspx" />
+    <Content Include="UpgradeLog.htm" />
+    <Content Include="VacancyList.aspx" />
+    <Content Include="VerifyCandidateEmail.aspx" />
+    <Content Include="VerifyEmployerEmail.aspx" />
+    <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
+    <Content Include="ZoomMeetings.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Aboutus.aspx.cs">
+      <DependentUpon>Aboutus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Aboutus.aspx.designer.cs">
+      <DependentUpon>Aboutus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AllEmployerList.aspx.cs">
+      <DependentUpon>AllEmployerList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AllEmployerList.aspx.designer.cs">
+      <DependentUpon>AllEmployerList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AllNotifications.aspx.cs">
+      <DependentUpon>AllNotifications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AllNotifications.aspx.designer.cs">
+      <DependentUpon>AllNotifications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="CandidateList.aspx.cs">
+      <DependentUpon>CandidateList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CandidateList.aspx.designer.cs">
+      <DependentUpon>CandidateList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CandidateListDataSet.Designer.cs" />
+    <Compile Include="CandidateLocationDataSet.Designer.cs" />
+    <Compile Include="CandidateManagement.cs" />
+    <Compile Include="CandidateMobile.aspx.cs">
+      <DependentUpon>CandidateMobile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CandidateMobile.aspx.designer.cs">
+      <DependentUpon>CandidateMobile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CandidateMobileApplication.aspx.cs">
+      <DependentUpon>CandidateMobileApplication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CandidateMobileApplication.aspx.designer.cs">
+      <DependentUpon>CandidateMobileApplication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CandidateProfile.aspx.cs">
+      <DependentUpon>CandidateProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CandidateProfile.aspx.designer.cs">
+      <DependentUpon>CandidateProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CandidateProfileDataSet.Designer.cs" />
+    <Compile Include="CandidateSignUp.aspx.cs">
+      <DependentUpon>CandidateSignUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CandidateSignUp.aspx.designer.cs">
+      <DependentUpon>CandidateSignUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CandidateSignUpDataSet.Designer.cs" />
+    <Compile Include="CandidateStatusDataSet.Designer.cs" />
+    <Compile Include="ClientDetailsDS.Designer.cs" />
+    <Compile Include="common.cs" />
+    <Compile Include="CompanyDetailsDS.Designer.cs" />
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels.cs" />
+    <Compile Include="Email.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployerDetails.aspx.cs">
+      <DependentUpon>EmployerDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployerDetails.aspx.designer.cs">
+      <DependentUpon>EmployerDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployerDetailsDataSet.Designer.cs" />
+    <Compile Include="EmployerList.aspx.cs">
+      <DependentUpon>EmployerList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployerList.aspx.designer.cs">
+      <DependentUpon>EmployerList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployerListDataSet.cs">
+      <DependentUpon>EmployerListDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="EmployerListDataSet.designer.cs">
+      <DependentUpon>EmployerListDataSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployerManagement.cs" />
+    <Compile Include="EmployerMobileApplication.aspx.cs">
+      <DependentUpon>EmployerMobileApplication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployerMobileApplication.aspx.designer.cs">
+      <DependentUpon>EmployerMobileApplication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployerSignUp.aspx.cs">
+      <DependentUpon>EmployerSignUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployerSignUp.aspx.designer.cs">
+      <DependentUpon>EmployerSignUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployerSignUpDataSet.Designer.cs" />
+    <Compile Include="EmployerStatusDataSet.Designer.cs" />
+    <Compile Include="EncDec.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="InterviewDetails.aspx.cs">
+      <DependentUpon>InterviewDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InterviewDetails.aspx.designer.cs">
+      <DependentUpon>InterviewDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InterviewList.aspx.cs">
+      <DependentUpon>InterviewList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InterviewList.aspx.designer.cs">
+      <DependentUpon>InterviewList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InterviewManagement.cs" />
+    <Compile Include="JobApplicationManager.cs" />
+    <Compile Include="JobVacancyDetails.aspx.cs">
+      <DependentUpon>JobVacancyDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JobVacancyDetails.aspx.designer.cs">
+      <DependentUpon>JobVacancyDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JobVacancyDetailsReport.Designer.cs" />
+    <Compile Include="JobVacanyList.aspx.cs">
+      <DependentUpon>JobVacanyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JobVacanyList.aspx.designer.cs">
+      <DependentUpon>JobVacanyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LandingPage.Master.cs">
+      <DependentUpon>LandingPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LandingPage.Master.designer.cs">
+      <DependentUpon>LandingPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="LocationManagement.cs" />
+    <Compile Include="logger.cs" />
+    <Compile Include="NewCandidateRegistrationList.aspx.cs">
+      <DependentUpon>NewCandidateRegistrationList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewCandidateRegistrationList.aspx.designer.cs">
+      <DependentUpon>NewCandidateRegistrationList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Newindex.aspx.cs">
+      <DependentUpon>Newindex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Newindex.aspx.designer.cs">
+      <DependentUpon>Newindex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NotificationManagement.cs" />
+    <Compile Include="OfferLetterDS.Designer.cs" />
+    <Compile Include="PaymentDetails.aspx.cs">
+      <DependentUpon>PaymentDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaymentDetails.aspx.designer.cs">
+      <DependentUpon>PaymentDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentDetailsDS1.Designer.cs" />
+    <Compile Include="PaymentList.aspx.cs">
+      <DependentUpon>PaymentList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaymentList.aspx.designer.cs">
+      <DependentUpon>PaymentList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentListDataSet.Designer.cs" />
+    <Compile Include="PaymentManagement.cs" />
+    <Compile Include="PrintCandidateList.aspx.cs">
+      <DependentUpon>PrintCandidateList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrintCandidateList.aspx.designer.cs">
+      <DependentUpon>PrintCandidateList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PrintCandidateProfile.aspx.cs">
+      <DependentUpon>PrintCandidateProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrintCandidateProfile.aspx.designer.cs">
+      <DependentUpon>PrintCandidateProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PrintCandidateSignup.aspx.cs">
+      <DependentUpon>PrintCandidateSignup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrintCandidateSignup.aspx.designer.cs">
+      <DependentUpon>PrintCandidateSignup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PrintEmployerDetails.aspx.cs">
+      <DependentUpon>PrintEmployerDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrintEmployerDetails.aspx.designer.cs">
+      <DependentUpon>PrintEmployerDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PrintEmployerList.aspx.cs">
+      <DependentUpon>PrintEmployerList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrintEmployerList.aspx.designer.cs">
+      <DependentUpon>PrintEmployerList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PrintEmployerSignUp.aspx.cs">
+      <DependentUpon>PrintEmployerSignUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrintEmployerSignUp.aspx.designer.cs">
+      <DependentUpon>PrintEmployerSignUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PrintInterviewList.aspx.cs">
+      <DependentUpon>PrintInterviewList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrintInterviewList.aspx.designer.cs">
+      <DependentUpon>PrintInterviewList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PrintJobVacancyDetails.aspx.cs">
+      <DependentUpon>PrintJobVacancyDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrintJobVacancyDetails.aspx.designer.cs">
+      <DependentUpon>PrintJobVacancyDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PrintPaymentInvoice.aspx.cs">
+      <DependentUpon>PrintPaymentInvoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrintPaymentInvoice.aspx.designer.cs">
+      <DependentUpon>PrintPaymentInvoice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PrintPaymentList.aspx.cs">
+      <DependentUpon>PrintPaymentList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrintPaymentList.aspx.designer.cs">
+      <DependentUpon>PrintPaymentList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PrintReferralPaidList.aspx.cs">
+      <DependentUpon>PrintReferralPaidList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrintReferralPaidList.aspx.designer.cs">
+      <DependentUpon>PrintReferralPaidList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PrintVacancyList.aspx.cs">
+      <DependentUpon>PrintVacancyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrintVacancyList.aspx.designer.cs">
+      <DependentUpon>PrintVacancyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PrivacyPolicy.aspx.cs">
+      <DependentUpon>PrivacyPolicy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrivacyPolicy.aspx.designer.cs">
+      <DependentUpon>PrivacyPolicy.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReceiptManagement.cs" />
+    <Compile Include="ReferralDetails.aspx.cs">
+      <DependentUpon>ReferralDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReferralDetails.aspx.designer.cs">
+      <DependentUpon>ReferralDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReferralManagement.cs" />
+    <Compile Include="ReferredCandidateSignUp.aspx.cs">
+      <DependentUpon>ReferredCandidateSignUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReferredCandidateSignUp.aspx.designer.cs">
+      <DependentUpon>ReferredCandidateSignUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RMSMasterManagement.cs" />
+    <Compile Include="ScheduleInterviewPage.aspx.cs">
+      <DependentUpon>ScheduleInterviewPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ScheduleInterviewPage.aspx.designer.cs">
+      <DependentUpon>ScheduleInterviewPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchCandidateList.aspx.cs">
+      <DependentUpon>SearchCandidateList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchCandidateList.aspx.designer.cs">
+      <DependentUpon>SearchCandidateList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchVacancyList.aspx.cs">
+      <DependentUpon>SearchVacancyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchVacancyList.aspx.designer.cs">
+      <DependentUpon>SearchVacancyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SecuredTokenWebService.cs" />
+    <Compile Include="Settings.aspx.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Settings.aspx.designer.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.designer.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="TermsCondition.aspx.cs">
+      <DependentUpon>TermsCondition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TermsCondition.aspx.designer.cs">
+      <DependentUpon>TermsCondition.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestimonialList.aspx.cs">
+      <DependentUpon>TestimonialList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestimonialList.aspx.designer.cs">
+      <DependentUpon>TestimonialList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestimonialManager.cs" />
+    <Compile Include="UECWS.asmx.cs">
+      <DependentUpon>UECWS.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UEEWS.asmx.cs">
+      <DependentUpon>UEEWS.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UERMSExceptions.cs" />
+    <Compile Include="UEStaff.Master.cs">
+      <DependentUpon>UEStaff.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UEStaff.Master.designer.cs">
+      <DependentUpon>UEStaff.Master</DependentUpon>
+    </Compile>
+    <Compile Include="UpcomingInterviews.aspx.cs">
+      <DependentUpon>UpcomingInterviews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpcomingInterviews.aspx.designer.cs">
+      <DependentUpon>UpcomingInterviews.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VacancyList.aspx.cs">
+      <DependentUpon>VacancyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VacancyList.aspx.designer.cs">
+      <DependentUpon>VacancyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VacancyListDataSet.Designer.cs" />
+    <Compile Include="VacancyManager.cs" />
+    <Compile Include="VacancyStatusDataSet.Designer.cs" />
+    <Compile Include="VerifyCandidateEmail.aspx.cs">
+      <DependentUpon>VerifyCandidateEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerifyCandidateEmail.aspx.designer.cs">
+      <DependentUpon>VerifyCandidateEmail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VerifyEmployerEmail.aspx.cs">
+      <DependentUpon>VerifyEmployerEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerifyEmployerEmail.aspx.designer.cs">
+      <DependentUpon>VerifyEmployerEmail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.designer.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -79,15 +723,191 @@
     <Compile Include="WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WhatsAppManagement.cs" />
+    <Compile Include="ZoomMeetings.aspx.cs">
+      <DependentUpon>ZoomMeetings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ZoomMeetings.aspx.designer.cs">
+      <DependentUpon>ZoomMeetings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ZoomVideoCallMeetingManagment.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".DS_Store" />
+    <Content Include="Bundle.config" />
+    <Content Include="CandidateListDataSet.xsc">
+      <DependentUpon>CandidateListDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="bin\CandidateListReport.rdlc" />
+    <Content Include="bin\CandidateProfileReport.rdlc" />
+    <Content Include="bin\EmployerDetailsReport.rdlc" />
+    <Content Include="bin\EmployerListReport.rdlc" />
+    <Content Include="bin\JobVacancyDetailsReport.rdlc" />
+    <Content Include="bin\PaymentInvoice.rdlc" />
+    <Content Include="bin\PaymentListReport.rdlc" />
+    <Content Include="bin\VacancyListReport.rdlc" />
+    <None Include=".dockerignore">
+      <DependentUpon>Dockerfile</DependentUpon>
+    </None>
+    <None Include="CandidateListDataSet.xsd" />
+    <Content Include="CandidateListDataSet.xss">
+      <DependentUpon>CandidateListDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="CandidateListReport.rdlc" />
+    <Content Include="CandidateLocationDataSet.xsc">
+      <DependentUpon>CandidateLocationDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="CandidateLocationDataSet.xsd" />
+    <Content Include="CandidateLocationDataSet.xss">
+      <DependentUpon>CandidateLocationDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="CandidateProfileDataSet.xsc">
+      <DependentUpon>CandidateProfileDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="CandidateProfileDataSet.xsd" />
+    <Content Include="CandidateProfileDataSet.xss">
+      <DependentUpon>CandidateProfileDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="CandidateProfileReport.rdlc" />
+    <Content Include="CandidateSignUpDataSet.xsc">
+      <DependentUpon>CandidateSignUpDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="CandidateSignUpDataSet.xsd" />
+    <Content Include="CandidateSignUpDataSet.xss">
+      <DependentUpon>CandidateSignUpDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="CandidateSignUpReport.rdlc" />
+    <Content Include="CandidateStatusDataSet.xsc">
+      <DependentUpon>CandidateStatusDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="CandidateStatusDataSet.xsd" />
+    <Content Include="CandidateStatusDataSet.xss">
+      <DependentUpon>CandidateStatusDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="ClientDetailsDS.xsc">
+      <DependentUpon>ClientDetailsDS.xsd</DependentUpon>
+    </Content>
+    <None Include="ClientDetailsDS.xsd" />
+    <Content Include="ClientDetailsDS.xss">
+      <DependentUpon>ClientDetailsDS.xsd</DependentUpon>
+    </Content>
+    <Content Include="CompanyDetailsDS.xsc">
+      <DependentUpon>CompanyDetailsDS.xsd</DependentUpon>
+    </Content>
+    <None Include="CompanyDetailsDS.xsd" />
+    <Content Include="CompanyDetailsDS.xss">
+      <DependentUpon>CompanyDetailsDS.xsd</DependentUpon>
+    </Content>
+    <Content Include="EmployerDetailsDataSet.xsc">
+      <DependentUpon>EmployerDetailsDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Dockerfile" />
+    <None Include="EmployerDetailsDataSet.xsd" />
+    <Content Include="EmployerDetailsDataSet.xss">
+      <DependentUpon>EmployerDetailsDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="EmployerDetailsReport.rdlc" />
+    <Content Include="EmployerListDataSet.xsc">
+      <DependentUpon>EmployerListDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="EmployerListDataSet.xsd" />
+    <Content Include="EmployerListDataSet.xss">
+      <DependentUpon>EmployerListDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="EmployerListReport.rdlc" />
+    <Content Include="EmployerSignUpDataSet.xsc">
+      <DependentUpon>EmployerSignUpDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="EmployerSignUpDataSet.xsd" />
+    <Content Include="EmployerSignUpDataSet.xss">
+      <DependentUpon>EmployerSignUpDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="EmployerSignUpReport.rdlc" />
+    <Content Include="EmployerStatusDataSet.xsc">
+      <DependentUpon>EmployerStatusDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="EmployerStatusDataSet.xsd" />
+    <Content Include="EmployerStatusDataSet.xss">
+      <DependentUpon>EmployerStatusDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="InterviewListDataSet.xsc">
+      <DependentUpon>InterviewListDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="InterviewListDataSet.xsd" />
+    <Content Include="InterviewListDataSet.xss">
+      <DependentUpon>InterviewListDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="InterviewListReport.rdlc" />
+    <Content Include="JobVacancyDetailsReport.rdlc" />
+    <Content Include="JobVacancyDetailsReport.xsc">
+      <DependentUpon>JobVacancyDetailsReport.xsd</DependentUpon>
+    </Content>
+    <None Include="JobVacancyDetailsReport.xsd" />
+    <Content Include="JobVacancyDetailsReport.xss">
+      <DependentUpon>JobVacancyDetailsReport.xsd</DependentUpon>
+    </Content>
+    <Content Include="LandingPage.Master" />
+    <Content Include="OfferLetter.rdlc" />
+    <Content Include="OfferLetterDS.xsc">
+      <DependentUpon>OfferLetterDS.xsd</DependentUpon>
+    </Content>
+    <None Include="OfferLetterDS.xsd" />
+    <Content Include="OfferLetterDS.xss">
+      <DependentUpon>OfferLetterDS.xsd</DependentUpon>
+    </Content>
     <None Include="packages.config" />
+    <Content Include="PaymentDetailsDS1.xsc">
+      <DependentUpon>PaymentDetailsDS1.xsd</DependentUpon>
+    </Content>
+    <None Include="PaymentDetailsDS1.xsd" />
+    <Content Include="PaymentDetailsDS1.xss">
+      <DependentUpon>PaymentDetailsDS1.xsd</DependentUpon>
+    </Content>
+    <Content Include="PaymentInvoice.rdlc" />
+    <Content Include="PaymentListDataSet.xsc">
+      <DependentUpon>PaymentListDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="PaymentListDataSet.xsd" />
+    <Content Include="PaymentListDataSet.xss">
+      <DependentUpon>PaymentListDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="PaymentListReport.rdlc" />
+    <Content Include="ReferralPaidListDataSets.xsc">
+      <DependentUpon>ReferralPaidListDataSets.xsd</DependentUpon>
+    </Content>
+    <None Include="ReferralPaidListDataSets.xsd" />
+    <Content Include="ReferralPaidListDataSets.xss">
+      <DependentUpon>ReferralPaidListDataSets.xsd</DependentUpon>
+    </Content>
+    <Content Include="ReferralPaidListReport.rdlc" />
+    <Content Include="Site.Master" />
+    <Content Include="Site.Mobile.Master" />
+    <Content Include="UEStaff.Master" />
+    <Content Include="VacancyListDataSet.xsc">
+      <DependentUpon>VacancyListDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="VacancyListDataSet.xsd" />
+    <Content Include="VacancyListDataSet.xss">
+      <DependentUpon>VacancyListDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="VacancyListReport.rdlc" />
+    <Content Include="VacancyStatusDataSet.xsc">
+      <DependentUpon>VacancyStatusDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="VacancyStatusDataSet.xsd" />
+    <Content Include="VacancyStatusDataSet.xss">
+      <DependentUpon>VacancyStatusDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Web References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -119,7 +939,10 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.19.4\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.19.4\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props'))" />
+    <Error Condition="!Exists('packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.19.4\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.19.4\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets'))" />
   </Target>
+  <Import Project="packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.19.4\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets" Condition="Exists('packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.19.4\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
