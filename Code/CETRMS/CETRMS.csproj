@@ -307,8 +307,8 @@
     <Content Include="Settings.aspx" />
     <Content Include="TermsCondition.aspx" />
     <Content Include="TestimonialList.aspx" />
-    <Content Include="UECWS.asmx" />
-    <Content Include="UEEWS.asmx" />
+    <Content Include="CETCWS.asmx" />
+    <Content Include="CETEWS.asmx" />
     <Content Include="UpcomingInterviews.aspx" />
     <Content Include="UpgradeLog.htm" />
     <Content Include="VacancyList.aspx" />
@@ -711,12 +711,12 @@
       <DependentUpon>TestimonialList.aspx</DependentUpon>
     </Compile>
     <Compile Include="TestimonialManager.cs" />
-    <Compile Include="UECWS.asmx.cs">
-      <DependentUpon>UECWS.asmx</DependentUpon>
+    <Compile Include="CETCWS.asmx.cs">
+      <DependentUpon>CETCWS.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UEEWS.asmx.cs">
-      <DependentUpon>UEEWS.asmx</DependentUpon>
+    <Compile Include="CETEWS.asmx.cs">
+      <DependentUpon>CETEWS.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="UERMSExceptions.cs" />

@@ -22,7 +22,7 @@ namespace CETRMS
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
     // [System.Web.Script.Services.ScriptService]
-    public class UEEWS : System.Web.Services.WebService
+    public class CETEWS : System.Web.Services.WebService
     {
         public SecuredTokenWebService SoapHeader;
         public string Key = "fee6e21eb76c5f6c0d451f238d3c975b";
