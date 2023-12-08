@@ -68,7 +68,7 @@ namespace CETRMS
         }
         public static bool log(LogSeverity severity, LogEvents eventId, string userName, string message)
         {
-            if(severity == LogSeverity.ERR) ReportToEdgePMS(message);
+           // if(severity == LogSeverity.ERR) ReportToEdgePMS(message);
 
             if (ConfigurationManager.AppSettings["EnableLogging"].ToString() != "1")
                 return true;
@@ -134,34 +134,34 @@ namespace CETRMS
             return retVal;
         }
 
-        public static int ReportToEdgePMS(string message)
-        {
-            int iRetValue = RetValue.NoRecord;
-            try
-            {
-                if (ConfigurationManager.AppSettings["EdgePMSSupport"] == "0")
-                    return iRetValue;
-                EdgePMS1.WebService1 service1 = new EdgePMS1.WebService1();
-                service1.SendReportError(
-                    ConfigurationManager.AppSettings["EdgePMSSupportCustomerID"],
-                    ConfigurationManager.AppSettings["SoftwareVersion"],
-                    message
-                    );
-                service1.SendReportErrorCompleted += Service1_SendReportErrorCompleted;
-                iRetValue = RetValue.Success;
-            }
-            catch(Exception ex)
-            {
-                string error_message = ex.Message;
-                iRetValue = RetValue.Error;
-            }
-            return iRetValue;
-        }
+        //public static int ReportToEdgePMS(string message)
+        //{
+        //    int iRetValue = RetValue.NoRecord;
+        //    try
+        //    {
+        //        if (ConfigurationManager.AppSettings["EdgePMSSupport"] == "0")
+        //            return iRetValue;
+        //        EdgePMS1.WebService1 service1 = new EdgePMS1.WebService1();
+        //        service1.SendReportError(
+        //            ConfigurationManager.AppSettings["EdgePMSSupportCustomerID"],
+        //            ConfigurationManager.AppSettings["SoftwareVersion"],
+        //            message
+        //            );
+        //        service1.SendReportErrorCompleted += Service1_SendReportErrorCompleted;
+        //        iRetValue = RetValue.Success;
+        //    }
+        //    catch(Exception ex)
+        //    {
+        //        string error_message = ex.Message;
+        //        iRetValue = RetValue.Error;
+        //    }
+        //    return iRetValue;
+        //}
 
-        private static void Service1_SendReportErrorCompleted(object sender, EdgePMS1.SendReportErrorCompletedEventArgs e)
-        {
+        //private static void Service1_SendReportErrorCompleted(object sender, WebService1.SendReportErrorCompletedEventArgs e)
+        //{
             
-        }
+        //}
         public static bool AddSystemFileLog(string LogMessage)
         {
             bool bRetValue = false;

@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetKeyStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LicenseKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetKeyStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetKeyStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductValidation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LicenseKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SystemID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductValidationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductValidationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActivateKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LicenseKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SystemID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RegisteredMobile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RegisteredEmail" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActivateKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ActivateKeyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendReportError">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="softwareVersion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendReportErrorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendReportErrorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLatestVersion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerVersion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLatestVersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLatestVersionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVersionDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerVersion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVersionDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetVersionDetailsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCusomerBuildVersion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerVersion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCusomerBuildVersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateCusomerBuildVersionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommodityRates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="API_KEY" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DataDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommodityRatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCommodityRatesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetKeyStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetKeyStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetKeyStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetKeyStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProductValidationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProductValidation" />
+  </wsdl:message>
+  <wsdl:message name="GetProductValidationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductValidationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActivateKeySoapIn">
+    <wsdl:part name="parameters" element="tns:ActivateKey" />
+  </wsdl:message>
+  <wsdl:message name="ActivateKeySoapOut">
+    <wsdl:part name="parameters" element="tns:ActivateKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendReportErrorSoapIn">
+    <wsdl:part name="parameters" element="tns:SendReportError" />
+  </wsdl:message>
+  <wsdl:message name="SendReportErrorSoapOut">
+    <wsdl:part name="parameters" element="tns:SendReportErrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLatestVersionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLatestVersion" />
+  </wsdl:message>
+  <wsdl:message name="GetLatestVersionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLatestVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVersionDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVersionDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetVersionDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVersionDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCusomerBuildVersionSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCusomerBuildVersion" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCusomerBuildVersionSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCusomerBuildVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCommodityRatesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCommodityRates" />
+  </wsdl:message>
+  <wsdl:message name="GetCommodityRatesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCommodityRatesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebService1Soap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKeyStatus">
+      <wsdl:input message="tns:GetKeyStatusSoapIn" />
+      <wsdl:output message="tns:GetKeyStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductValidation">
+      <wsdl:input message="tns:GetProductValidationSoapIn" />
+      <wsdl:output message="tns:GetProductValidationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActivateKey">
+      <wsdl:input message="tns:ActivateKeySoapIn" />
+      <wsdl:output message="tns:ActivateKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendReportError">
+      <wsdl:input message="tns:SendReportErrorSoapIn" />
+      <wsdl:output message="tns:SendReportErrorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestVersion">
+      <wsdl:input message="tns:GetLatestVersionSoapIn" />
+      <wsdl:output message="tns:GetLatestVersionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVersionDetails">
+      <wsdl:input message="tns:GetVersionDetailsSoapIn" />
+      <wsdl:output message="tns:GetVersionDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCusomerBuildVersion">
+      <wsdl:input message="tns:UpdateCusomerBuildVersionSoapIn" />
+      <wsdl:output message="tns:UpdateCusomerBuildVersionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommodityRates">
+      <wsdl:input message="tns:GetCommodityRatesSoapIn" />
+      <wsdl:output message="tns:GetCommodityRatesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKeyStatus">
+      <soap:operation soapAction="http://tempuri.org/GetKeyStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductValidation">
+      <soap:operation soapAction="http://tempuri.org/GetProductValidation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActivateKey">
+      <soap:operation soapAction="http://tempuri.org/ActivateKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendReportError">
+      <soap:operation soapAction="http://tempuri.org/SendReportError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestVersion">
+      <soap:operation soapAction="http://tempuri.org/GetLatestVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVersionDetails">
+      <soap:operation soapAction="http://tempuri.org/GetVersionDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCusomerBuildVersion">
+      <soap:operation soapAction="http://tempuri.org/UpdateCusomerBuildVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommodityRates">
+      <soap:operation soapAction="http://tempuri.org/GetCommodityRates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKeyStatus">
+      <soap12:operation soapAction="http://tempuri.org/GetKeyStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductValidation">
+      <soap12:operation soapAction="http://tempuri.org/GetProductValidation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActivateKey">
+      <soap12:operation soapAction="http://tempuri.org/ActivateKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendReportError">
+      <soap12:operation soapAction="http://tempuri.org/SendReportError" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestVersion">
+      <soap12:operation soapAction="http://tempuri.org/GetLatestVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVersionDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetVersionDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCusomerBuildVersion">
+      <soap12:operation soapAction="http://tempuri.org/UpdateCusomerBuildVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommodityRates">
+      <soap12:operation soapAction="http://tempuri.org/GetCommodityRates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService1">
+    <wsdl:port name="WebService1Soap" binding="tns:WebService1Soap">
+      <soap:address location="http://192.168.1.91/EdgePMS/webservice1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebService1Soap12" binding="tns:WebService1Soap12">
+      <soap12:address location="http://192.168.1.91/EdgePMS/webservice1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

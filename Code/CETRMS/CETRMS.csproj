@@ -121,10 +121,12 @@
       <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security.Cryptography.Algorithms" />
     <Reference Include="System.Security.Cryptography.Encoding" />
     <Reference Include="System.Security.Cryptography.Primitives" />
     <Reference Include="System.Security.Cryptography.X509Certificates" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Text.Encodings.Web, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Text.Encodings.Web.7.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
       <Private>True</Private>
@@ -284,6 +286,15 @@
     <Content Include="VerifyCandidateEmail.aspx" />
     <Content Include="VerifyEmployerEmail.aspx" />
     <Content Include="ViewSwitcher.ascx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Web References\WebReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\WebReference\webservice1.disco" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
     <Content Include="ZoomMeetings.aspx" />
@@ -317,6 +328,7 @@
     <Compile Include="AllNotifications.aspx.designer.cs">
       <DependentUpon>AllNotifications.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="CandidateList.aspx.cs">
       <DependentUpon>CandidateList.aspx</DependentUpon>
@@ -587,6 +599,11 @@
       <DependentUpon>PrivacyPolicy.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="ReceiptManagement.cs" />
     <Compile Include="ReferralDetails.aspx.cs">
       <DependentUpon>ReferralDetails.aspx</DependentUpon>
@@ -715,6 +732,11 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WebReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
@@ -876,6 +898,7 @@
     <Content Include="ReferralPaidListDataSets.xsc">
       <DependentUpon>ReferralPaidListDataSets.xsd</DependentUpon>
     </Content>
+    <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <None Include="ReferralPaidListDataSets.xsd" />
     <Content Include="ReferralPaidListDataSets.xss">
       <DependentUpon>ReferralPaidListDataSets.xsd</DependentUpon>
@@ -899,6 +922,7 @@
     <Content Include="VacancyStatusDataSet.xss">
       <DependentUpon>VacancyStatusDataSet.xsd</DependentUpon>
     </Content>
+    <None Include="Web References\WebReference\webservice1.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -907,7 +931,23 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Web References\" />
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://192.168.1.91/EdgePMS/webservice1.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebReference\</RelPath>
+      <UpdateFromURL>http://192.168.1.91/EdgePMS/webservice1.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>CETRMS_WebReference_WebService1</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
