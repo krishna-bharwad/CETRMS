@@ -1,0 +1,32 @@
+﻿
+.card:hover
+{
+   /* box-shadow: 0 0 10px #28a745;*/
+}
+
+.card {
+    flex: 0;
+    padding: 0.25rem;
+    width: 100%;    
+    max-height:auto;
+}
+    
+
+.btn:hover
+{
+/*    box-shadow: 0 0 10px #28a745;
+*/}
+
+a {
+    font-size: 16px;
+}
+
+
+body {
+    color: #000;
+    background: #2A3F54;
+    font-family:'Calibri';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.3;
+}
