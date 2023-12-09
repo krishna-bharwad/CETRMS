@@ -187,7 +187,7 @@ namespace CETRMS
             }
         }
 
-        protected void UESigninLB_Click(object sender, EventArgs e)
+        protected void CETSigninLB_Click(object sender, EventArgs e)
         {
             try
             {
@@ -197,7 +197,7 @@ namespace CETRMS
                 string password;
                 password = PasswordTXT.Text;
                 iRetValue = RMSMasterManagement.AuthenticateUEStaff(username, password);
-                UELoginLBL.Visible = true;
+                CETLoginLBL.Visible = true;
 
                 if (RememberCHK.Checked)
                 {
@@ -222,11 +222,11 @@ namespace CETRMS
                         Response.Redirect("Dashboard.aspx", false);
                         break;
                     case -1:
-                        UELoginLBL.Text = "Password is incorrect";
+                        CETLoginLBL.Text = "Password is incorrect";
                         //Response.Redirect("Newindex.aspx");
                         break;
                     case -2:
-                        UELoginLBL.Text = "Username is incorrect";
+                        CETLoginLBL.Text = "Username is incorrect";
                         //Response.Redirect("Newindex.aspx");
                         break;
                 }
@@ -350,7 +350,7 @@ namespace CETRMS
                     string password;
                     password = PasswordTXT.Text;
                     iRetValue = RMSMasterManagement.AuthenticateUEStaff(username, password);
-                    UELoginLBL.Visible = true;
+                    CETLoginLBL.Visible = true;
 
                     if (iRetValue == 1)
                     {
