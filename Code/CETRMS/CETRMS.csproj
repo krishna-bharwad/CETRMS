@@ -345,6 +345,7 @@
     <Content Include="CandidateMobileApplication.aspx" />
     <Content Include="CandidateProfile.aspx" />
     <Content Include="CandidateSignUp.aspx" />
+    <Content Include="cetimages\CET-LOGO.png" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
