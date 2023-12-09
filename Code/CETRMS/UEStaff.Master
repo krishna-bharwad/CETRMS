@@ -10,7 +10,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<link rel="icon" type="text/x-html-insertion" href="IndexAssets/UeLogoWhitebg.png" />
+	<link rel="icon" type="text/x-html-insertion" href="IndexAssets/CET-LOGO.png"/>
     <title>Universal Education</title>
    <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
@@ -215,8 +215,8 @@
         <div class="col-md-3 left_col menu_fixed">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-            <a href="#dashboard" class="site_title"><img src="IndexAssets/UeLogoWhitebg.png" style="width:55px;height:55px;"/>
-            <span> <img src="IndexAssets/Uetext.png" style="width:130px;height:38px; position: relative; top:0;" /> </span>
+           <a href="#dashboard" class="site_title"><%--<img src=""  style="width:55px;height:55px;"/>--%>
+            <span> <img src="IndexAssets/CET-LOGO.png" style="width:130px;height:38px; position: relative; top:0;" /> </span>
             </a>
             </div>
 
@@ -420,7 +420,7 @@
                   <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
                         <asp:Label ID="DateLBL" runat="server"></asp:Label>
                         <asp:Image ID="profilepic2img" runat="server" Visible="false" />
-                        <asp:Label ID="UEAdminLBL" runat="server">UE Admin</asp:Label>
+                        <asp:Label ID="UEAdminLBL" runat="server">CET Admin</asp:Label>
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item" href="#" data-toggle="modal" data-target="#UpdateInfo-modal">
