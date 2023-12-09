@@ -4,10 +4,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace CETRMS
 {
@@ -99,7 +96,6 @@ namespace CETRMS
                     ReportDataSource rds = new ReportDataSource("CandidateListDataSet", dbDataset.Tables[0]);
                     ReportDataSource RDCandidateStatus = new ReportDataSource("CandidateStatusDataSet", dbDataset.Tables[0]);
                     ReportDataSource RDCandidateLocation = new ReportDataSource("CandidateStatusDataSet", dbDataset.Tables[0]);
-
 
 
                 ReportViewer1.LocalReport.DataSources.Clear();

@@ -1,0 +1,20 @@
+﻿.fc-day-grid-event .fc-content {
+    white-space: nowrap;
+    overflow: hidden;
+    background: #66acac;
+}
+.fc-direction-ltr .fc-toolbar > * > :not(:first-child) {
+    margin-top: 5px;
+}
+
+@media (max-width:992px) {
+    .fc-direction-ltr .fc-toolbar > * > :not(:first-child) {
+        margin-top: 5px;
+    }
+
+    .fc .fc-toolbar {
+        display: inline-grid;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
