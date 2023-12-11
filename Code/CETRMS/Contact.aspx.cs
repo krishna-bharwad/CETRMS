@@ -83,7 +83,7 @@ namespace CETRMS
             Response.Redirect("./EmployerSignUp.aspx?Name=" + UserProfile.ProfileName, false);
         }
 
-        protected void UESigninLB_Click(object sender, EventArgs e)
+        protected void CETSigninLB_Click(object sender, EventArgs e)
         {
             int iRetValue = 0;
             string username;
@@ -91,7 +91,7 @@ namespace CETRMS
             string password;
             password = PasswordTXT.Text;
             iRetValue = RMSMasterManagement.AuthenticateUEStaff(username, password);
-            UELoginLBL.Visible = true;
+            CETLoginLBL.Visible = true;
             switch (iRetValue)
             {
                 case 1:
@@ -100,11 +100,11 @@ namespace CETRMS
                     Response.Redirect("Dashboard.aspx", false);
                     break;
                 case -2:
-                    UELoginLBL.Text = "Password is incorrect";
+                    CETLoginLBL.Text = "Password is incorrect";
                     Response.Redirect("Newindex.aspx", false);
                     break;
                 case -1:
-                    UELoginLBL.Text = "Username is incorrect";
+                    CETLoginLBL.Text = "Username is incorrect";
                     Response.Redirect("Newindex.aspx", false);
                     break;
             }
@@ -139,7 +139,7 @@ namespace CETRMS
                     string password;
                     password = PasswordTXT.Text;
                     iRetValue = RMSMasterManagement.AuthenticateUEStaff(username, password);
-                    UELoginLBL.Visible = true;
+                    CETLoginLBL.Visible = true;
 
                     if (iRetValue == 1)
                     {
