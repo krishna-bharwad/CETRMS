@@ -322,7 +322,9 @@
     <Content Include="CandidateMobileApplication.aspx" />
     <Content Include="CandidateProfile.aspx" />
     <Content Include="CandidateSignUp.aspx" />
+    <Content Include="cetimages\abstarct.png" />
     <Content Include="cetimages\CET-LOGO.png" />
+    <Content Include="cetimages\cetMobile.svg" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -434,6 +436,7 @@
     <Content Include="IndexAssets\images\banner-item-03.jpg" />
     <Content Include="IndexAssets\images\BannerImg.jpg" />
     <Content Include="IndexAssets\images\Bannerimg.png" />
+    <Content Include="IndexAssets\images\CetMobile.png" />
     <Content Include="IndexAssets\images\close.svg" />
     <Content Include="IndexAssets\images\contact-dec-01.png" />
     <Content Include="IndexAssets\images\contact-dec-02.png" />
@@ -6415,6 +6418,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
+      <UserProperties vendors_4datatables_1net-scroller-bs_4_1bower_1json__JsonSchema="" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

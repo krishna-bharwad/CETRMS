@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link href="https://fonts.googleapis.com/css2?family=Rasa&display=swap" rel="stylesheet"/>
-    <title>Universal Abroad: About</title>
+    <title>CETRMS : About</title>
      <!-- Additional CSS Files -->
     <link rel="stylesheet" href="IndexAssets/css/fontawesome.css" /> 
     <link rel="stylesheet" href="IndexAssets/css/templatemo-scholar.css"/>
@@ -73,7 +73,7 @@
             margin-top: 10px;
         }
         .header-area  {
-            background: linear-gradient(to bottom, #66acac 0%, #ffffff 100%);
+            /*background: linear-gradient(to bottom, #66acac 0%, #ffffff 100%);*/
             border-radius: 0px 0px 25px 25px;
             /*height: 80px !important;*/
             position: fixed!important;
@@ -87,7 +87,7 @@
             transition: all .5s ease 0s;
         }
         .background-header {
-            background: linear-gradient(to bottom, #66acac 0%, #ffffff 100%);
+            /*background: linear-gradient(to bottom, #66acac 0%, #ffffff 100%);*/
             border-radius: 0px 0px 25px 25px;
             height: 80px !important;
             position: fixed !important;
@@ -99,6 +99,8 @@
             -moz-transition: all .5s ease 0s;
             -o-transition: all .5s ease 0s;
             transition: all .5s ease 0s;
+            background-color: transparent;
+            backdrop-filter: blur(10px);
         }
         /*@media (max-width: 767px) {
             .header-area .main-nav {
@@ -229,7 +231,7 @@
             margin-top: 163px;
             position: relative;
             width: 100%;
-            background-color: #66acac;
+            background-color: var(--dark);
             vertical-align: middle;
             min-height: 110px;
             border-radius: 80px 80px 0px 0px;
@@ -252,7 +254,7 @@
                             <nav class="main-nav">
                                 <!-- ***** Logo Start ***** -->
                                 <a href="Newindex.aspx" class="logo">
-                                    <img src="IndexAssets/images/UE-LOGO-2.png" alt="UE-LOGO" style="width: 175px;" />
+                                    <img src="cetimages/CET-LOGO.png" alt="LOGO" style="width: 175px;" />
                                 </a>
                                 <!-- ***** Logo End ***** -->
                                 <!-- ***** Serach Start ***** -->
@@ -293,14 +295,14 @@
        <div class="section-heading mb-5">
         <div class="row justify-content-center">
             <div class="col-5"> 
-                <img src="LandingPageAsset/img/undraw_team_work.svg" width="250" height="250"/>
+                <img src="LandingPageAsset/img/undraw_team_work_k-80-m.svg" width="250" height="250"/>
             </div>
            
                 <p class="vr"></p>
          
             <div class="col-6 p-3">
                 <h6>About Us</h6>
-                <h5 class="text-wrap">UNIVERSAL-ABROADJOBS.COM</h5>
+                <h5 class="text-wrap">LOREMIPSUM.COM</h5>
                 <p style="font-size: 14px;">
                     Here we provide employment services.
                                     Recruitment staff for all positions as per your company criteria and requirements.
@@ -316,7 +318,7 @@
                         <div class="row">
                             <div class="col-sm text-center text-lg-start">
                                 <a class="navbar-brand pe-md-4 fs-4 col-12 col-md-auto text-center" href="Newindex.aspx">
-                                    <img src="LandingPageAsset/img/UE-LOGO-2.png" width="224" height="100" fill="currentColor" class="bi bi-stack img-fluid" viewbox="0 0 16 16"/>
+                                    <img src="cetimages/CET-LOGO.png" width="224" height="100" fill="currentColor" class="bi bi-stack img-fluid" viewbox="0 0 16 16"/>
                                     <path d="m14.12 10.163 1.715.858c.22.11.22.424 0 .534L8.267 15.34a.598.598 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.598.598 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.598.598 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535L7.733.063z">
                                         <path d="m14.12 6.576 1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.598.598 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.659z">
                                         </path>
@@ -325,7 +327,7 @@
 
                             </div>
                             <div class="col-6 col-md-4 border-end border-light mb-2">
-                                <span class="text-white text-nowrap font-weight-bold h5">UNIVERSAL ABROAD</span>
+                                <span class="text-white text-nowrap font-weight-bold h5">CET</span>
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
                                         <a id="HomeHL" href="Newindex.aspx" class="text-white">HOME</a>
@@ -346,7 +348,7 @@
                                 <span class="text-white font-weight-bold h5">SUPPORT</span>
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
-                                       EMAIL ID:- <a href="mailto:Universal.abroadjobs23@gmail.com" class="text-white text-wrap" style="word-break:break-all;">Universal.abroadjobs23@gmail.com</a>
+                                       EMAIL ID:- loremipsum@gmail.com<%--<a href="mailto:Universal.abroadjobs23@gmail.com" class="text-white text-wrap" style="word-break:break-all;">@gmail.com</a>--%>
                                     </li>
                                     <li class="nav-item">
                                         <a href="Aboutus.aspx" class="text-white">ABOUT US</a>
@@ -364,34 +366,34 @@
                                 <div class="d-flex footer-nav-left">
                                     <ul class="d-flex">
                                         <li>
-                                            <a href="https://www.facebook.com/people/universalabroadjobs23/100091846080129/?mibextid=ZbWKwL" target="_blank">
-                                                <img class="footer-social-icon" src="IndexAssets/images/facebook.png" width="30" height="30" alt="ZURB Foundation Facebook"></a>
+                                            <a href="#" target="_blank">
+                                                <img class="footer-social-icon" src="IndexAssets/images/facebook.png" width="30" height="30" alt="ZURB Foundation Facebook"/></a>
                                         </li>
                                         <p></p>
                                         <li>
-                                            <a href="https://instagram.com/universal.abroadjob23?igshid=YmMyMTA2M2Y=" target="_blank">
-                                                <img class="footer-social-icon" src="IndexAssets/images/instagram.png" width="30" height="30" alt="ZURB Foundation Twitter"></a>
+                                            <a href="#" target="_blank">
+                                                <img class="footer-social-icon" src="IndexAssets/images/instagram.png" width="30" height="30" alt="ZURB Foundation Twitter"/></a>
                                         </li>
                                          <p></p>
                                         <li>
-                                            <a href="https://twitter.com/abroadjob23?t=paG2CECMX5pBsNTSL8x7ew&amp;s=08" target="_blank">
-                                                <img class="footer-social-icon" src="IndexAssets/images/twitter.png" width="30" height="30" alt="ZURB Foundation Youtube"></a>
+                                            <a href="#" target="_blank">
+                                                <img class="footer-social-icon" src="IndexAssets/images/twitter.png" width="30" height="30" alt="ZURB Foundation Youtube"/></a>
                                         </li>
                                          <p></p>
                                         <li>
-                                            <a href="https://www.linkedin.com/in/universal-abroad-jobs-02916b271/" target="_blank">
-                                                <img class="footer-social-icon" src="IndexAssets/images/linkedin.png" width="30" height="30" alt="Get Involved with Zurb Foundation"></a>
+                                            <a href="#" target="_blank">
+                                                <img class="footer-social-icon" src="IndexAssets/images/linkedin.png" width="30" height="30" alt="Get Involved with Zurb Foundation"/></a>
                                         </li>
                                          <p></p>
                                         <li>
-                                            <a href="https://www.youtube.com/@universal.abroadjobs23" target="_blank">
-                                                <img class="footer-social-icon" src="IndexAssets/images/youtube.png" width="30" height="30" alt="Get Involved with Zurb Foundation"></a>
+                                            <a href="#" target="_blank">
+                                                <img class="footer-social-icon" src="IndexAssets/images/youtube.png" width="30" height="30" alt="Get Involved with Zurb Foundation"/></a>
                                         </li>
                                     </ul></div>
                                 
                             </div>
                             <div class="col-6 text-right float-right p-2">
-                                <label class="text-white h6" style="text-decoration: none;" target="_blank"><span>Copyright © 2023</span> UniversalEducation. All Rights Reserved.</label>
+                                <label class="text-white h6" style="text-decoration: none;" target="_blank"><span>Copyright © 2023</span> Coder Edge Technologies. All Rights Reserved.</label>
                             </div>
                         </div>
                     </div>
@@ -407,7 +409,7 @@
                         <span></span>
                         <div class="modal-header">
                             <div class="modal-title">
-                                <img src="LandingPageAsset/img/UE-LOGO-2.png" alt="UE-LOGO" style="width: 200px; height: 70px;" />
+                                <img src="cetimages/CET-LOGO.png" alt="LOGO" style="width: 200px; height: 70px;" />
                             </div>
                         </div>
                         <div class="modal-body">
@@ -440,11 +442,11 @@
                                     <asp:CheckBox ID="TermsConditionsCHK" runat="server" Text="I agree to the terms and conditions and the privacy policy"/>
                             --%>       
                             <div class="p-t-10">
-                                <asp:Button ID="UESigninLB" runat="server" Text="Sign In" CssClass="btn btn--pill btn--signin" OnClick="UESigninLB_Click" />             
+                                <asp:Button ID="CETSigninLB" runat="server" Text="Sign In" CssClass="btn btn--pill btn--signin" OnClick="CETSigninLB_Click" />             
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <asp:Label ID="UELoginLBL" runat="server" CssClass="text-nowrap" Font-Italic="true" ForeColor="Red" Visible="false"></asp:Label>
+                                    <asp:Label ID="CETLoginLBL" runat="server" CssClass="text-nowrap" Font-Italic="true" ForeColor="Red" Visible="false"></asp:Label>
                                 </div>
                             </div>    
                            
@@ -462,28 +464,28 @@
                 <div class="modal-content ">
                     <div class="section">
                         <div class="container">
-                            <center><img src="IndexAssets/images/UE-LOGO-2.png" style="width:12rem;"/></center>
+                            <center><img src="cetimages/CET-LOGO.png" style="width:12rem;"/></center>
                             <div class="clearfix"><br/></div>
                             <h5 class="text-center">TERMS AND CONDITIONS</h5>
-                            <p>
-                                <strong>You must take the time to read and understand the Terms and Conditions before registering for our services. By registering, you accept that you are entering into a contract with us based on these Terms and Conditions.
-                Visitors to universal-abroadjobs.com who do not register to become a Member (Employer or Employee) similarly affirm that they are bound by these Terms and Conditions each time they access the universal-abroadjobs.com.
-                If you do not accept the Terms and Conditions stated below, please refrain from using universal-abroadjobs.com.
-                                </strong>
-                                <br />                               
-                                1.	The use of the Website by an Employer or Employee shall be deemed acceptance of and agreement to these terms only.<br />
-                                2.	The Website has been established to allow Employer to contact Employees and to view their profiles detailing an Employee's experience. We do not issue any experience certificate to our registered members.<br />
-                                3.	Any profile created showing political or illegal material would not be accepted under any circumstances.<br />
-                                4.	universal-abroadjobs.com will take all reasonable precautions to keep the details of Employers and Employees secure but will not be liable for unauthorized access to the information provided by any party whatsoever.<br />
-                                5.	The Members warrant that their e-mail and other contact addresses are valid and up to date when using the Website.<br />
-                                6.	Members agree not to impersonate any other person or entity or to use a false name or a name that they have no authority to use.<br />
-                                7.	Members acknowledge that universal-abroadjobs.com is not liable for any form of loss or damage that may be suffered by a Member through the use of the Website including loss of data or information or any kind of financial or physical loss or damage.<br />
-                                8.	universal-abroadjobs.com privacy policy forms part of these Terms and Conditions, and by agreeing to these Terms and Conditions, you also give your consent to the manner in which we may handle your personal data as detailed in that policy.<br />
-                                9.	The management reserves the right to modify the Terms and Conditions at any time without any prior notification.<br />
-                                10.	These Terms will be subject to Indian Law and the jurisdiction of Indian Courts.<br />
-                                11.	We do not cater to Placement Agencies and consultancies. Any payments made by Placement Agencies/ Consultancies will not be refunded under any situation.<br />
-                                12.	universal-abroadjobs.com is not responsible if any candidate has committed crime/illegal activity at employer's premises. Background verification of candidates who are/will be hired is a responsibility of respective recruiter/recruiter's company.
-                            </p>
+                                       <p>
+                <strong>You must take the time to read and understand the Terms and Conditions before registering for our services. By registering, you accept that you are entering into a contract with us based on these Terms and Conditions.
+Visitors to universal-abroadjobs.com who do not register to become a Member (Employer or Employee) similarly affirm that they are bound by these Terms and Conditions each time they access the universal-abroadjobs.com.
+If you do not accept the Terms and Conditions stated below, please refrain from using universal-abroadjobs.com.
+                </strong>
+                <br />                               
+                1.	The use of the Website by an Employer or Employee shall be deemed acceptance of and agreement to these terms only.<br />
+                2.	The Website has been established to allow Employer to contact Employees and to view their profiles detailing an Employee's experience. We do not issue any experience certificate to our registered members.<br />
+                3.	Any profile created showing political or illegal material would not be accepted under any circumstances.<br />
+                4.	Loremipsum.com will take all reasonable precautions to keep the details of Employers and Employees secure but will not be liable for unauthorized access to the information provided by any party whatsoever.<br />
+                5.	The Members warrant that their e-mail and other contact addresses are valid and up to date when using the Website.<br />
+                6.	Members agree not to impersonate any other person or entity or to use a false name or a name that they have no authority to use.<br />
+                7.	Members acknowledge that loremipsum.com is not liable for any form of loss or damage that may be suffered by a Member through the use of the Website including loss of data or information or any kind of financial or physical loss or damage.<br />
+                8.	loremipsum.com privacy policy forms part of these Terms and Conditions, and by agreeing to these Terms and Conditions, you also give your consent to the manner in which we may handle your personal data as detailed in that policy.<br />
+                9.	The management reserves the right to modify the Terms and Conditions at any time without any prior notification.<br />
+                10.	These Terms will be subject to Indian Law and the jurisdiction of Indian Courts.<br />
+                11.	We do not cater to Placement Agencies and consultancies. Any payments made by Placement Agencies/ Consultancies will not be refunded under any situation.<br />
+                12.	loremipsum.com is not responsible if any candidate has committed crime/illegal activity at employer's premises. Background verification of candidates who are/will be hired is a responsibility of respective recruiter/recruiter's company.
+            </p>
                             <div class="modal-footer">
                                 <div class="row">
                                     <div class="col-sm">
@@ -511,7 +513,7 @@
                         <span></span>
                         <div class="modal-header">
                             <div class="modal-title">
-                                <img src="LandingPageAsset/img/UE-LOGO-2.png" alt="UE-LOGO" style="width: 200px; height: 70px;" />
+                                <img src="cetimages/CET-LOGO.png" alt="LOGO" style="width: 200px; height: 70px;" />
                             </div>
                         </div>
                         <div class="modal-body">

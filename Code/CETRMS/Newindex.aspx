@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Rasa&display=swap" rel="stylesheet"/>
 
-    <title>Universal Abroad : home</title>
-    <link rel="icon" type="text/x-html-insertion" href="IndexAssets/UeLogoWhitebg.png" />
+    <title>CETRMS : home</title>
+    <link rel="icon" type="text/x-html-insertion" href="cetimages/CET-LOGO.png" />
 
 
 
@@ -456,7 +456,7 @@
                                 <div class="main-content card text-center h-100">
                                     <div class="clearfix"><br/></div>
                                     <h4>Qualified Candidates</h4>
-                                    <span><strong style="font-size:50px;color: #3e7474;"><asp:Label ID="CandidateCountLBL" runat="server"></asp:Label></strong></span>                                   
+                                    <span><strong style="font-size:50px;color: var(--dark);"><asp:Label ID="CandidateCountLBL" runat="server"></asp:Label></strong></span>                                   
                                 </div>
                             </div>
                         </div>
@@ -468,7 +468,7 @@
                                 <div class="main-content card text-center h-100">
                                     <div class="clearfix"><br/></div>
                                     <h4>On board Employers</h4>
-                                     <span><strong style="font-size:50px;color: #3e7474;"><asp:Label ID="EmployerCountLBL" runat="server"></asp:Label></strong></span>                                  
+                                     <span><strong style="font-size:50px;color: var(--dark);"><asp:Label ID="EmployerCountLBL" runat="server"></asp:Label></strong></span>                                  
                                 </div>
                             </div>
                         </div>
@@ -480,7 +480,7 @@
                                 <div class="main-content card text-center h-100">
                                     <div class="clearfix"><br/></div>
                                     <h4>Locations</h4>
-                                     <span><strong style="font-size:50px;color: #3e7474;"><asp:Label ID="LocationsLBL" runat="server"></asp:Label></strong></span>                                   
+                                     <span><strong style="font-size:50px;color: var(--dark);"><asp:Label ID="LocationsLBL" runat="server"></asp:Label></strong></span>                                   
                                 </div>
                             </div>
                         </div>
@@ -1033,8 +1033,14 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="contact-us-content">
-                                <img src="IndexAssets/images/CetMobile.png" class="img-fluid"/>
+                                <img src="cetimages/cetMobile.svg" class="img-fluid"/>
                             </div>
+                           <%-- <div class="contact-us-content">
+                                <div class="contactAbstract">
+                                    <img src="cetimages/abstarct.png" class="abstractbgImg" alt="image"/>
+                                </div>
+                                <img src="cetimages/cetMobile.svg" class="img-fluid" />
+                            </div>--%>
                         </div>
                     </div>
                 </div>
@@ -1054,7 +1060,7 @@
 
                             </div>
                             <div class="col-6 col-md-4 border-end border-light mb-2">
-                                <span class="text-white text-nowrap font-weight-bold h5">UNIVERSAL ABROAD</span>
+                                <span class="text-white text-nowrap font-weight-bold h5">CET</span>
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
                                         <a id="HomeHL" href="Newindex.aspx" class="text-white">HOME</a>
@@ -1104,17 +1110,17 @@
                                          <p></p>
                                         <li>
                                             <a href="#" target="_blank">
-                                                <img class="footer-social-icon" src="IndexAssets/images/twitter.png" width="30" height="30" alt="ZURB Foundation Youtube"></a>
+                                                <img class="footer-social-icon" src="IndexAssets/images/twitter.png" width="30" height="30" alt="ZURB Foundation Youtube"/></a>
                                         </li>
                                          <p></p>
                                         <li>
                                             <a href="#" target="_blank">
-                                                <img class="footer-social-icon" src="IndexAssets/images/linkedin.png" width="30" height="30" alt="Get Involved with Zurb Foundation"></a>
+                                                <img class="footer-social-icon" src="IndexAssets/images/linkedin.png" width="30" height="30" alt="Get Involved with Zurb Foundation"/></a>
                                         </li>
                                          <p></p>
                                         <li>
                                             <a href="#" target="_blank">
-                                                <img class="footer-social-icon" src="IndexAssets/images/youtube.png" width="30" height="30" alt="Get Involved with Zurb Foundation"></a>
+                                                <img class="footer-social-icon" src="IndexAssets/images/youtube.png" width="30" height="30" alt="Get Involved with Zurb Foundation"/></a>
                                         </li>
                                     </ul></div>
                                 
