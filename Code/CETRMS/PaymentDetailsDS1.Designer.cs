@@ -293,7 +293,7 @@ namespace CETRMS {
             
             private global::System.Data.DataColumn columnTransactionType;
             
-            private global::System.Data.DataColumn columnUEClientID;
+            private global::System.Data.DataColumn columnCETClientID;
             
             private global::System.Data.DataColumn columnPaymentStatus;
             
@@ -410,9 +410,9 @@ namespace CETRMS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn UEClientIDColumn {
+            public global::System.Data.DataColumn CETClientIDColumn {
                 get {
-                    return this.columnUEClientID;
+                    return this.columnCETClientID;
                 }
             }
             
@@ -556,7 +556,7 @@ namespace CETRMS {
                         System.DateTime DueDate, 
                         int PaymentType, 
                         string TransactionType, 
-                        int UEClientID, 
+                        int CETClientID, 
                         int PaymentStatus, 
                         int NotificationID, 
                         int NotificationType, 
@@ -578,7 +578,7 @@ namespace CETRMS {
                         DueDate,
                         PaymentType,
                         TransactionType,
-                        UEClientID,
+                        CETClientID,
                         PaymentStatus,
                         NotificationID,
                         NotificationType,
@@ -627,7 +627,7 @@ namespace CETRMS {
                 this.columnDueDate = base.Columns["DueDate"];
                 this.columnPaymentType = base.Columns["PaymentType"];
                 this.columnTransactionType = base.Columns["TransactionType"];
-                this.columnUEClientID = base.Columns["UEClientID"];
+                this.columnCETClientID = base.Columns["CETClientID"];
                 this.columnPaymentStatus = base.Columns["PaymentStatus"];
                 this.columnNotificationID = base.Columns["NotificationID"];
                 this.columnNotificationType = base.Columns["NotificationType"];
@@ -659,8 +659,8 @@ namespace CETRMS {
                 base.Columns.Add(this.columnPaymentType);
                 this.columnTransactionType = new global::System.Data.DataColumn("TransactionType", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTransactionType);
-                this.columnUEClientID = new global::System.Data.DataColumn("UEClientID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUEClientID);
+                this.columnCETClientID = new global::System.Data.DataColumn("CETClientID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCETClientID);
                 this.columnPaymentStatus = new global::System.Data.DataColumn("PaymentStatus", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPaymentStatus);
                 this.columnNotificationID = new global::System.Data.DataColumn("NotificationID", typeof(int), null, global::System.Data.MappingType.Element);
@@ -949,17 +949,17 @@ namespace CETRMS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int UEClientID {
+            public int CETClientID {
                 get {
                     try {
-                        return ((int)(this[this.tablesp_GetPaymentDetails.UEClientIDColumn]));
+                        return ((int)(this[this.tablesp_GetPaymentDetails.CETClientIDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'UEClientID\' in table \'sp_GetPaymentDetails\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CETClientID\' in table \'sp_GetPaymentDetails\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_GetPaymentDetails.UEClientIDColumn] = value;
+                    this[this.tablesp_GetPaymentDetails.CETClientIDColumn] = value;
                 }
             }
             
@@ -1236,14 +1236,14 @@ namespace CETRMS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsUEClientIDNull() {
-                return this.IsNull(this.tablesp_GetPaymentDetails.UEClientIDColumn);
+            public bool IsCETClientIDNull() {
+                return this.IsNull(this.tablesp_GetPaymentDetails.CETClientIDColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetUEClientIDNull() {
-                this[this.tablesp_GetPaymentDetails.UEClientIDColumn] = global::System.Convert.DBNull;
+            public void SetCETClientIDNull() {
+                this[this.tablesp_GetPaymentDetails.CETClientIDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1557,7 +1557,7 @@ namespace CETRMS.PaymentDetailsDSTableAdapters {
             tableMapping.ColumnMappings.Add("DueDate", "DueDate");
             tableMapping.ColumnMappings.Add("PaymentType", "PaymentType");
             tableMapping.ColumnMappings.Add("TransactionType", "TransactionType");
-            tableMapping.ColumnMappings.Add("UEClientID", "UEClientID");
+            tableMapping.ColumnMappings.Add("CETClientID", "CETClientID");
             tableMapping.ColumnMappings.Add("PaymentStatus", "PaymentStatus");
             tableMapping.ColumnMappings.Add("NotificationID", "NotificationID");
             tableMapping.ColumnMappings.Add("NotificationType", "NotificationType");

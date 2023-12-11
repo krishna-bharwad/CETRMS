@@ -76,7 +76,7 @@ namespace CETRMS
                 {
                     Candidate candidate = new Candidate();
                     Candidate oCandidate = new Candidate();
-                    CandidateManagement.GetCandidateFullDetails(referr.UECandidateID, ref candidate);
+                    CandidateManagement.GetCandidateFullDetails(referr.CETCandidateID, ref candidate);
                     ReferralManagement.GetCandidateIDByReferralCode(referr.ReferralCode, ref oCandidateId);
                     CandidateManagement.GetCandidateFullDetails(oCandidateId, ref oCandidate);
                     dt.Rows.Add(referr.ReferralID, referr.ReferralCode, candidate.PersonalProfile.Name, oCandidate.PersonalProfile.Name, referr.ReferralStatus);

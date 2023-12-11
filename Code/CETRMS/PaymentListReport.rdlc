@@ -941,8 +941,8 @@
           <DataField>TransactionType</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="UEClientID">
-          <DataField>UEClientID</DataField>
+        <Field Name="CETClientID">
+          <DataField>CETClientID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="PaymentStatus">

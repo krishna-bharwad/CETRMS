@@ -1133,7 +1133,7 @@
                                                                 <Columns>
                                                                     <asp:BoundField ItemStyle-Width="150px" DataField="JobApplicationID" HeaderText="JobApplication ID" />
                                                                     <asp:BoundField ItemStyle-Width="150px" DataField="InterviewStatus" HeaderText="Interview Status" />
-                                                                    <asp:BoundField ItemStyle-Width="150px" DataField="UERemarks" HeaderText="Remarks" />
+                                                                    <asp:BoundField ItemStyle-Width="150px" DataField="CETRemarks" HeaderText="Remarks" />
                                                                     <asp:BoundField ItemStyle-Width="150px" DataField="EmployerRemarks" HeaderText="Employer Remarks" />
                                                                     <asp:BoundField ItemStyle-Width="150px" DataField="CandidateRemarks" HeaderText="Candidate Remarks " />
                                                                     <asp:BoundField ItemStyle-Width="150px" DataField="ChosenTimeZone" HeaderText="ChosenTimeZone " />

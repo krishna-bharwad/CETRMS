@@ -15,7 +15,7 @@ namespace CETRMS
         {
             try
             {
-                if (Session["uerms_username"] == null)
+                if (Session["cetrms_username"] == null)
                 {
                     Response.Redirect("~/NewIndex.aspx", false);
                 }
@@ -27,7 +27,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.TESTIMONIAL_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.TESTIMONIAL_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
         }
         protected void FillTestimonialGV()
@@ -55,7 +55,7 @@ namespace CETRMS
                     foreach (Testimonial testimonial in Testimonials)
                     {
                         Candidate candidate = new Candidate();
-                        CandidateManagement.GetCandidatePersonalDetails(testimonial.UEClientId, ref candidate);
+                        CandidateManagement.GetCandidatePersonalDetails(testimonial.CETClientID, ref candidate);
 
                         TestimonialTable.Rows.Add(
                             testimonial.TestimonialID,
@@ -75,7 +75,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.TESTIMONIAL_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.TESTIMONIAL_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
 
         }
@@ -134,7 +134,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.TESTIMONIAL_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.TESTIMONIAL_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
 
         }
@@ -157,7 +157,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.TESTIMONIAL_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.TESTIMONIAL_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
 
         }

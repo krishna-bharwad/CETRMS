@@ -22,7 +22,7 @@ namespace CETRMS
         public static GoogleUserclass GoogleProfile = new GoogleUserclass();
         public static FacebookUserclass FacebookProfile = new FacebookUserclass();
 
-        public static string UEClientID;
+        public static string CETClientID;
         public static int UEClientStatus;
         public static string ReferralCode;
         public static bool IsReferralLink = false;
@@ -48,10 +48,10 @@ namespace CETRMS
                                 {
                                     if (GetuserGoogleProfile(GoogleToken.access_token))
                                     {
-                                        CandidateManagement.CandidateGoogleSignIn(GoogleProfile, ref UEClientID, ref UEClientStatus);
+                                        CandidateManagement.CandidateGoogleSignIn(GoogleProfile, ref CETClientID, ref UEClientStatus);
                                         if (IsReferralLink)
                                         {
-                                            ReferralManagement.InsertReferralDetails(UEClientID, ReferralCode);
+                                            ReferralManagement.InsertReferralDetails(CETClientID, ReferralCode);
                                         }
                                     }
                                 }
@@ -61,7 +61,7 @@ namespace CETRMS
                         {
                             if (Request.QueryString["code"] != null)
                             {
-                                if (GetFacebookOauthTokens(Request.QueryString["code"])) if (GetFacebookuserProfile(FacebookToken.access_token)) CandidateManagement.CandidatefacebookSignIn(FacebookProfile, ref UEClientID, ref UEClientStatus);
+                                if (GetFacebookOauthTokens(Request.QueryString["code"])) if (GetFacebookuserProfile(FacebookToken.access_token)) CandidateManagement.CandidatefacebookSignIn(FacebookProfile, ref CETClientID, ref UEClientStatus);
                             }
                         }
                     }

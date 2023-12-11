@@ -50,7 +50,7 @@ namespace CETRMS
             }
             return iRetValue;
         }
-        public static int InsertReferralDetails(string UECandidateId, string ReferralCode)
+        public static int InsertReferralDetails(string CETCandidateID, string ReferralCode)
         {
             int IRetValue = 0;
             string ReferralID = string.Empty;
@@ -64,7 +64,7 @@ namespace CETRMS
                 dbCommand.Connection = dbConnection;
                 dbCommand.CommandType = CommandType.StoredProcedure;
                 dbCommand.CommandText = "sp_InsertReferralDetails";
-                dbCommand.Parameters.AddWithValue("@UECandidateId", UECandidateId);
+                dbCommand.Parameters.AddWithValue("@CETCandidateID", CETCandidateID);
                 dbCommand.Parameters.AddWithValue("@ReferralCode", ReferralCode);
                 dbAdapter.SelectCommand = dbCommand;
                 dbAdapter.Fill(dtData);
@@ -150,7 +150,7 @@ namespace CETRMS
                         Referral referr = new Referral();
                         referr.ReferralID = row["ReferralID"].ToString();
                         referr.ReferralStatus = row["ReferralStatus"].ToString();
-                        referr.UECandidateID = row["UECandidateID"].ToString();          // New Candidate Id
+                        referr.CETCandidateID = row["CETCandidateID"].ToString();          // New Candidate Id
                         referr.ReferralCode = row["ReferralCode"].ToString();           //Referral  code  is of  Old Candidate who referred new one.
                         ReferralDetail.Add(referr);
                     }
@@ -185,7 +185,7 @@ namespace CETRMS
                 dbCommand.Connection = dbConnection;
                 dbCommand.CommandType = CommandType.StoredProcedure;
                 dbCommand.CommandText = "sp_GetReferralDetailsByList";
-                dbCommand.Parameters.AddWithValue("@UECandidateId", candidateId);
+                dbCommand.Parameters.AddWithValue("@CETCandidateID", candidateId);
                 dbAdapter.SelectCommand = dbCommand;
                 dbAdapter.Fill(dtData);
                 if (dtData.Rows.Count >= 1)
@@ -195,7 +195,7 @@ namespace CETRMS
                         Referral referr = new Referral();
                         referr.ReferralID = row["ReferralID"].ToString();
                         referr.ReferralStatus = row["ReferralStatus"].ToString();
-                        referr.UECandidateID = row["UECandidateID"].ToString();          // New Candidate Id
+                        referr.CETCandidateID = row["CETCandidateID"].ToString();          // New Candidate Id
                         referr.ReferralCode = row["ReferralCode"].ToString();           //Referral  code  is of  Old Candidate who referred new one.
                         ReferralDetail.Add(referr);
                     }
@@ -265,7 +265,7 @@ namespace CETRMS
                     {
                         Referraldetails.ReferralID = row["ReferralID"].ToString();
                         Referraldetails.ReferralStatus = row["ReferralStatus"].ToString();
-                        Referraldetails.UECandidateID = row["UECandidateID"].ToString();
+                        Referraldetails.CETCandidateID = row["CETCandidateID"].ToString();
                         Referraldetails.ReferralCode = row["ReferralCode"].ToString();           
                     }
                     IRetValue = 1;

@@ -80,7 +80,7 @@ namespace CETRMS
                         dbCommand.Connection = dbConnection;
                         dbCommand.CommandType = CommandType.StoredProcedure;
                         dbCommand.CommandText = "sp_GetClientDetailsForInvoice";
-                        dbCommand.Parameters.AddWithValue("@UEClientId", payment.UEClientID);
+                        dbCommand.Parameters.AddWithValue("@CETClientID", payment.CETClientID);
                         dbAdapter.SelectCommand = dbCommand;
                         dbAdapter.Fill(dbDataset);
                         logger.log(logger.LogSeverity.DBG, logger.LogEvents.PAYMENT_MANAGEMENT, "", "GetPaymentReceipt>>sp_GetClientDetailsForInvoice return rows: " + dbDataset.Tables[0].Rows.Count.ToString());

@@ -21,7 +21,7 @@ namespace CETRMS
         {
             try
             {
-                if (Session["uerms_username"] == null)
+                if (Session["cetrms_username"] == null)
                 {
                     Response.Redirect("~/NewIndex.aspx", false);
                 }
@@ -39,7 +39,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.EMPLOYER_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.EMPLOYER_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
         }
 
@@ -93,7 +93,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.EMPLOYER_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.EMPLOYER_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
             finally
             {

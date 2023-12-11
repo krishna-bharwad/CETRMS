@@ -26,7 +26,7 @@ namespace CETRMS
                 dbConnection.ConnectionString = ConfigurationManager.ConnectionStrings["CETRMSDB"].ConnectionString;
                 if (!IsPostBack)
                 {
-                    if (Session["uerms_username"] == null)
+                    if (Session["cetrms_username"] == null)
                     {
                         Response.Redirect("~/NewIndex.aspx", false);
                     }
@@ -42,14 +42,14 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", Message);
             }
         }
         protected void UpdatePasswordBTN_Click(object sender, EventArgs e)
         {
             try
             {
-                string username = Session["uerms_username"].ToString();
+                string username = Session["cetrms_username"].ToString();
                 string Oldpassword = OldPasswordTXT.Text;
                 string Newpassword = NewPasswordTXT.Text;
                 if (RMSMasterManagement.UpdatePassword(username, Oldpassword, Newpassword) == 1)
@@ -65,17 +65,17 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", Message);
             }
         }
 
         protected void SignOutBTN_Click(object sender, EventArgs e)
         {
 
-            Session["uerms_username"] = null;
-            Response.Cookies["uerms_username"].Value = "";
+            Session["cetrms_username"] = null;
+            Response.Cookies["cetrms_username"].Value = "";
             Response.Cookies["uerms_password"].Value = "";
-            Response.Cookies["uerms_username"].Expires = DateTime.Now.AddDays(-1);
+            Response.Cookies["cetrms_username"].Expires = DateTime.Now.AddDays(-1);
             Response.Cookies["uerms_password"].Expires = DateTime.Now.AddDays(-1);
             Response.Redirect("NewIndex.aspx", false);
         }
@@ -102,7 +102,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", Message);
             }
         }
 
@@ -117,7 +117,7 @@ namespace CETRMS
         {
             try
             {
-                if (RMSMasterManagement.GetStaffMemberDetails(Session["uerms_username"].ToString(), ref uEStaffMember) == RetValue.Success)
+                if (RMSMasterManagement.GetStaffMemberDetails(Session["cetrms_username"].ToString(), ref uEStaffMember) == RetValue.Success)
                 {
                     MemberIdLBL.Text = uEStaffMember.UserId;
                     NameTXT.Text = uEStaffMember.Name;
@@ -168,7 +168,7 @@ namespace CETRMS
                 }
                 else
                 {
-                    logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "","Not able to fetch staff details");
+                    logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "","Not able to fetch staff details");
                 }
             }
             
@@ -177,7 +177,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", Message);
             }
         }
         public void ShowModel(string ModelName)
@@ -219,7 +219,7 @@ namespace CETRMS
                     StaffPhotoIMG.Height = 240;
 
 
-                    string query = "UPDATE UEStaff SET StaffPhoto = @eimg where userid = '" + Session["uerms_username"].ToString() + "'";
+                    string query = "UPDATE UEStaff SET StaffPhoto = @eimg where userid = '" + Session["cetrms_username"].ToString() + "'";
                     SqlCommand cmd = new SqlCommand(query, dbConnection);
 
                     cmd.Parameters.AddWithValue("@eimg", imgByte);
@@ -235,7 +235,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", Message);
             }
         }
 
@@ -260,7 +260,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", Message);
             }
         }
         protected void GetNotificationList()
@@ -304,7 +304,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", Message);
             }
         }
 

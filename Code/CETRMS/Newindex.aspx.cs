@@ -16,7 +16,7 @@ namespace CETRMS
         //string EmployerSignUpRedirection_url = "https://localhost:44342/EmployerSigUp.aspx";
         string EmployerSignUpRedirection_url = "https://localhost:44382/EmployerSignUp.aspx";
         string CandidateSignUpRedirection_url = "https://localhost:44382/CandidateSignUp.aspx";
-        public static string UEClientID;
+        public static string CETClientID;
         public static int UEClientStatus;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -28,9 +28,9 @@ namespace CETRMS
 
                 if (!IsPostBack)
                 {
-                    //if (Request.Cookies["uerms_username"] != null && Request.Cookies["uerms_password"] != null)
+                    //if (Request.Cookies["cetrms_username"] != null && Request.Cookies["uerms_password"] != null)
                     //{
-                    //    UserNameTXT.Text = Request.Cookies["uerms_username"].Value;
+                    //    UserNameTXT.Text = Request.Cookies["cetrms_username"].Value;
                     //    PasswordTXT.Attributes["Value"] = Request.Cookies["uerms_password"].Value;
                     //}
 
@@ -155,7 +155,7 @@ namespace CETRMS
                 UserProfile.ProfileName = CETRMS_CandidateUserNameTXT.Text.Trim(); // Enter ProfileName
                 UserProfile.email = CETRMS_CandidateEmailTXT.Text.Trim(); // Enter Email
                 UserProfile.Password = CETRMS_CandidatePasswordTXT.Text; //Enter Password
-                CandidateManagement.CandidatePersonalProfileSignUp(UserProfile, ref UEClientID, ref UEClientStatus);
+                CandidateManagement.CandidatePersonalProfileSignUp(UserProfile, ref CETClientID, ref UEClientStatus);
                 Response.Redirect("./CandidateSignUp.aspx?Name=" + UserProfile.ProfileName, false);
             }
             catch (Exception ex)
@@ -175,7 +175,7 @@ namespace CETRMS
                 UserProfile.ProfileName = CETRMS_EmployerUserNameTXT.Text.Trim(); // Enter ProfileName
                 UserProfile.email = CETRMS_EmployerEmailTXT.Text.Trim(); // Enter Email
                 UserProfile.Password = CETRMS_EmployerPasswordTXT.Text; //Enter Password
-                EmployerManagement.EmployerPersonalProfileSignUp(UserProfile, ref UEClientID, ref UEClientStatus);
+                EmployerManagement.EmployerPersonalProfileSignUp(UserProfile, ref CETClientID, ref UEClientStatus);
                 Response.Redirect("./EmployerSignUp.aspx?Name=" + UserProfile.ProfileName, false);
             }
             catch (Exception ex)
@@ -201,24 +201,24 @@ namespace CETRMS
 
                 if (RememberCHK.Checked)
                 {
-                    Response.Cookies["uerms_username"].Value = UserNameTXT.Text;
+                    Response.Cookies["cetrms_username"].Value = UserNameTXT.Text;
                     Response.Cookies["uerms_password"].Value = PasswordTXT.Text;
-                    Response.Cookies["uerms_username"].Expires = DateTime.Now.AddDays(30);
+                    Response.Cookies["cetrms_username"].Expires = DateTime.Now.AddDays(30);
                     Response.Cookies["uerms_password"].Expires = DateTime.Now.AddDays(30);
 
                 }
 
                 else
                 {
-                    Response.Cookies["uerms_username"].Expires = DateTime.Now.AddDays(-1);
+                    Response.Cookies["cetrms_username"].Expires = DateTime.Now.AddDays(-1);
                     Response.Cookies["uerms_password"].Expires = DateTime.Now.AddDays(-1);
                 }
 
                 switch (iRetValue)
                 {
                     case 1:
-                        Session["uerms_username"] = UserNameTXT.Text;
-                        Response.Cookies["uerms_username"].Value = UserNameTXT.Text;
+                        Session["cetrms_username"] = UserNameTXT.Text;
+                        Response.Cookies["cetrms_username"].Value = UserNameTXT.Text;
                         Response.Redirect("Dashboard.aspx", false);
                         break;
                     case -1:
@@ -253,7 +253,7 @@ namespace CETRMS
                     foreach (Testimonial testimonial in testimonials)
                     {
                         Candidate candidate = new Candidate();
-                        CandidateManagement.GetCandidateFullDetails(testimonial.UEClientId, ref candidate);
+                        CandidateManagement.GetCandidateFullDetails(testimonial.CETClientID, ref candidate);
                         cState state = new cState();
                         state = LocationManagement.GetStateDetail(candidate.ContactDetails.CurrentStateCode);
                         string Location = state.StateName + ", " + state.Country.CountryName;
@@ -339,9 +339,9 @@ namespace CETRMS
         {
             try
             {
-                if (Request.Cookies["uerms_username"] != null && Request.Cookies["uerms_password"] != null)
+                if (Request.Cookies["cetrms_username"] != null && Request.Cookies["uerms_password"] != null)
                 {
-                    UserNameTXT.Text = Request.Cookies["uerms_username"].Value;
+                    UserNameTXT.Text = Request.Cookies["cetrms_username"].Value;
                     PasswordTXT.Attributes["Value"] = Request.Cookies["uerms_password"].Value;
 
                     int iRetValue = 0;
@@ -354,8 +354,8 @@ namespace CETRMS
 
                     if (iRetValue == 1)
                     {
-                        Session["uerms_username"] = UserNameTXT.Text;
-                        Response.Cookies["uerms_username"].Value = UserNameTXT.Text;
+                        Session["cetrms_username"] = UserNameTXT.Text;
+                        Response.Cookies["cetrms_username"].Value = UserNameTXT.Text;
                         Response.Redirect("Dashboard.aspx", false);
                     }
 

@@ -28,7 +28,7 @@
               <Mapping SourceColumn="InterviewStatus" DataSetColumn="InterviewStatus" />
               <Mapping SourceColumn="InterviewDuration" DataSetColumn="InterviewDuration" />
               <Mapping SourceColumn="EmployerRemarks" DataSetColumn="EmployerRemarks" />
-              <Mapping SourceColumn="UERemarks" DataSetColumn="UERemarks" />
+              <Mapping SourceColumn="CETRemarks" DataSetColumn="CETRemarks" />
               <Mapping SourceColumn="CandidateRemarks" DataSetColumn="CandidateRemarks" />
               <Mapping SourceColumn="ZVCRQ_duration" DataSetColumn="ZVCRQ_duration" />
               <Mapping SourceColumn="ZVCRQ_password" DataSetColumn="ZVCRQ_password" />
@@ -96,7 +96,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="UERemarks" msprop:Generator_ColumnVarNameInTable="columnUERemarks" msprop:Generator_ColumnPropNameInRow="UERemarks" msprop:Generator_ColumnPropNameInTable="UERemarksColumn" msprop:Generator_UserColumnName="UERemarks" minOccurs="0">
+              <xs:element name="CETRemarks" msprop:Generator_ColumnVarNameInTable="columnCETRemarks" msprop:Generator_ColumnPropNameInRow="CETRemarks" msprop:Generator_ColumnPropNameInTable="CETRemarksColumn" msprop:Generator_UserColumnName="CETRemarks" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />

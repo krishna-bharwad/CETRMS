@@ -281,7 +281,7 @@ namespace CETRMS {
             
             private global::System.Data.DataColumn columnVacancyID;
             
-            private global::System.Data.DataColumn columnUEEmployerId;
+            private global::System.Data.DataColumn columnCETEmployerId;
             
             private global::System.Data.DataColumn columnVacancyStatusTypeId;
             
@@ -352,9 +352,9 @@ namespace CETRMS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn UEEmployerIdColumn {
+            public global::System.Data.DataColumn CETEmployerIdColumn {
                 get {
-                    return this.columnUEEmployerId;
+                    return this.columnCETEmployerId;
                 }
             }
             
@@ -499,11 +499,11 @@ namespace CETRMS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_GetVacancyDetailsForReportRow Addsp_GetVacancyDetailsForReportRow(int UEEmployerId, int VacancyStatusTypeId, string VacancyName, string VacancyCode, string PrimaryLocation, string JobType, string EmployementStatus, int CandidatesRequired, int RequiredMinExp, string RequiredMinQualification, System.DateTime PostingDate, string VacancyDetails, double SalaryOffered, byte[] BusinessLogo) {
+            public sp_GetVacancyDetailsForReportRow Addsp_GetVacancyDetailsForReportRow(int CETEmployerId, int VacancyStatusTypeId, string VacancyName, string VacancyCode, string PrimaryLocation, string JobType, string EmployementStatus, int CandidatesRequired, int RequiredMinExp, string RequiredMinQualification, System.DateTime PostingDate, string VacancyDetails, double SalaryOffered, byte[] BusinessLogo) {
                 sp_GetVacancyDetailsForReportRow rowsp_GetVacancyDetailsForReportRow = ((sp_GetVacancyDetailsForReportRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        UEEmployerId,
+                        CETEmployerId,
                         VacancyStatusTypeId,
                         VacancyName,
                         VacancyCode,
@@ -547,7 +547,7 @@ namespace CETRMS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnVacancyID = base.Columns["VacancyID"];
-                this.columnUEEmployerId = base.Columns["UEEmployerId"];
+                this.columnCETEmployerId = base.Columns["CETEmployerId"];
                 this.columnVacancyStatusTypeId = base.Columns["VacancyStatusTypeId"];
                 this.columnVacancyName = base.Columns["VacancyName"];
                 this.columnVacancyCode = base.Columns["VacancyCode"];
@@ -568,8 +568,8 @@ namespace CETRMS {
             private void InitClass() {
                 this.columnVacancyID = new global::System.Data.DataColumn("VacancyID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVacancyID);
-                this.columnUEEmployerId = new global::System.Data.DataColumn("UEEmployerId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUEEmployerId);
+                this.columnCETEmployerId = new global::System.Data.DataColumn("CETEmployerId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCETEmployerId);
                 this.columnVacancyStatusTypeId = new global::System.Data.DataColumn("VacancyStatusTypeId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVacancyStatusTypeId);
                 this.columnVacancyName = new global::System.Data.DataColumn("VacancyName", typeof(string), null, global::System.Data.MappingType.Element);
@@ -604,7 +604,7 @@ namespace CETRMS {
                 this.columnVacancyID.AllowDBNull = false;
                 this.columnVacancyID.ReadOnly = true;
                 this.columnVacancyID.Unique = true;
-                this.columnUEEmployerId.AllowDBNull = false;
+                this.columnCETEmployerId.AllowDBNull = false;
                 this.columnVacancyName.MaxLength = 200;
                 this.columnVacancyCode.MaxLength = 10;
                 this.columnPrimaryLocation.MaxLength = 200;
@@ -765,12 +765,12 @@ namespace CETRMS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int UEEmployerId {
+            public int CETEmployerId {
                 get {
-                    return ((int)(this[this.tablesp_GetVacancyDetailsForReport.UEEmployerIdColumn]));
+                    return ((int)(this[this.tablesp_GetVacancyDetailsForReport.CETEmployerIdColumn]));
                 }
                 set {
-                    this[this.tablesp_GetVacancyDetailsForReport.UEEmployerIdColumn] = value;
+                    this[this.tablesp_GetVacancyDetailsForReport.CETEmployerIdColumn] = value;
                 }
             }
             
@@ -1312,7 +1312,7 @@ namespace CETRMS.JobVacancyDetailsReportTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "sp_GetVacancyDetailsForReport";
             tableMapping.ColumnMappings.Add("VacancyID", "VacancyID");
-            tableMapping.ColumnMappings.Add("UEEmployerId", "UEEmployerId");
+            tableMapping.ColumnMappings.Add("CETEmployerId", "CETEmployerId");
             tableMapping.ColumnMappings.Add("VacancyStatusTypeId", "VacancyStatusTypeId");
             tableMapping.ColumnMappings.Add("VacancyName", "VacancyName");
             tableMapping.ColumnMappings.Add("VacancyCode", "VacancyCode");

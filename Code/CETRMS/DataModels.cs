@@ -182,7 +182,7 @@ namespace CETRMS
     }
     public class UEClient
     {
-        public string UEClientId { get; set; }
+        public string CETClientID { get; set; }
         public string ClientType { get; set; }
         public string ClientStatus { get; set; }
         public string UEAdminId { get; set; }
@@ -634,7 +634,7 @@ namespace CETRMS
     public class Vacancy
     {
         public string VacancyID { get; set; }
-        public string UEEmployerID { get; set; }
+        public string CETEmployerId { get; set; }
         public string VacancyStatusTypeID { get; set; }
         public string VacancyName { get; set; }
         public string VacancyCode { get; set; }
@@ -656,7 +656,7 @@ namespace CETRMS
         public Vacancy()
         {
             VacancyID = "0";
-            UEEmployerID = "0";
+            CETEmployerId = "0";
             VacancyStatusTypeID = "0";
             VacancyName = string.Empty;
             VacancyCode = string.Empty;
@@ -831,7 +831,7 @@ namespace CETRMS
     public class Referral
     {
         public string ReferralID { get; set; }
-        public string UECandidateID { get; set; }
+        public string CETCandidateID { get; set; }
         public string ReferralStatus { get; set; }
         public string ReferralCode { get; set; }
 
@@ -907,7 +907,7 @@ namespace CETRMS
         public int InterviewStatus { get; set; }
         public string EmployerRemarks { get; set; }
         public string CandidateRemarks { get; set; }
-        public string UERemarks { get; set; }
+        public string CETRemarks { get; set; }
         public string ChosenTimeZone { get; set; }
         public int DurationInMinutes { get; set; }
         public class ZoomVideoCallMeetingRequest
@@ -1364,7 +1364,7 @@ namespace CETRMS
         public DateTime PaymentDate { get; set; }
         public int PaymentType { get; set; }
         public string TransactionType { get; set; }
-        public string UEClientID { get; set; }
+        public string CETClientID { get; set; }
         public int PaymentStatus { get; set; }
         public string InvoiceNo { get; set; }
         public string InvoiceURL { get; set; }
@@ -1400,7 +1400,7 @@ namespace CETRMS
             TaxAmount = 0.00;
             DueDate = System.DateTime.Now;
             TransactionType = string.Empty;
-            UEClientID = string.Empty;
+            CETClientID = string.Empty;
             InvoiceNo = string.Empty;
             InvoiceURL = string.Empty;
             Reserve1 = string.Empty;
@@ -1613,7 +1613,7 @@ namespace CETRMS
         public DateTime NotificationTime { get; set; }
         public int NotificationType { get; set; }
         public string NotificationMessage { get; set; }
-        public string UEClientID { get; set; }
+        public string CETClientID { get; set; }
         public int NotificationStatus { get; set; }
         public string hyperlink { get; set; }
     }
@@ -1858,7 +1858,7 @@ namespace CETRMS
     public class Testimonial
     {
         public string TestimonialID { get; set; }
-        public string UEClientId { get; set; }
+        public string CETClientID { get; set; }
         public DateTime ResponseDate { get; set; }
         public int Rating { get; set; }
         public string ResponseMessage { get; set; }

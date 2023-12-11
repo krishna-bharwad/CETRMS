@@ -191,62 +191,39 @@
     <Content Include="AllEmployerList.aspx" />
     <Content Include="AllNotifications.aspx" />
     <Content Include="bin\Antlr3.Runtime.dll" />
-    <Content Include="bin\Antlr3.Runtime.pdb" />
     <Content Include="bin\AspNet.ScriptManager.bootstrap.dll" />
     <Content Include="bin\AspNet.ScriptManager.jQuery.dll" />
     <Content Include="bin\EnvDTE.dll" />
     <Content Include="bin\Microsoft.AspNet.FriendlyUrls.dll" />
-    <Content Include="bin\Microsoft.AspNet.FriendlyUrls.xml" />
     <Content Include="bin\Microsoft.AspNet.Web.Optimization.WebForms.dll" />
     <Content Include="bin\Microsoft.Bcl.AsyncInterfaces.dll" />
-    <Content Include="bin\Microsoft.Bcl.AsyncInterfaces.xml" />
     <Content Include="bin\Microsoft.IdentityModel.Abstractions.dll" />
-    <Content Include="bin\Microsoft.IdentityModel.Abstractions.xml" />
     <Content Include="bin\Microsoft.IdentityModel.JsonWebTokens.dll" />
-    <Content Include="bin\Microsoft.IdentityModel.JsonWebTokens.xml" />
     <Content Include="bin\Microsoft.IdentityModel.Logging.dll" />
-    <Content Include="bin\Microsoft.IdentityModel.Logging.xml" />
     <Content Include="bin\Microsoft.IdentityModel.Tokens.dll" />
-    <Content Include="bin\Microsoft.IdentityModel.Tokens.xml" />
-    <Content Include="bin\Microsoft.MSXML.dll" />
     <Content Include="bin\Microsoft.ReportViewer.Common.dll" />
     <Content Include="bin\Microsoft.ReportViewer.DataVisualization.dll" />
     <Content Include="bin\Microsoft.ReportViewer.Design.dll" />
     <Content Include="bin\Microsoft.ReportViewer.ProcessingObjectModel.dll" />
     <Content Include="bin\Microsoft.ReportViewer.WebDesign.dll" />
     <Content Include="bin\Microsoft.ReportViewer.WebForms.dll" />
-    <Content Include="bin\Microsoft.ReportViewer.WinForms.dll" />
     <Content Include="bin\Microsoft.ScriptManager.MSAjax.dll" />
     <Content Include="bin\Microsoft.ScriptManager.WebForms.dll" />
     <Content Include="bin\Microsoft.SqlServer.Types.dll" />
-    <Content Include="bin\Microsoft.VisualStudio.OLE.Interop.dll" />
-    <Content Include="bin\Microsoft.VisualStudio.Shell.Interop.8.0.dll" />
-    <Content Include="bin\Microsoft.VisualStudio.Shell.Interop.dll" />
-    <Content Include="bin\Microsoft.VisualStudio.TextManager.Interop.8.0.dll" />
-    <Content Include="bin\Microsoft.VisualStudio.TextManager.Interop.dll" />
     <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
     <Content Include="bin\Newtonsoft.Json.dll" />
-    <Content Include="bin\Newtonsoft.Json.xml" />
     <Content Include="bin\RestSharp.dll" />
-    <Content Include="bin\RestSharp.xml" />
     <Content Include="bin\stdole.dll" />
     <Content Include="bin\System.Buffers.dll" />
     <Content Include="bin\System.IdentityModel.Tokens.Jwt.dll" />
-    <Content Include="bin\System.IdentityModel.Tokens.Jwt.xml" />
     <Content Include="bin\System.Memory.dll" />
-    <Content Include="bin\System.Memory.xml" />
     <Content Include="bin\System.Numerics.Vectors.dll" />
     <Content Include="bin\System.Runtime.CompilerServices.Unsafe.dll" />
-    <Content Include="bin\System.Runtime.CompilerServices.Unsafe.xml" />
     <Content Include="bin\System.Text.Encodings.Web.dll" />
-    <Content Include="bin\System.Text.Encodings.Web.xml" />
     <Content Include="bin\System.Text.Json.dll" />
-    <Content Include="bin\System.Text.Json.xml" />
     <Content Include="bin\System.Threading.Tasks.Extensions.dll" />
-    <Content Include="bin\System.Threading.Tasks.Extensions.xml" />
     <Content Include="bin\System.ValueTuple.dll" />
     <Content Include="bin\System.Web.Optimization.dll" />
-    <Content Include="bin\System.Web.Optimization.xml" />
     <Content Include="bin\WebGrease.dll" />
     <Content Include="build\css\buttons.css" />
     <Content Include="build\css\custom.css" />
@@ -498,13 +475,6 @@
     <Content Include="IndexAssets\images\service-03.png" />
     <Content Include="IndexAssets\images\testimonial-author.jpg" />
     <Content Include="IndexAssets\images\twitter.png" />
-    <Content Include="IndexAssets\images\UE%28MAC%29.png" />
-    <Content Include="IndexAssets\images\UE-Banner2.jpg" />
-    <Content Include="IndexAssets\images\UE-Ipad-1.png" />
-    <Content Include="IndexAssets\images\UE-Iphone.png" />
-    <Content Include="IndexAssets\images\UE-LOGO-2.png" />
-    <Content Include="IndexAssets\images\UELogo.png" />
-    <Content Include="IndexAssets\images\UEMobile.png" />
     <Content Include="IndexAssets\images\yes.png" />
     <Content Include="IndexAssets\images\youtube.png" />
     <Content Include="IndexAssets\Joinchat.css" />
@@ -6418,6 +6388,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="TempFiles\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

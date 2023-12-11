@@ -69,7 +69,7 @@ namespace CETRMS
                     {
                         Vacancy VacancyItem = new Vacancy();
                         VacancyItem.VacancyID = row["VacancyID"].ToString();
-                        VacancyItem.UEEmployerID = row["UEEmployerId"].ToString();
+                        VacancyItem.CETEmployerId = row["CETEmployerId"].ToString();
                         VacancyItem.VacancyStatusTypeID = row["VacancyStatusTypeId"].ToString();
                         VacancyItem.VacancyName = row["VacancyName"].ToString();
                         VacancyItem.VacancyCode = row["VacancyCode"].ToString();
@@ -169,7 +169,7 @@ namespace CETRMS
                     {
                         Vacancy VacancyItem = new Vacancy();
                         VacancyItem.VacancyID = row["VacancyID"].ToString();
-                        VacancyItem.UEEmployerID = row["UEEmployerId"].ToString();
+                        VacancyItem.CETEmployerId = row["CETEmployerId"].ToString();
                         VacancyItem.VacancyStatusTypeID = row["VacancyStatusTypeId"].ToString();
                         VacancyItem.VacancyName = row["VacancyName"].ToString();
                         VacancyItem.VacancyCode = row["VacancyCode"].ToString();
@@ -347,7 +347,7 @@ namespace CETRMS
                 dbCommand.Connection = dbConnection;
                 dbCommand.CommandType = CommandType.StoredProcedure;
                 dbCommand.CommandText = "sp_AddVacancy";
-                dbCommand.Parameters.AddWithValue("@UEEmployerId", newVacancyDetails.UEEmployerID);
+                dbCommand.Parameters.AddWithValue("@CETEmployerId", newVacancyDetails.CETEmployerId);
                 dbCommand.Parameters.AddWithValue("@VacancyName", newVacancyDetails.VacancyName);
                 dbCommand.Parameters.AddWithValue("@PrimaryLocation", newVacancyDetails.PrimaryLocation);
                 dbCommand.Parameters.AddWithValue("@JobType", newVacancyDetails.JobType);
@@ -366,11 +366,11 @@ namespace CETRMS
 
                 Notification notification = new Notification();
                 Employer employer = new Employer();
-                EmployerManagement.GetEmployerByID(newVacancyDetails.UEEmployerID, ref employer);
+                EmployerManagement.GetEmployerByID(newVacancyDetails.CETEmployerId, ref employer);
                 notification.NotificationType = cNotificationType.AdminNotification;
                 notification.NotificationMessage = "New Vacancy of "+newVacancyDetails.VacancyName+" Added By " + employer.BusinessName;
                 notification.hyperlink = URLs.VacancyDetailsURL + iRetValue;
-                notification.UEClientID = "-1";
+                notification.CETClientID = "-1";
                 NotificationManagement.AddNewNotification(ref notification);
             }
             catch (Exception ex)
@@ -439,7 +439,7 @@ namespace CETRMS
                     foreach (DataRow row in dtData.Rows)
                     {
                         VacancyDetails.VacancyID = row["VacancyID"].ToString();
-                        VacancyDetails.UEEmployerID = row["UEEmployerId"].ToString();
+                        VacancyDetails.CETEmployerId = row["CETEmployerId"].ToString();
                         VacancyDetails.VacancyName = row["VacancyName"].ToString();
                         VacancyDetails.JobType = row["JobType"].ToString();
                         VacancyDetails.EmployementStatus = row["EmployementStatus"].ToString();
@@ -557,11 +557,11 @@ namespace CETRMS
 
                 Notification notification = new Notification();
                 Employer employer = new Employer();
-                EmployerManagement.GetEmployerByID(VacancyDetails.UEEmployerID, ref employer);
+                EmployerManagement.GetEmployerByID(VacancyDetails.CETEmployerId, ref employer);
                 notification.NotificationType = cNotificationType.AdminNotification;
                 notification.NotificationMessage = "Vacancy details of " + VacancyDetails.VacancyName + " updated By " + employer.BusinessName;
                 notification.hyperlink = URLs.VacancyDetailsURL + VacancyDetails.VacancyID;
-                notification.UEClientID = "-1";
+                notification.CETClientID = "-1";
                 NotificationManagement.AddNewNotification(ref notification);
 
             }
@@ -821,7 +821,7 @@ namespace CETRMS
                     {
                         Vacancy VacancyItem = new Vacancy();
                         VacancyItem.VacancyID = row["VacancyID"].ToString();
-                        VacancyItem.UEEmployerID = row["UEEmployerId"].ToString();
+                        VacancyItem.CETEmployerId = row["CETEmployerId"].ToString();
                         VacancyItem.VacancyStatusTypeID = row["VacancyStatusTypeId"].ToString();
                         VacancyItem.VacancyName = row["VacancyName"].ToString();
                         VacancyItem.VacancyCode = row["VacancyCode"].ToString();

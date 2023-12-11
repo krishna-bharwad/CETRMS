@@ -23,7 +23,7 @@
             <Mappings>
               <Mapping SourceColumn="ReferralID" DataSetColumn="ReferralID" />
               <Mapping SourceColumn="ReferralCode" DataSetColumn="ReferralCode" />
-              <Mapping SourceColumn="UECandidateID" DataSetColumn="UECandidateID" />
+              <Mapping SourceColumn="CETCandidateID" DataSetColumn="CETCandidateID" />
               <Mapping SourceColumn="ReferralStatus" DataSetColumn="ReferralStatus" />
             </Mappings>
             <Sources />
@@ -47,7 +47,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="UECandidateID" msprop:Generator_ColumnVarNameInTable="columnUECandidateID" msprop:Generator_ColumnPropNameInRow="UECandidateID" msprop:Generator_ColumnPropNameInTable="UECandidateIDColumn" msprop:Generator_UserColumnName="UECandidateID" type="xs:int" />
+              <xs:element name="CETCandidateID" msprop:Generator_ColumnVarNameInTable="columnCETCandidateID" msprop:Generator_ColumnPropNameInRow="CETCandidateID" msprop:Generator_ColumnPropNameInTable="CETCandidateIDColumn" msprop:Generator_UserColumnName="CETCandidateID" type="xs:int" />
               <xs:element name="ReferralStatus" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnReferralStatus" msprop:Generator_ColumnPropNameInRow="ReferralStatus" msprop:Generator_ColumnPropNameInTable="ReferralStatusColumn" msprop:Generator_UserColumnName="ReferralStatus" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">

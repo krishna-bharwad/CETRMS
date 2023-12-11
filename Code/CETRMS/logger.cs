@@ -17,7 +17,7 @@ namespace CETRMS
         public enum LogSeverity { DBG = 0, INF, ERR };
         public enum LogEvents
         {
-            UE_LOGIN = 1,
+            CET_LOGIN = 1,
             EMPLOYER_MANAGEMENT = 2,
             CANDIDATE_MANAGEMENT = 3,
             INTERVIEW_MANAGEMENT = 4,

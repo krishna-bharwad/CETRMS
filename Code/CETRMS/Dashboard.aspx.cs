@@ -14,11 +14,11 @@ namespace CETRMS
         {
             try
             {
-                if (Session["uerms_username"] == null)
+                if (Session["cetrms_username"] == null)
                 {
                     Response.Redirect("~/NewIndex.aspx", false);
                 }
-                logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "admin", ">>>OpenDashboard");
+                logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "admin", ">>>OpenDashboard");
                 if (!IsPostBack)
                 {
                     UpdateData();
@@ -28,19 +28,19 @@ namespace CETRMS
                     GetInterviewDashboardData();
                     GetPaymentDashboardData();
                 }
-                logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "admin", "<<<OpenDashboard");
+                logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "admin", "<<<OpenDashboard");
             }
             catch (Exception ex)
             {
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
             }
         }
         protected void GetCandidateDashboardData()
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", ">>>GetCandidateDashboardData");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", ">>>GetCandidateDashboardData");
             try
             {
 
@@ -58,14 +58,14 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<GetCandidateDashboardData");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<GetCandidateDashboardData");
         }
 
         protected void GetEmployerDashboardData()
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", ">>>GetEmployerDashboardData");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", ">>>GetEmployerDashboardData");
             try
             {
                 string DataJson = string.Empty;
@@ -82,14 +82,14 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<GetEmployerDashboardData");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<GetEmployerDashboardData");
         }
 
         protected void GetVacancyDashboardData()
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", ">>>GetVacancyDashboardData");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", ">>>GetVacancyDashboardData");
             try
             {
                 string DataJson = string.Empty;
@@ -105,13 +105,13 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<GetVacancyDashboardData");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<GetVacancyDashboardData");
         }
         protected void GetInterviewDashboardData()
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", ">>>GetInterviewDashboardData");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", ">>>GetInterviewDashboardData");
             try
             {
                 string DataJson = string.Empty;
@@ -130,13 +130,13 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<GetInterviewDashboardData");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<GetInterviewDashboardData");
         }
         protected void GetPaymentDashboardData() //Prashant
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", ">>>GetPaymentDashboardData");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", ">>>GetPaymentDashboardData");
             try
             {
                 string DataJson = string.Empty;
@@ -159,9 +159,9 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<GetPaymentDashboardData");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<GetPaymentDashboardData");
         }
 
         //protected void CandidateNewRegistration_Click(object sender, EventArgs e)
@@ -171,7 +171,7 @@ namespace CETRMS
 
         protected void CandidateCompletedDetailsLB_Click(object sender, EventArgs e)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "Candidate", ">>>CandidateCompletedDetails");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "Candidate", ">>>CandidateCompletedDetails");
             try
             {
                 Response.Redirect("~/CandidateList.aspx?CandidateStatus=" + CandidateStatus.AllCandidates, false);
@@ -181,14 +181,14 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<CandidateCompletedDetails");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<CandidateCompletedDetails");
         }
 
         protected void CandidateUnderSelectionProcessLB_Click(object sender, EventArgs e)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "Candidate", ">>>CandidateUnderSelectionProcess");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "Candidate", ">>>CandidateUnderSelectionProcess");
             try
             {
                 Response.Redirect("~/CandidateList.aspx?CandidateStatus=" + CandidateStatus.AppliedtoVacancy, false);
@@ -198,15 +198,15 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
 
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<CandidateUnderSelectionProcess");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<CandidateUnderSelectionProcess");
         }
 
         protected void CandidateFinalSelectedLB_Click(object sender, EventArgs e)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "Candidate", ">>>CandidateFinalSelected");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "Candidate", ">>>CandidateFinalSelected");
             try
             {
                 Response.Redirect("~/CandidateList.aspx?CandidateStatus=" + CandidateStatus.Hired, false);
@@ -216,15 +216,15 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
 
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<CandidateFinalSelected");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<CandidateFinalSelected");
         }
 
         protected void CandidateRejectedLB_Click(object sender, EventArgs e)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "Candidate", ">>>CandidateRejected");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "Candidate", ">>>CandidateRejected");
             try
             {
                 Response.Redirect("~/CandidateList.aspx?CandidateStatus=" + CandidateStatus.Rejected, false);
@@ -234,9 +234,9 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<CandidateRejected");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<CandidateRejected");
         }
 
         //protected void EmployerOnBoardedLB_Click(object sender, EventArgs e)
@@ -246,7 +246,7 @@ namespace CETRMS
 
         protected void ActiveEmployersWithOpenVacancy_Click(object sender, EventArgs e)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "Employer", ">>>ActiveEmployersWithOpenVacancy");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "Employer", ">>>ActiveEmployersWithOpenVacancy");
             try
             {
 
@@ -257,14 +257,14 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<ActiveEmployersWithOpenVacancy");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<ActiveEmployersWithOpenVacancy");
         }
 
         protected void InactiveEmployersWithFilledVacacnyLB_Click(object sender, EventArgs e)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "Employer", ">>>InactiveEmployersWithFilledVacacny");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "Employer", ">>>InactiveEmployersWithFilledVacacny");
             try
             {
                 Response.Redirect("~/EmployerList.aspx?EmployerStatus=" + EmployerStatus.FilledVacancy, false);
@@ -274,14 +274,14 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<InactiveEmployersWithFilledVacacny");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<InactiveEmployersWithFilledVacacny");
         }
 
         protected void EmployersWithNoVacancyLB_Click(object sender, EventArgs e)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "Employer", ">>>EmployersWithNoVacancy");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "Employer", ">>>EmployersWithNoVacancy");
             try
             { 
                 Response.Redirect("~/EmployerList.aspx?EmployerStatus=" + EmployerStatus.RegistrationFeePaid, false);
@@ -291,13 +291,13 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<EmployersWithNoVacancy");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<EmployersWithNoVacancy");
         }
         protected void EmployersInprocessVacancies_Click(object sender, EventArgs e)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "Employer", ">>>EmployersInprocessVacancies");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "Employer", ">>>EmployersInprocessVacancies");
             try
             {
                 Response.Redirect("~/EmployerList.aspx?EmployerStatus=" + EmployerStatus.InProcessVacancy, false);
@@ -307,15 +307,15 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
 
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<EmployersInprocessVacancies");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<EmployersInprocessVacancies");
         }
 
         protected void TotalVacanciesLB_Click(object sender, EventArgs e)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "Vacancy", ">>>TotalVacancies");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "Vacancy", ">>>TotalVacancies");
             try
             {
                 Response.Redirect("~/VacancyList.aspx?VacancyStatus=0", false);
@@ -325,15 +325,15 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
 
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<TotalVacancies");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<TotalVacancies");
         }
 
         protected void OpenVacanciesLB_Click(object sender, EventArgs e)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "Vacancy", ">>>OpenVacancies");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "Vacancy", ">>>OpenVacancies");
             try
             {
                 Response.Redirect("~/VacancyList.aspx?VacancyStatus=1", false);
@@ -343,14 +343,14 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<OpenVacancies");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<OpenVacancies");
         }
 
         protected void VacanciesUnderScheduledInterviewLB_Click(object sender, EventArgs e)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "Vacancy", ">>>VacanciesUnderScheduledInterview");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "Vacancy", ">>>VacanciesUnderScheduledInterview");
             try
             {
                 Response.Redirect("~/VacancyList.aspx?VacancyStatus=" + cVacancyStatus.InProcess, false);
@@ -360,15 +360,15 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
 
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<VacanciesUnderScheduledInterview");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<VacanciesUnderScheduledInterview");
         }
 
         protected void CloseVacanciesAfterFinalSelectionLB_Click(object sender, EventArgs e)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "Vacancy", ">>>CloseVacanciesAfterFinalSelection");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "Vacancy", ">>>CloseVacanciesAfterFinalSelection");
             try
             {
                 Response.Redirect("~/VacancyList.aspx?VacancyStatus=4", false);
@@ -378,15 +378,15 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
 
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<CloseVacanciesAfterFinalSelection");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<CloseVacanciesAfterFinalSelection");
         }
         // Prashant : Added Payment dashboard list pages
         protected void TotalPaymentReceivedLB_Click(object sender, EventArgs e)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "Payment", ">>>TotalPaymentReceived");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "Payment", ">>>TotalPaymentReceived");
             try
             {
                 Response.Redirect("~/PaymentList.aspx?PaymentStatus=" + cPaymentStatus.PaymentDone, false);
@@ -396,14 +396,14 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
 
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<TotalPaymentReceived");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<TotalPaymentReceived");
         }
         protected void OutstandingPaymentWithinTimeLB_Click(object sender, EventArgs e)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "Payment", ">>>OutstandingPaymentWithinTime");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "Payment", ">>>OutstandingPaymentWithinTime");
             try
             {
                 Response.Redirect("~/PaymentList.aspx?PaymentStatus=" + cPaymentStatus.PaymentDueWithinTime, false);
@@ -413,13 +413,13 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<OutstandingPaymentWithinTime");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<OutstandingPaymentWithinTime");
         }
         protected void OutstandingPaymentOutofTimeLB_Click(object sender, EventArgs e)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "Payment", ">>>OutstandingPaymentOutofTime");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "Payment", ">>>OutstandingPaymentOutofTime");
             try
             {
                 Response.Redirect("~/PaymentList.aspx?PaymentStatus=" + cPaymentStatus.PaymentDueOutOfTime, false);
@@ -429,13 +429,13 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<OutstandingPaymentOutofTime");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<OutstandingPaymentOutofTime");
         }
         protected void TotalPaymentRequestedLB_Click(object sender, EventArgs e)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "Payment", ">>>TotalPaymentRequested");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "Payment", ">>>TotalPaymentRequested");
             try
             {
                 Response.Redirect("~/PaymentList.aspx?PaymentStatus=" + cPaymentStatus.All, false);
@@ -445,15 +445,15 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
 
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<TotalPaymentRequested");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<TotalPaymentRequested");
         }
 
         protected void InterviewProposedLB_Click(object sender, EventArgs e)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "Interview", ">>>InterviewProposed");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "Interview", ">>>InterviewProposed");
             try
             {
                 Response.Redirect("~/InterviewList.aspx?InterviewStatus=" + InterviewCallStatus.InterviewProposed, false);
@@ -463,14 +463,14 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<InterviewProposed");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<InterviewProposed");
         }
 
         protected void InterviewScheduledLB_Click(object sender, EventArgs e)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "Interview", ">>>InterviewScheduled");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "Interview", ">>>InterviewScheduled");
             try
             {
                 Response.Redirect("~/InterviewList.aspx?InterviewStatus=" + InterviewCallStatus.InterviewScheduled, false);
@@ -480,14 +480,14 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<InterviewScheduled");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<InterviewScheduled");
         }
 
         protected void InterviewStartedLB_Click(object sender, EventArgs e)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "Interview", ">>>InterviewStarted");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "Interview", ">>>InterviewStarted");
             try
             {
                 Response.Redirect("~/InterviewList.aspx?InterviewStatus=" + InterviewCallStatus.InterviewStarted, false);
@@ -497,15 +497,15 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
 
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<InterviewStarted");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<InterviewStarted");
         }
 
         protected void InterviewDroppedLB_Click(object sender, EventArgs e)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "Interview", ">>>InterviewDropped");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "Interview", ">>>InterviewDropped");
             try
             {
 
@@ -516,14 +516,14 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
 
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<InterviewDropped");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<InterviewDropped");
         }
         protected void InterviewCancelledLB_Click(object sender, EventArgs e)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "Interview", ">>>InterviewCancelled");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "Interview", ">>>InterviewCancelled");
             try
             {
                 Response.Redirect("~/InterviewList.aspx?InterviewStatus=" + InterviewCallStatus.InterviewCancelled, false);
@@ -533,14 +533,14 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
 
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<InterviewCancelled");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<InterviewCancelled");
         }
         protected void InterviewRejectedLB_Click(object sender, EventArgs e)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "Interview", ">>>InterviewRejected");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "Interview", ">>>InterviewRejected");
             try
             {
                 Response.Redirect("~/InterviewList.aspx?InterviewStatus=" + InterviewCallStatus.InterviewRejected, false);
@@ -550,14 +550,14 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
 
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<InterviewRejected");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<InterviewRejected");
         }
         protected void InterviewCompletedLB_Click(object sender, EventArgs e)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "Interview", ">>>InterviewCompleted");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "Interview", ">>>InterviewCompleted");
             try
             {
                 Response.Redirect("~/InterviewList.aspx?InterviewStatus=" + InterviewCallStatus.InterviewCompleted, false);
@@ -567,14 +567,14 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
 
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<InterviewCompleted");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<InterviewCompleted");
         }
         protected void TotalPaymentNotificaitonGeneratedLB_Click(object sender, EventArgs e)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "Interview", ">>>TotalPaymentNotificaitonGenerated");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "Interview", ">>>TotalPaymentNotificaitonGenerated");
             try
             {
                 Response.Redirect("~/PaymentList.aspx?PaymentStatus=" + cPaymentStatus.All, false);
@@ -584,14 +584,14 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
 
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<TotalPaymentNotificaitonGenerated");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<TotalPaymentNotificaitonGenerated");
         }
         protected void TotalPaymentTransactionDoneLB_Click(object sender, EventArgs e)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "Interview", ">>>TotalPaymentTransactionDone");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "Interview", ">>>TotalPaymentTransactionDone");
             try
             {
                 Response.Redirect("~/PaymentList.aspx?PaymentStatus=" + cPaymentStatus.PaymentDone, false);
@@ -601,15 +601,15 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
 
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<TotalPaymentTransactionDone");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<TotalPaymentTransactionDone");
 
         }
         protected void TotalPaymentTransactionOverDueLB_Click(object sender, EventArgs e)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "Interview", ">>>TotalPaymentTransactionOverDue");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "Interview", ">>>TotalPaymentTransactionOverDue");
             try
             {
                 Response.Redirect("~/PaymentList.aspx?PaymentStatus=" + cPaymentStatus.PaymentDueOutOfTime, false);
@@ -619,10 +619,10 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
 
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<TotalPaymentTransactionOverDue");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<TotalPaymentTransactionOverDue");
 
         }
         protected void UpdateData()
@@ -632,7 +632,7 @@ namespace CETRMS
 
         protected void EmployerOnBoardLB_Click(object sender, EventArgs e)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "Empployer", ">>>EmployerOnBoard");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "Empployer", ">>>EmployerOnBoard");
             try
             {
                 Response.Redirect("~/EmployerList.aspx?EmployerStatus=" + EmployerStatus.AllEmployers, false);
@@ -642,16 +642,16 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
 
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<EmployerOnBoard");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<EmployerOnBoard");
 
         }
 
         protected void TotalTransferReferralDetailsLB_Click(object sender, EventArgs e)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "Referral", ">>>TotalTransferReferralDetails");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "Referral", ">>>TotalTransferReferralDetails");
             try
             {
                 Response.Redirect("~/ReferralDetails.aspx?ReferaalStatus=" + CReferralStatus.ReferralPaid, false);
@@ -661,10 +661,10 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "Exceptiopn Message" + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "Exception Message" + Message);
 
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<TotalTransferReferralDetails");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<TotalTransferReferralDetails");
         }
     }
 }

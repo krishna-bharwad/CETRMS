@@ -19,7 +19,7 @@ namespace CETRMS
         {
             try
             {
-                if (Session["uerms_username"] == null)
+                if (Session["cetrms_username"] == null)
                 {
                     Response.Redirect("~/NewIndex.aspx", false);
                 }
@@ -55,7 +55,7 @@ namespace CETRMS
                 dbCommand.Connection = dbConnection;
                 dbCommand.CommandType = CommandType.StoredProcedure;
                 dbCommand.CommandText = "sp_GetPaymentList";
-                dbCommand.Parameters.AddWithValue("@UEClientId", "-1");
+                dbCommand.Parameters.AddWithValue("@CETClientID", "-1");
                 dbCommand.Parameters.AddWithValue("@PaymentStatus", sPaymentStatus);
                 dbCommand.Parameters.AddWithValue("@PaymentType", "-1");
                 dbAdapter.SelectCommand = dbCommand;

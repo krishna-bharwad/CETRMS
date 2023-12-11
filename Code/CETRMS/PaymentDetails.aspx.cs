@@ -22,7 +22,7 @@ namespace CETRMS
         {
             try
             {
-                if (Session["uerms_username"] == null)
+                if (Session["cetrms_username"] == null)
                 {
                     Response.Redirect("~/NewIndex.aspx", false);
                 }
@@ -116,32 +116,32 @@ namespace CETRMS
                 {
                     case cPaymentType.CandidateRecruitmentFee:
                         PaymentTypeLBL.Text = "Candidate Recruitment Fee";
-                        CandidateManagement.GetCandidateFullDetails(payment.UEClientID, ref candidate);
+                        CandidateManagement.GetCandidateFullDetails(payment.CETClientID, ref candidate);
                         ClientNameLBL.Text = candidate.PersonalProfile.Name;
                         break;
                     case cPaymentType.EmployerRecruitmentFee:
                         PaymentTypeLBL.Text = "Employment Recruitment Fee";
-                        EmployerManagement.GetEmployerByID(payment.UEClientID, ref employer);
+                        EmployerManagement.GetEmployerByID(payment.CETClientID, ref employer);
                         ClientNameLBL.Text = employer.BusinessName;
                         break;
                     case cPaymentType.CandidateRegistrationFee:
                         PaymentTypeLBL.Text = "Candidate Registration Fee";
-                        CandidateManagement.GetCandidateFullDetails(payment.UEClientID, ref candidate);
+                        CandidateManagement.GetCandidateFullDetails(payment.CETClientID, ref candidate);
                         ClientNameLBL.Text = candidate.PersonalProfile.Name;
                         break;
                     case cPaymentType.EmployerRegistrationFee:
                         PaymentTypeLBL.Text = "Employment Registration Fee";
-                        EmployerManagement.GetEmployerByID(payment.UEClientID, ref employer);
+                        EmployerManagement.GetEmployerByID(payment.CETClientID, ref employer);
                         ClientNameLBL.Text = employer.BusinessName;
                         break;
                     case cPaymentType.CandidateRegistrationRenewal:
                         PaymentTypeLBL.Text = "Candidate Registration Renewal Fee";
-                        CandidateManagement.GetCandidateFullDetails(payment.UEClientID, ref candidate);
+                        CandidateManagement.GetCandidateFullDetails(payment.CETClientID, ref candidate);
                         ClientNameLBL.Text = candidate.PersonalProfile.Name;
                         break;
                     case cPaymentType.EmployerRegistrationRenewal:
                         PaymentTypeLBL.Text = "Employer Registration Renewal Fee";
-                        EmployerManagement.GetEmployerByID(payment.UEClientID, ref employer);
+                        EmployerManagement.GetEmployerByID(payment.CETClientID, ref employer);
                         ClientNameLBL.Text = employer.BusinessName;
                         break;
                 }

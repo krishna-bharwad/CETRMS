@@ -169,7 +169,7 @@ namespace CETRMS
 
                 //Notification notification = new Notification();
                 //notification.NotificationType = cNotificationType.AdminNotification;
-                //notification.UEClientID = "-1";
+                //notification.CETClientID = "-1";
                 //notification.NotificationMessage = "New Employer sign up : " + FacebookProfile.name;
                 //notification.hyperlink = URLs.EmployerDetailsURL + ClientID;
                 //NotificationManagement.AddNewNotification(ref notification);
@@ -255,7 +255,7 @@ namespace CETRMS
 
                 //Notification notification = new Notification();
                 //notification.NotificationType = cNotificationType.AdminNotification;
-                //notification.UEClientID = "-1";
+                //notification.CETClientID = "-1";
                 //notification.NotificationMessage = "New Employer sign up : " + GoogleProfile.name;
                 //notification.hyperlink = URLs.EmployerDetailsURL + ClientID;
                 //NotificationManagement.AddNewNotification(ref notification);
@@ -341,7 +341,7 @@ namespace CETRMS
 
                 //Notification notification = new Notification();
                 //notification.NotificationType = cNotificationType.AdminNotification;
-                //notification.UEClientID = "-1";
+                //notification.CETClientID = "-1";
                 //notification.NotificationMessage = "New Employer sign up : " + PersonalProfile.ProfileName;
                 //notification.hyperlink = URLs.EmployerDetailsURL + ClientID;
                 //NotificationManagement.AddNewNotification(ref notification);
@@ -368,8 +368,8 @@ namespace CETRMS
         /// <param name="AuthenticatorID">
         /// Authentication ID received from LDAP services
         /// </param>
-        /// <param name="UEClientID">
-        /// Fetched Client ID will be stored in UEClientID string.
+        /// <param name="CETClientID">
+        /// Fetched Client ID will be stored in CETClientID string.
         /// </param>
         /// <returns>
         /// <list type="bullet|number|table">
@@ -391,9 +391,9 @@ namespace CETRMS
         /// </item> 
         /// </list>
         /// </returns> 
-        public static int GetUEClientIdByAuthenticatorId(string AuthenticatorID, ref string UEClientID)
+        public static int GetCETClientIDByAuthenticatorId(string AuthenticatorID, ref string CETClientID)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.EMPLOYER_MANAGEMENT, "", ">>>GetUEClientIdByAuthenticatorId("+AuthenticatorID+")");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.EMPLOYER_MANAGEMENT, "", ">>>GetCETClientIDByAuthenticatorId("+AuthenticatorID+")");
             int iRetValue = -1;
             SqlConnection dbConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CETRMSDB"].ConnectionString);
             try
@@ -412,14 +412,14 @@ namespace CETRMS
                 {
                     foreach (DataRow row in dtData.Rows)
                     {
-                        UEClientID = row["ClientId"].ToString();
+                        CETClientID = row["ClientId"].ToString();
                         iRetValue = 1;
-                        logger.log(logger.LogSeverity.INF, logger.LogEvents.EMPLOYER_MANAGEMENT, "", "GetUEClientIdByAuthenticatorId :: Successfully Retreived ClientID.");
+                        logger.log(logger.LogSeverity.INF, logger.LogEvents.EMPLOYER_MANAGEMENT, "", "GetCETClientIDByAuthenticatorId :: Successfully Retreived ClientID.");
                     }
                 }
                 else
                 {
-                    logger.log(logger.LogSeverity.INF, logger.LogEvents.EMPLOYER_MANAGEMENT, "", "GetUEClientIdByAuthenticatorId :: Failed to Retreived ClientID. Incorrect AuthenticationID");
+                    logger.log(logger.LogSeverity.INF, logger.LogEvents.EMPLOYER_MANAGEMENT, "", "GetCETClientIDByAuthenticatorId :: Failed to Retreived ClientID. Incorrect AuthenticationID");
                     iRetValue = 0;
                 }
 
@@ -431,13 +431,13 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.EMPLOYER_MANAGEMENT, "", "GetUEClientIdByAuthenticatorId :: " + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.EMPLOYER_MANAGEMENT, "", "GetCETClientIDByAuthenticatorId :: " + Message);
             }
             finally
             {
                 dbConnection.Close();
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.EMPLOYER_MANAGEMENT, "", "<<<GetUEClientIdByAuthenticatorId :: " + iRetValue.ToString());
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.EMPLOYER_MANAGEMENT, "", "<<<GetCETClientIDByAuthenticatorId :: " + iRetValue.ToString());
             return iRetValue;
         }
         /// <summary>
@@ -536,7 +536,7 @@ namespace CETRMS
                             payment.Currency = paymentTypeDetails.Currency;
                             payment.Amount = paymentTypeDetails.Amount;
                             payment.TaxAmount = (paymentTypeDetails.Amount * paymentTypeDetails.Tax) / 100;
-                            payment.UEClientID = emp.EmployerID;
+                            payment.CETClientID = emp.EmployerID;
                             payment.DueDate = System.DateTime.Now;
                             payment.Reserve1 = string.Empty;
                             payment.Reserve2 = string.Empty;
@@ -545,14 +545,14 @@ namespace CETRMS
                             Notification notification = new Notification();
                             notification.NotificationType = cNotificationType.PersonalisedNotification;
                             notification.NotificationMessage = "Your are requested to pay Registration fee as per the policy after completion of profile. Please go to Payment section to check the due payment.";
-                            notification.UEClientID = emp.EmployerID;
+                            notification.CETClientID = emp.EmployerID;
                             notification.hyperlink = "#";
                             NotificationManagement.AddNewNotification(ref notification);
 
                             Notification Adminnotification = new Notification();
                             Adminnotification.NotificationType = cNotificationType.AdminNotification;
                             Adminnotification.NotificationMessage = "New Employer Registered: " + EmployerDetails.BusinessName;
-                            Adminnotification.UEClientID = "-1";
+                            Adminnotification.CETClientID = "-1";
                             Adminnotification.hyperlink = URLs.EmployerDetailsURL+EmployerDetails.EmployerID;
                             NotificationManagement.AddNewNotification(ref Adminnotification);
 

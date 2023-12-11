@@ -401,8 +401,8 @@
           <DataField>ReferralCode</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="UECandidateID">
-          <DataField>UECandidateID</DataField>
+        <Field Name="CETCandidateID">
+          <DataField>CETCandidateID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="ReferralStatus">
