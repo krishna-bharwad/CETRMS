@@ -70,10 +70,12 @@ button:focus {
 }
 
 .btn-success{
-    background-color:#66acac;
+    background-color:var(--cetblue);
+    border: none;
+    border-radius: 0;
 }
 .btn-success:hover{
-    background-color:#66acac;
+    background-color:var(--dark);
 }
 
 
@@ -190,8 +192,8 @@ input {
 
 .btn--signin {
     display: inline-block;
-    line-height: 30px;
-    padding: 0 33px;
+    line-height: 40px;
+    padding: 15px 15px;
     font-family: Calibri;
     cursor: pointer;
     color: #fff;
@@ -200,17 +202,24 @@ input {
     -moz-transition: all 0.4s ease;
     transition: all 0.4s ease;
     font-size: 16px;
-    width: 100%;
-    background-color: #339dad;
+    width: 55%;
+    background-color: var(--cetblue);
     margin-bottom: 3vh;
-    border-radius: 30px;
+    border-radius: 0px !important;
     border: 2px solid;
 }
     .btn--signin:hover {
         color:white;
-        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-        background:#66acac;
+        background-color: var(--cetblue);
+        /*border-top: 2px solid var(--dark);
+        border-left: 2px solid var(--dark);*/
+        line-height: 43px;
+        width: 57%;
     }
+
+.remMBox{
+    color: black;
+}
 
 .extra {
     padding-bottom: 1vh;
@@ -250,7 +259,7 @@ input {
     /*transform: translate(-50%, -50%);
     width: max-content;
     height: max-content;*/
-    background: rgba(0, 0, 0, .9);
+    background: /*rgba(0, 0, 0, .9)*/ white;
     box-sizing: border-box;
     max-width:100vw;
     overflow: hidden;
@@ -370,11 +379,11 @@ input {
     transition: all 0.4s ease;
     font-size: 18px;
     width: 100%;
-    background-color: #339dad;
+    background-color: var(--cetblue);
     color: rgba(var(--bs-btn-focus-shadow-rgb), .5);
     border-color: #ccc;
     margin-bottom: 1vh;
-    border-radius: 30px;
+    border-radius: 3px;
     border: 2px solid;
 }
 

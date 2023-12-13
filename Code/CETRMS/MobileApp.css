@@ -992,7 +992,7 @@ section {
     font-weight: 700;
 }
 
-.btn {
+/*.btn {
     background: #fff;
     padding: 0.9375rem 2.5rem;
     color: #363636;
@@ -1003,14 +1003,14 @@ section {
     box-shadow: 10px 0 40px rgba(0, 0, 0, 0.15);
     display: inline-block;
     cursor: pointer;
-}
+}*/
 
-    .btn:hover {
+   /* .btn:hover {
         background: #fff;
         color: #ffffff;
         transition: 0.3s;
         transform: scale(1.03);
-    }
+    }*/
 
 .red_dot {
     background: linear-gradient(to bottom, #d90647 10%, #eb402c 100%);
@@ -1190,12 +1190,12 @@ nav {
     }
 
 .download-btn {
-    background: white;
+    background: var(--cetblue) !important;
     /*background: linear-gradient(to bottom, #d90647 10%, #eb402c 100%);*/
     background-clip: border-box;
     -webkit-background-clip: text;
     /*-webkit-text-fill-color: transparent;*/
-    color: var(--dark);
+    color: white;
 }
 .download-btn:hover{
     background: var(--dark);

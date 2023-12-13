@@ -217,7 +217,7 @@
         }
 
         .contact-us .contact-us-content1 {
-            border-radius: 25px;
+            /*border-radius: 25px;*/
             padding: 50px;
             background-color: var(--dark);
             position: relative;
@@ -227,7 +227,7 @@
         #contact-form1 input {
             width: 100%;
             height: 50px;
-            border-radius: 25px;
+            border-radius: 3px;
             background-color: rgba(249, 235, 255, 0.15);
             border: none;
             outline: none;
@@ -259,10 +259,11 @@
         }
 
         button {
-            border-radius: 20px;
-            color: var(--dark);
+            /*border-radius: 20px;*/
+            color: white;
             border-color: var(--cetblue);
             padding: 3px;
+            background-color: var(--cetblue);
         }
 
         .background-header {
@@ -283,13 +284,13 @@
         }
 
         footer {
-            margin-top: 139px;
+            margin-top: 110px;
             position: relative;
             width: 100%;
             background-color: var(--dark);
             vertical-align: middle;
             min-height: 110px;
-            border-radius: 80px 80px 0px 0px;
+            /* border-radius: 80px 80px 0px 0px; */
             padding: 10px;
             bottom: 0;
         }
@@ -298,7 +299,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <header class="header-area header-sticky background-header">
+            <header class="header-area header-sticky">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
@@ -314,12 +315,13 @@
                                 <!-- ***** Menu Start ***** -->
 
                                 <ul class="nav">
-                                    <li class="scroll-to-section"><a href="CandidateMobileApplication.aspx" class="active">Candidate</a></li>
+                                    <li class="scroll-to-section"><a href="Newindex.aspx" class="active navA">Home</a></li>
+                                    <li class="scroll-to-section"><a href="CandidateMobileApplication.aspx" class="navA">Candidate</a></li>
                                     <li class="scroll-to-section">
-                                        <a href="CandidateMobileApplication.aspx" aria-haspopup="true" aria-expanded="false">Employer</a>
+                                        <a href="CandidateMobileApplication.aspx" aria-haspopup="true" class="navA" aria-expanded="false">Employer</a>
                                     </li>
 
-                                    <li class="scroll-to-section"><a href="Aboutus.aspx">Company</a></li>
+                                    <li class="scroll-to-section"><a href="Aboutus.aspx" class="navA">Company</a></li>
                                     <li class="scroll-to-section">
                                         <asp:LinkButton ID="LoginModalLB" runat="server" type="button" title="Log In" OnClick="LoginModalLB_Click">
                MIS SignIn
@@ -611,7 +613,7 @@ road, Navrangpura, Ahmedabad, Gujarat 380009<br />
                                         </div>
                                     </div>
                                     <div class="col-xs-5">
-                                        <label class="text-nowrap">Remember me</label>
+                                        <label class="text-nowrap remMBox">Remember me</label>
                                     </div>
                                 </div>
 

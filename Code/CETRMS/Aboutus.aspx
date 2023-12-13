@@ -72,23 +72,23 @@
             z-index: 999;
             margin-top: 10px;
         }
-        .header-area  {
-            /*background: linear-gradient(to bottom, #66acac 0%, #ffffff 100%);*/
-            border-radius: 0px 0px 25px 25px;
-            /*height: 80px !important;*/
-            position: fixed!important;
-            top: 0 !important;
+
+        .header-area {
+            position: absolute;
+            /* background: linear-gradient(to bottom, #ffffff 0%, #d9d9d9 100%); */
+            top: 15px;
             left: 0;
             right: 0;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.15) !important;
+            z-index: 100;
             -webkit-transition: all .5s ease 0s;
             -moz-transition: all .5s ease 0s;
             -o-transition: all .5s ease 0s;
             transition: all .5s ease 0s;
         }
-        .background-header {
+
+        /*.background-header {*/
             /*background: linear-gradient(to bottom, #66acac 0%, #ffffff 100%);*/
-            border-radius: 0px 0px 25px 25px;
+            /*border-radius: 0px 0px 25px 25px;
             height: 80px !important;
             position: fixed !important;
             top: 0 !important;
@@ -101,7 +101,7 @@
             transition: all .5s ease 0s;
             background-color: transparent;
             backdrop-filter: blur(10px);
-        }
+        }*/
         /*@media (max-width: 767px) {
             .header-area .main-nav {
                 overflow: hidden;
@@ -227,14 +227,15 @@
             height: 240px;
             border: 1px solid #808080;
         }
+
         footer {
-            margin-top: 163px;
+            margin-top: 110px;
             position: relative;
             width: 100%;
             background-color: var(--dark);
             vertical-align: middle;
             min-height: 110px;
-            border-radius: 80px 80px 0px 0px;
+            /* border-radius: 80px 80px 0px 0px; */
             padding: 10px;
             bottom: 0;
         }
@@ -247,7 +248,7 @@
     <form id="form1" runat="server">
         <div>
 
-       <header class="header-area header-sticky background-header">
+       <header class="header-area header-sticky">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
@@ -263,12 +264,13 @@
                                 <!-- ***** Menu Start ***** -->
 
                                 <ul class="nav">
-                                    <li class="scroll-to-section"><a href="CandidateMobileApplication.aspx" class="active">Candidate</a></li>
+                                     <li class="scroll-to-section"><a href="Newindex.aspx" class="active navA">Home</a></li>
+                                    <li class="scroll-to-section"><a href="CandidateMobileApplication.aspx" class="navA">Candidate</a></li>
                                     <li class="scroll-to-section">
-                                        <a href="CandidateMobileApplication.aspx" aria-haspopup="true" aria-expanded="false">Employer</a>
+                                        <a href="CandidateMobileApplication.aspx" aria-haspopup="true" class="navA" aria-expanded="false">Employer</a>
                                     </li>
 
-                                    <li class="scroll-to-section"><a href="Aboutus.aspx">Company</a></li>
+                                    <li class="scroll-to-section"><a href="Aboutus.aspx" class="navA">Company</a></li>
                                     <li class="scroll-to-section">
                                         <asp:LinkButton ID="LoginModalLB" runat="server" type="button" title="Log In" OnClick="LoginModalLB_Click">
                                               MIS SignIn
@@ -434,7 +436,7 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-5">
-                                    <label class="text-nowrap">Remember me</label>
+                                    <label class="text-nowrap remMBox">Remember me</label>
                                 </div>
                             </div>
                                        

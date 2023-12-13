@@ -50,7 +50,7 @@
             transition: all .5s ease 0s;
         }*/
         .header-area .main-nav ul.nav {
-            border-radius: 0px 0px 25px 25px;
+            /*border-radius: 0px 0px 25px 25px;*/
             flex-basis: 100%;
             margin-right: 0px;
             justify-content: right;
@@ -64,14 +64,12 @@
         }
 
         .header-area {
-            background: linear-gradient(to bottom, #66acac 0%, #ffffff 100%);
-            border-radius: 0px 0px 25px 25px;
-            /*height: 80px !important;*/
-            position: fixed !important;
-            top: 0 !important;
+            position: absolute;
+            /* background: linear-gradient(to bottom, #ffffff 0%, #d9d9d9 100%); */
+            top: 15px;
             left: 0;
             right: 0;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.15) !important;
+            z-index: 100;
             -webkit-transition: all .5s ease 0s;
             -moz-transition: all .5s ease 0s;
             -o-transition: all .5s ease 0s;
@@ -92,7 +90,7 @@
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
             border-color: transparent;
-            color: #fff;
+            color: black;
         }
 
         .input-group > .custom-file, .input-group > .custom-select, .input-group > .form-control {
@@ -239,7 +237,7 @@
 
             <div class="navbar navbar-inverse navbar-fixed-top">
                 <div class="container">
-                    <header class="header-area header-sticky background-header">
+                    <header class="header-area">
                         <div class="container">
                             <div class="row">
                                 <div class="col-12">
@@ -255,12 +253,13 @@
                                         <!-- ***** Menu Start ***** -->
 
                                         <ul class="nav">
-                                            <li class="scroll-to-section"><a href="CandidateMobileApplication.aspx" class="active">Candidate</a></li>
+                                            <li class="scroll-to-section"><a href="Newindex.aspx" class="active navA">Home</a></li>
+                                            <li class="scroll-to-section"><a href="CandidateMobileApplication.aspx" class="navA">Candidate</a></li>
                                             <li class="scroll-to-section">
-                                                <a href="CandidateMobileApplication.aspx" aria-haspopup="true" aria-expanded="false">Employer</a>
+                                                <a href="CandidateMobileApplication.aspx" class="navA" aria-haspopup="true" aria-expanded="false">Employer</a>
                                             </li>
 
-                                            <li class="scroll-to-section"><a href="Aboutus.aspx">Company</a></li>
+                                            <li class="scroll-to-section"><a href="Aboutus.aspx" class="navA">Company</a></li>
                                             <li class="scroll-to-section">
                                                 <asp:LinkButton ID="LoginModalLB" runat="server" type="button" title="Log In" OnClick="LoginModalLB_Click">
                MIS SignIn
@@ -597,7 +596,8 @@
                             </div>
                         </div>
                         <div class="col-xs-5">
-                            <label class="text-nowrap">Remember me</label>
+                                    <label class="text-nowrap remMBox">Remember me</label>
+                           
                         </div>
                     </div>
                                
