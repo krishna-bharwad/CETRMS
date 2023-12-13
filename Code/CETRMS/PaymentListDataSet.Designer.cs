@@ -295,7 +295,7 @@ namespace CETRMS {
             
             private global::System.Data.DataColumn columnTransactionType;
             
-            private global::System.Data.DataColumn columnUEClientID;
+            private global::System.Data.DataColumn columnCETClientID;
             
             private global::System.Data.DataColumn columnPaymentStatus;
             
@@ -406,9 +406,9 @@ namespace CETRMS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn UEClientIDColumn {
+            public global::System.Data.DataColumn CETClientIDColumn {
                 get {
-                    return this.columnUEClientID;
+                    return this.columnCETClientID;
                 }
             }
             
@@ -489,7 +489,7 @@ namespace CETRMS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_GetPaymentListForReportRow Addsp_GetPaymentListForReportRow(string PaymentOrderNo, string Currency, double Amount, double TaxAmount, System.DateTime DueDate, int PaymentType, string TransactionType, int UEClientID, int PaymentStatus, int NotificationID, int NotificationType, System.DateTime PaymentDate, string PaymentStatus1) {
+            public sp_GetPaymentListForReportRow Addsp_GetPaymentListForReportRow(string PaymentOrderNo, string Currency, double Amount, double TaxAmount, System.DateTime DueDate, int PaymentType, string TransactionType, int CETClientID, int PaymentStatus, int NotificationID, int NotificationType, System.DateTime PaymentDate, string PaymentStatus1) {
                 sp_GetPaymentListForReportRow rowsp_GetPaymentListForReportRow = ((sp_GetPaymentListForReportRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -500,7 +500,7 @@ namespace CETRMS {
                         DueDate,
                         PaymentType,
                         TransactionType,
-                        UEClientID,
+                        CETClientID,
                         PaymentStatus,
                         NotificationID,
                         NotificationType,
@@ -543,7 +543,7 @@ namespace CETRMS {
                 this.columnDueDate = base.Columns["DueDate"];
                 this.columnPaymentType = base.Columns["PaymentType"];
                 this.columnTransactionType = base.Columns["TransactionType"];
-                this.columnUEClientID = base.Columns["UEClientID"];
+                this.columnCETClientID = base.Columns["CETClientID"];
                 this.columnPaymentStatus = base.Columns["PaymentStatus"];
                 this.columnNotificationID = base.Columns["NotificationID"];
                 this.columnNotificationType = base.Columns["NotificationType"];
@@ -570,8 +570,8 @@ namespace CETRMS {
                 base.Columns.Add(this.columnPaymentType);
                 this.columnTransactionType = new global::System.Data.DataColumn("TransactionType", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTransactionType);
-                this.columnUEClientID = new global::System.Data.DataColumn("UEClientID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUEClientID);
+                this.columnCETClientID = new global::System.Data.DataColumn("CETClientID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCETClientID);
                 this.columnPaymentStatus = new global::System.Data.DataColumn("PaymentStatus", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPaymentStatus);
                 this.columnNotificationID = new global::System.Data.DataColumn("NotificationID", typeof(int), null, global::System.Data.MappingType.Element);
@@ -864,18 +864,18 @@ namespace CETRMS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int UEClientID {
+            public int CETClientID {
                 get {
                     try {
-                        return ((int)(this[this.tablesp_GetPaymentListForReport.UEClientIDColumn]));
+                        return ((int)(this[this.tablesp_GetPaymentListForReport.CETClientIDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'UEClientID\' in table \'sp_GetPaymentListForReport\' is DBNull" +
+                        throw new global::System.Data.StrongTypingException("The value for column \'CETClientID\' in table \'sp_GetPaymentListForReport\' is DBNull" +
                                 ".", e);
                     }
                 }
                 set {
-                    this[this.tablesp_GetPaymentListForReport.UEClientIDColumn] = value;
+                    this[this.tablesp_GetPaymentListForReport.CETClientIDColumn] = value;
                 }
             }
             
@@ -1050,14 +1050,14 @@ namespace CETRMS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsUEClientIDNull() {
-                return this.IsNull(this.tablesp_GetPaymentListForReport.UEClientIDColumn);
+            public bool IsCETClientIDNull() {
+                return this.IsNull(this.tablesp_GetPaymentListForReport.CETClientIDColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetUEClientIDNull() {
-                this[this.tablesp_GetPaymentListForReport.UEClientIDColumn] = global::System.Convert.DBNull;
+            public void SetCETClientIDNull() {
+                this[this.tablesp_GetPaymentListForReport.CETClientIDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1288,7 +1288,7 @@ namespace CETRMS.PaymentListDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("DueDate", "DueDate");
             tableMapping.ColumnMappings.Add("PaymentType", "PaymentType");
             tableMapping.ColumnMappings.Add("TransactionType", "TransactionType");
-            tableMapping.ColumnMappings.Add("UEClientID", "UEClientID");
+            tableMapping.ColumnMappings.Add("CETClientID", "CETClientID");
             tableMapping.ColumnMappings.Add("PaymentStatus", "PaymentStatus");
             tableMapping.ColumnMappings.Add("NotificationID", "NotificationID");
             tableMapping.ColumnMappings.Add("NotificationType", "NotificationType");
@@ -1313,7 +1313,7 @@ namespace CETRMS.PaymentListDataSetTableAdapters {
             this._commandCollection[0].CommandText = "dbo.sp_GetPaymentListForReport";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UEClientId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CETClientID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentStatus", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentType", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -1322,10 +1322,10 @@ namespace CETRMS.PaymentListDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(PaymentListDataSet.sp_GetPaymentListForReportDataTable dataTable, global::System.Nullable<int> UEClientId, global::System.Nullable<int> PaymentStatus, global::System.Nullable<int> PaymentType) {
+        public virtual int Fill(PaymentListDataSet.sp_GetPaymentListForReportDataTable dataTable, global::System.Nullable<int> CETClientID, global::System.Nullable<int> PaymentStatus, global::System.Nullable<int> PaymentType) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((UEClientId.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(UEClientId.Value));
+            if ((CETClientID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(CETClientID.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -1353,10 +1353,10 @@ namespace CETRMS.PaymentListDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual PaymentListDataSet.sp_GetPaymentListForReportDataTable GetData(global::System.Nullable<int> UEClientId, global::System.Nullable<int> PaymentStatus, global::System.Nullable<int> PaymentType) {
+        public virtual PaymentListDataSet.sp_GetPaymentListForReportDataTable GetData(global::System.Nullable<int> CETClientID, global::System.Nullable<int> PaymentStatus, global::System.Nullable<int> PaymentType) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((UEClientId.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(UEClientId.Value));
+            if ((CETClientID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(CETClientID.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;

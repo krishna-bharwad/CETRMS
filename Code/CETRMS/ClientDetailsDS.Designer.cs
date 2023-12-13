@@ -926,17 +926,17 @@ namespace CETRMS.ClientDetailsDSTableAdapters {
             this._commandCollection[0].CommandText = "dbo.sp_GetClientDetailsForInvoice";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UEClientId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CETClientID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(ClientDetailsDS.sp_GetClientDetailsForInvoiceDataTable dataTable, global::System.Nullable<int> UEClientId) {
+        public virtual int Fill(ClientDetailsDS.sp_GetClientDetailsForInvoiceDataTable dataTable, global::System.Nullable<int> CETClientID) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((UEClientId.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(UEClientId.Value));
+            if ((CETClientID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(CETClientID.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -952,10 +952,10 @@ namespace CETRMS.ClientDetailsDSTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual ClientDetailsDS.sp_GetClientDetailsForInvoiceDataTable GetData(global::System.Nullable<int> UEClientId) {
+        public virtual ClientDetailsDS.sp_GetClientDetailsForInvoiceDataTable GetData(global::System.Nullable<int> CETClientID) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((UEClientId.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(UEClientId.Value));
+            if ((CETClientID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(CETClientID.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;

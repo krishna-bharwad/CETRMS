@@ -617,8 +617,8 @@
           <DataField>EmployerRemarks</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="UERemarks">
-          <DataField>UERemarks</DataField>
+        <Field Name="CETRemarks">
+          <DataField>CETRemarks</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="CandidateRemarks">

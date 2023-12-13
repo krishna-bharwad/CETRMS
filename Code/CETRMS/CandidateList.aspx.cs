@@ -26,8 +26,8 @@ namespace CETRMS
         {
             try
             {
-                logger.log(logger.LogSeverity.INF, logger.LogEvents.CANDIDATE_MANAGEMENT, Session["uerms_username"].ToString(), "CandidateList Page opened.");
-                if (Session["uerms_username"] == null)
+                logger.log(logger.LogSeverity.INF, logger.LogEvents.CANDIDATE_MANAGEMENT, Session["cetrms_username"].ToString(), "CandidateList Page opened.");
+                if (Session["cetrms_username"] == null)
                 {
                     Response.Redirect("~/NewIndex.aspx", false);
                 }
@@ -68,7 +68,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CANDIDATE_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CANDIDATE_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
         }
         protected void SetCandidateTabDDL()
@@ -103,7 +103,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CANDIDATE_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CANDIDATE_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
         }
 
@@ -119,7 +119,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CANDIDATE_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CANDIDATE_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
         }
 
@@ -142,7 +142,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CANDIDATE_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CANDIDATE_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
         }
         protected bool ShowCandidateListPage(int PageNo)
@@ -259,7 +259,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CANDIDATE_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CANDIDATE_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
             return bRetValue;
         }
@@ -277,7 +277,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CANDIDATE_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CANDIDATE_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
         }
         protected void CandidateListTabDDL_SelectedIndexChanged(object sender, EventArgs e)
@@ -293,7 +293,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CANDIDATE_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CANDIDATE_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
         }
         protected void LocationDDL_SelectedIndexChanged(object sender, EventArgs e)
@@ -311,7 +311,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CANDIDATE_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CANDIDATE_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
         }
         protected void Button1_Click(object sender, EventArgs e)
@@ -349,7 +349,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CANDIDATE_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CANDIDATE_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
         }
     }

@@ -48,7 +48,7 @@ namespace CETRMS
                 dbCommand.Connection = dbConnection;
                 dbCommand.CommandType = CommandType.StoredProcedure;
                 dbCommand.CommandText = "sp_GetPaymentDashboard";
-                dbCommand.Parameters.AddWithValue("@UEClientID", "-1");
+                dbCommand.Parameters.AddWithValue("@CETClientID", "-1");
                 dbAdapter.SelectCommand = dbCommand;
                 dbAdapter.Fill(dtData);
                 if (dtData.Rows.Count > 0)
@@ -145,7 +145,7 @@ namespace CETRMS
                 dbCommand.Connection = dbConnection;
                 dbCommand.CommandType = CommandType.StoredProcedure;
                 dbCommand.CommandText = "sp_GetPaymentDashboard";
-                dbCommand.Parameters.AddWithValue("@UEClientID", ClientID);
+                dbCommand.Parameters.AddWithValue("@CETClientID", ClientID);
                 dbAdapter.SelectCommand = dbCommand;
                 dbAdapter.Fill(dtData);
                 if (dtData.Rows.Count > 0)
@@ -306,7 +306,7 @@ namespace CETRMS
                 dbCommand.Parameters.AddWithValue("@Amount", payment.Amount);
                 dbCommand.Parameters.AddWithValue("@TaxAmount", payment.TaxAmount);
                 dbCommand.Parameters.AddWithValue("@PaymentType", payment.PaymentType);
-                dbCommand.Parameters.AddWithValue("@UEClientID", payment.UEClientID);
+                dbCommand.Parameters.AddWithValue("@CETClientID", payment.CETClientID);
                 dbCommand.Parameters.AddWithValue("@DueDate", payment.DueDate);
                 dbCommand.Parameters.AddWithValue("@Reserve1", payment.Reserve1);
                 dbCommand.Parameters.AddWithValue("@Reserve2", payment.Reserve2);
@@ -387,80 +387,80 @@ namespace CETRMS
 
                 if(payment.PaymentType == cPaymentType.EmployerRegistrationFee && payment.PaymentStatus == cPaymentStatus.PaymentDone) 
                 {
-                    string ClientID = payment.UEClientID;
+                    string ClientID = payment.CETClientID;
                     Employer employer = new Employer();
-                    EmployerManagement.GetEmployerByID(payment.UEClientID, ref employer);
+                    EmployerManagement.GetEmployerByID(payment.CETClientID, ref employer);
 
                     Notification AdminNotification = new Notification();
                     AdminNotification.NotificationType = cNotificationType.AdminNotification;
-                    AdminNotification.UEClientID = "-1";
+                    AdminNotification.CETClientID = "-1";
                     AdminNotification.NotificationMessage = "New Employer sign up : " + employer.BusinessName;
                     AdminNotification.hyperlink = URLs.EmployerDetailsURL + ClientID;
                     NotificationManagement.AddNewNotification(ref AdminNotification);
 
                     Notification EmpNotification = new Notification();
                     EmpNotification.NotificationType = cNotificationType.PersonalisedNotification;
-                    EmpNotification.UEClientID = employer.EmployerID;
+                    EmpNotification.CETClientID = employer.EmployerID;
                     EmpNotification.NotificationMessage = "You payment for Registration Fee is successful. You can download invoice copy from Payments section of Mobile App.";
                     EmpNotification.hyperlink = "#";
                     NotificationManagement.AddNewNotification(ref EmpNotification);
                 }
                 if (payment.PaymentType == cPaymentType.CandidateRegistrationFee && payment.PaymentStatus == cPaymentStatus.PaymentDone)
                 {
-                    string ClientID = payment.UEClientID;
+                    string ClientID = payment.CETClientID;
                     Candidate candidate = new Candidate();
-                    CandidateManagement.GetCandidatePersonalDetails(payment.UEClientID, ref candidate);
+                    CandidateManagement.GetCandidatePersonalDetails(payment.CETClientID, ref candidate);
 
                     Notification AdminNotification = new Notification();
                     AdminNotification.NotificationType = cNotificationType.AdminNotification;
-                    AdminNotification.UEClientID = "-1";
+                    AdminNotification.CETClientID = "-1";
                     AdminNotification.NotificationMessage = "New Candidate sign up : " + candidate.PersonalProfile.Name;
                     AdminNotification.hyperlink = URLs.EmployerDetailsURL + ClientID;
                     NotificationManagement.AddNewNotification(ref AdminNotification);
 
                     Notification CandNotification = new Notification();
                     CandNotification.NotificationType = cNotificationType.PersonalisedNotification;
-                    CandNotification.UEClientID = candidate.CandidateID;
+                    CandNotification.CETClientID = candidate.CandidateID;
                     CandNotification.NotificationMessage = "You payment for Registration Fee is successful. You can download invoice copy from Payments section of Mobile App.";
                     CandNotification.hyperlink = "#";
                     NotificationManagement.AddNewNotification(ref CandNotification);
                 }
                 if (payment.PaymentType == cPaymentType.EmployerRecruitmentFee && payment.PaymentStatus == cPaymentStatus.PaymentDone)
                 {
-                    string ClientID = payment.UEClientID;
+                    string ClientID = payment.CETClientID;
                     Employer employer = new Employer();
-                    EmployerManagement.GetEmployerByID(payment.UEClientID, ref employer);
+                    EmployerManagement.GetEmployerByID(payment.CETClientID, ref employer);
 
                     Notification AdminNotification = new Notification();
                     AdminNotification.NotificationType = cNotificationType.AdminNotification;
-                    AdminNotification.UEClientID = "-1";
+                    AdminNotification.CETClientID = "-1";
                     AdminNotification.NotificationMessage = "Employer Recruitment Fee paid by " + employer.BusinessName;
                     AdminNotification.hyperlink = URLs.EmployerDetailsURL + ClientID;
                     NotificationManagement.AddNewNotification(ref AdminNotification);
 
                     Notification EmpNotification = new Notification();
                     EmpNotification.NotificationType = cNotificationType.PersonalisedNotification;
-                    EmpNotification.UEClientID = employer.EmployerID;
+                    EmpNotification.CETClientID = employer.EmployerID;
                     EmpNotification.NotificationMessage = "You payment for Employer Recruitment Fee is successful. You can download invoice copy from Payments section of Mobile App.";
                     EmpNotification.hyperlink = "#";
                     NotificationManagement.AddNewNotification(ref EmpNotification);
                 }
                 if (payment.PaymentType == cPaymentType.CandidateRecruitmentFee && payment.PaymentStatus == cPaymentStatus.PaymentDone)
                 {
-                    string ClientID = payment.UEClientID;
+                    string ClientID = payment.CETClientID;
                     Employer employer = new Employer();
-                    EmployerManagement.GetEmployerByID(payment.UEClientID, ref employer);
+                    EmployerManagement.GetEmployerByID(payment.CETClientID, ref employer);
 
                     Notification AdminNotification = new Notification();
                     AdminNotification.NotificationType = cNotificationType.AdminNotification;
-                    AdminNotification.UEClientID = "-1";
+                    AdminNotification.CETClientID = "-1";
                     AdminNotification.NotificationMessage = "Employer Recruitment Fee paid by " + employer.BusinessName;
                     AdminNotification.hyperlink = URLs.EmployerDetailsURL + ClientID;
                     NotificationManagement.AddNewNotification(ref AdminNotification);
 
                     Notification EmpNotification = new Notification();
                     EmpNotification.NotificationType = cNotificationType.PersonalisedNotification;
-                    EmpNotification.UEClientID = employer.EmployerID;
+                    EmpNotification.CETClientID = employer.EmployerID;
                     EmpNotification.NotificationMessage = "You payment for Candidate Recruitment Fee is successful. You can download invoice copy from Payments section of Mobile App.";
                     EmpNotification.hyperlink = "#";
                     NotificationManagement.AddNewNotification(ref EmpNotification);
@@ -536,7 +536,7 @@ namespace CETRMS
                         payment.DueDate = Convert.ToDateTime(row["DueDate"]);
                         payment.PaymentType = (int)row["PaymentType"];
                         payment.TransactionType = row["TransactionType"].ToString();
-                        payment.UEClientID = row["UEClientID"].ToString();
+                        payment.CETClientID = row["CETClientID"].ToString();
                         payment.PaymentStatus = (int)row["PaymentStatus"];
                         payment.NotificationID = (int)row["NotificationID"];
                         payment.NotificationType = (int)row["NotificationType"];
@@ -638,7 +638,7 @@ namespace CETRMS
                         payment.DueDate = Convert.ToDateTime(row["DueDate"]);
                         payment.PaymentType = (int)row["PaymentType"];
                         payment.TransactionType = row["TransactionType"].ToString();
-                        payment.UEClientID = row["UEClientID"].ToString();
+                        payment.CETClientID = row["CETClientID"].ToString();
                         payment.PaymentStatus = (int)row["PaymentStatus"];
                         payment.NotificationID = (int)row["NotificationID"];
                         payment.NotificationType = (int)row["NotificationType"];
@@ -678,7 +678,7 @@ namespace CETRMS
         /// <param name="payments">
         /// Object List payment in which list of payment details will be filled.
         /// </param> 
-        /// <param name="UEClientID">
+        /// <param name="CETClientID">
         /// Client whose payment details are required. (Default -1 : for all candidates)
         /// </param>         
         /// <param name="PaymentStatus">
@@ -703,7 +703,7 @@ namespace CETRMS
         /// </item> 
         /// </list>
         /// </returns> 
-        public static int GetPaymentList(ref List<Payment> payments, string UEClientID = "-1", int PaymentStatus = -1, int PaymentType = -1, bool GenerateReceipt = false)
+        public static int GetPaymentList(ref List<Payment> payments, string CETClientID = "-1", int PaymentStatus = -1, int PaymentType = -1, bool GenerateReceipt = false)
         {
             logger.log(logger.LogSeverity.DBG, logger.LogEvents.PAYMENT_MANAGEMENT, "", ">>>GetPaymentList()");
             int iRetValue = 0;
@@ -717,7 +717,7 @@ namespace CETRMS
                 dbCommand.Connection = dbConnection;
                 dbCommand.CommandType = CommandType.StoredProcedure;
                 dbCommand.CommandText = "sp_GetPaymentList";
-                dbCommand.Parameters.AddWithValue("@UEClientId", UEClientID);
+                dbCommand.Parameters.AddWithValue("@CETClientID", CETClientID);
                 dbCommand.Parameters.AddWithValue("@PaymentStatus", PaymentStatus);
                 dbCommand.Parameters.AddWithValue("@PaymentType", PaymentType);
                 dbAdapter.SelectCommand = dbCommand;
@@ -735,7 +735,7 @@ namespace CETRMS
                         payment.DueDate = Convert.ToDateTime(row["DueDate"]);
                         payment.PaymentType = (int)row["PaymentType"];
                         payment.TransactionType = row["TransactionType"].ToString();
-                        payment.UEClientID = row["UEClientID"].ToString();
+                        payment.CETClientID = row["CETClientID"].ToString();
                         payment.PaymentStatus = (int)row["PaymentStatus"];
                         payment.NotificationID = (int)row["NotificationID"];
                         payment.NotificationType = (int)row["NotificationType"];
@@ -795,7 +795,7 @@ namespace CETRMS
         /// <param name="payments">
         /// Object List payment in which list of payment details will be filled.
         /// </param> 
-        /// <param name="UEClientID">
+        /// <param name="CETClientID">
         /// Client whose payment details are required. (Default -1 : for all candidates)
         /// </param>         
         /// <param name="PaymentStatus">
@@ -826,7 +826,7 @@ namespace CETRMS
         /// </item> 
         /// </list>
         /// </returns> 
-        public static int GetPaymentList(ref List<Payment> payments, DateTime FromPaymentDate, DateTime ToPaymentDate, string UEClientID = "-1", int PaymentStatus = -1, int PaymentType = -1, bool GenerateReceipt = false)
+        public static int GetPaymentList(ref List<Payment> payments, DateTime FromPaymentDate, DateTime ToPaymentDate, string CETClientID = "-1", int PaymentStatus = -1, int PaymentType = -1, bool GenerateReceipt = false)
         {
             logger.log(logger.LogSeverity.DBG, logger.LogEvents.PAYMENT_MANAGEMENT, "", ">>>GetPaymentListByPeriod()");
             int iRetValue = 0;
@@ -840,7 +840,7 @@ namespace CETRMS
                 dbCommand.Connection = dbConnection;
                 dbCommand.CommandType = CommandType.StoredProcedure;
                 dbCommand.CommandText = "sp_GetPaymentListByPeriod";
-                dbCommand.Parameters.AddWithValue("@UEClientId", UEClientID);
+                dbCommand.Parameters.AddWithValue("@CETClientID", CETClientID);
                 dbCommand.Parameters.AddWithValue("@PaymentStatus", PaymentStatus);
                 dbCommand.Parameters.AddWithValue("@PaymentType", PaymentType);
                 dbCommand.Parameters.AddWithValue("@FromDate", FromPaymentDate);
@@ -860,7 +860,7 @@ namespace CETRMS
                         payment.DueDate = Convert.ToDateTime(row["DueDate"]);
                         payment.PaymentType = (int)row["PaymentType"];
                         payment.TransactionType = row["TransactionType"].ToString();
-                        payment.UEClientID = row["UEClientID"].ToString();
+                        payment.CETClientID = row["CETClientID"].ToString();
                         payment.PaymentStatus = (int)row["PaymentStatus"];
                         payment.NotificationID = (int)row["NotificationID"];
                         payment.NotificationType = (int)row["NotificationType"];
@@ -1011,7 +1011,7 @@ namespace CETRMS
             logger.log(logger.LogSeverity.DBG, logger.LogEvents.PAYMENT_MANAGEMENT, "", "<<<GetPaymentTypeDetails :: " + iRetValue.ToString());
             return iRetValue;
         }
-        public static int GetPaymentLogByClientId(string UEClientID, ref List<PaymentLog> PaymentLog)
+        public static int GetPaymentLogByClientId(string CETClientID, ref List<PaymentLog> PaymentLog)
         {
             logger.log(logger.LogSeverity.DBG, logger.LogEvents.PAYMENT_MANAGEMENT, "", ">>>GetPaymentLog()");
             int iRetValue = 0;
@@ -1026,7 +1026,7 @@ namespace CETRMS
                 dbCommand.Connection = dbConnection;
                 dbCommand.CommandType = CommandType.StoredProcedure;
                 dbCommand.CommandText = "sp_GetPaymentLog";
-                dbCommand.Parameters.AddWithValue("@UEClientID", UEClientID);
+                dbCommand.Parameters.AddWithValue("@CETClientID", CETClientID);
                 dbAdapter.SelectCommand = dbCommand;
                 dbAdapter.Fill(dtData);
                 if (dtData.Rows.Count > 0)

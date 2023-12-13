@@ -21,7 +21,7 @@ namespace CETRMS
         {
             try
             {
-                if (Session["uerms_username"] == null)
+                if (Session["cetrms_username"] == null)
                 {
                     Response.Redirect("~/NewIndex.aspx", false);
                 }
@@ -37,7 +37,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
         }
         protected void FillEmployerDDL() //Prashant
@@ -57,7 +57,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
 
         }
@@ -66,7 +66,7 @@ namespace CETRMS
             try
             {
                 EmployerId = EmployerDDL.SelectedValue;
-                vacancies.Add(new Vacancy { VacancyName = "All", UEEmployerID = EmployerId, VacancyID = cVacancyStatus.All.ToString() });
+                vacancies.Add(new Vacancy { VacancyName = "All", CETEmployerId = EmployerId, VacancyID = cVacancyStatus.All.ToString() });
                 VacancyManager.GetVacancyListByEmployer(EmployerId, ref vacancies, cVacancyStatus.InProcess);
                 VacancyDDL.DataSource = vacancies;
                 VacancyDDL.DataTextField = "VacancyName";
@@ -79,7 +79,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
         }
         protected void EmployerDDL_SelectedIndexChanged(object sender, EventArgs e)
@@ -124,7 +124,7 @@ namespace CETRMS
                     VacancyManager.GetVacancyDetails(jobApplication.VacancyID, ref vacancy);
                     CandidateId = jobApplication.CandidateID;
                     CandidateManagement.GetCandidateFullDetails(jobApplication.CandidateID, ref candidate);
-                    EmployerManagement.GetEmployerByID(vacancy.UEEmployerID, ref employer);
+                    EmployerManagement.GetEmployerByID(vacancy.CETEmployerId, ref employer);
                     dt.Rows.Add(employer.Name, candidate.PersonalProfile.Name, vacancy.VacancyName, interviews[i].DurationInMinutes, interviews[i].ChosenTimeZone, interviews[i].InterviewID);
                 }
                 ProposedInterviewsGV.DataSource = dt;
@@ -140,7 +140,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
         }
         protected void ScheduleInterviewGv_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -161,7 +161,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
         }
         protected void InterviewID_OnClick(object sender, EventArgs e)
@@ -177,7 +177,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
         }
 

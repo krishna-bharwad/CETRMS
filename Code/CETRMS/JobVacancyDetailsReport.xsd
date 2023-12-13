@@ -23,7 +23,7 @@
             </MainSource>
             <Mappings>
               <Mapping SourceColumn="VacancyID" DataSetColumn="VacancyID" />
-              <Mapping SourceColumn="UEEmployerId" DataSetColumn="UEEmployerId" />
+              <Mapping SourceColumn="CETEmployerId" DataSetColumn="CETEmployerId" />
               <Mapping SourceColumn="VacancyStatusTypeId" DataSetColumn="VacancyStatusTypeId" />
               <Mapping SourceColumn="VacancyName" DataSetColumn="VacancyName" />
               <Mapping SourceColumn="VacancyCode" DataSetColumn="VacancyCode" />
@@ -52,7 +52,7 @@
           <xs:complexType>
             <xs:sequence>
               <xs:element name="VacancyID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnVacancyID" msprop:Generator_ColumnPropNameInRow="VacancyID" msprop:Generator_ColumnPropNameInTable="VacancyIDColumn" msprop:Generator_UserColumnName="VacancyID" type="xs:int" />
-              <xs:element name="UEEmployerId" msprop:Generator_ColumnVarNameInTable="columnUEEmployerId" msprop:Generator_ColumnPropNameInRow="UEEmployerId" msprop:Generator_ColumnPropNameInTable="UEEmployerIdColumn" msprop:Generator_UserColumnName="UEEmployerId" type="xs:int" />
+              <xs:element name="CETEmployerId" msprop:Generator_ColumnVarNameInTable="columnCETEmployerId" msprop:Generator_ColumnPropNameInRow="CETEmployerId" msprop:Generator_ColumnPropNameInTable="CETEmployerIdColumn" msprop:Generator_UserColumnName="CETEmployerId" type="xs:int" />
               <xs:element name="VacancyStatusTypeId" msprop:Generator_ColumnVarNameInTable="columnVacancyStatusTypeId" msprop:Generator_ColumnPropNameInRow="VacancyStatusTypeId" msprop:Generator_ColumnPropNameInTable="VacancyStatusTypeIdColumn" msprop:Generator_UserColumnName="VacancyStatusTypeId" type="xs:int" minOccurs="0" />
               <xs:element name="VacancyName" msprop:Generator_ColumnVarNameInTable="columnVacancyName" msprop:Generator_ColumnPropNameInRow="VacancyName" msprop:Generator_ColumnPropNameInTable="VacancyNameColumn" msprop:Generator_UserColumnName="VacancyName" minOccurs="0">
                 <xs:simpleType>

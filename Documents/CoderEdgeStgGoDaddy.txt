@@ -1,0 +1,21 @@
+Server Name:A2NWPLSK14SQL-v03.shr.prod.iad2.secureserver.net
+Database Name:ph18157139172_cetrms
+User: cet_uerms
+Password:^wb5Qb07
+
+
+
+Server Name: A2NWPLSK14SQL-v03.shr.prod.iad2.secureserver.net
+Database Name: ph18157139172_SyslogDB
+User: cet_uerms
+Password:^wb5Qb07
+
+
+Ftp Name: coder-edgestg.com
+User: cetrms_ftp
+Password: 7#qo7dO96
+
+Mobile App ftp
+FTP name: coder-edgestg.com
+User: cetrms_app
+Password: es165Xw^1

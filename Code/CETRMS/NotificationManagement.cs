@@ -12,7 +12,7 @@ namespace CETRMS
     public static class NotificationManagement
     {
         /// <summary>
-        /// Add New Notification as Unread into system. Required values are  notification.NotificationType, notification.NotificationMessage, notification.UEClientID, notification.hyperlink.
+        /// Add New Notification as Unread into system. Required values are  notification.NotificationType, notification.NotificationMessage, notification.CETClientID, notification.hyperlink.
         /// </summary>
         /// <param name="notification">
         /// Object of type notification, which will be inserted into database.
@@ -53,7 +53,7 @@ namespace CETRMS
                 dbCommand.CommandText = "sp_InsertNewNotification";
                 dbCommand.Parameters.AddWithValue("@NotificationType", notification.NotificationType);
                 dbCommand.Parameters.AddWithValue("@NotificationMessage", notification.NotificationMessage);
-                dbCommand.Parameters.AddWithValue("@UEClientID", notification.UEClientID);
+                dbCommand.Parameters.AddWithValue("@CETClientID", notification.CETClientID);
                 dbCommand.Parameters.AddWithValue("@Hyperlink", notification.hyperlink);
                 dbAdapter.SelectCommand = dbCommand;
                 dbAdapter.Fill(dtData);
@@ -254,9 +254,9 @@ namespace CETRMS
             iRetValue = NotificationManagement.UpdateNotificationStatus(notification);
             return iRetValue;
         }
-        public static int GetNotificationList(ref List<Notification> notifications, string UEClientID, int NotificationType = -1, int NotificationStatus = -1, int NotificationCount = -1 )
+        public static int GetNotificationList(ref List<Notification> notifications, string CETClientID, int NotificationType = -1, int NotificationStatus = -1, int NotificationCount = -1 )
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.NOTIFICATION_MANAGEMENT, "", ">>>GetNotificationList("+ UEClientID + "," + NotificationType + ","+ NotificationStatus + "," + NotificationCount + ")");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.NOTIFICATION_MANAGEMENT, "", ">>>GetNotificationList("+ CETClientID + "," + NotificationType + ","+ NotificationStatus + "," + NotificationCount + ")");
             int iRetValue = 0;
             SqlConnection dbConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CETRMSDB"].ConnectionString);
             try
@@ -269,7 +269,7 @@ namespace CETRMS
                 dbCommand.Connection = dbConnection;
                 dbCommand.CommandType = CommandType.StoredProcedure;
                 dbCommand.CommandText = "sp_GetNotificationList";
-                dbCommand.Parameters.AddWithValue("@UEClientId", UEClientID);
+                dbCommand.Parameters.AddWithValue("@CETClientID", CETClientID);
                 dbCommand.Parameters.AddWithValue("@NotificationType", NotificationType);
                 dbCommand.Parameters.AddWithValue("@NotificationStatus", NotificationStatus);
                 dbAdapter.SelectCommand = dbCommand;
@@ -310,15 +310,15 @@ namespace CETRMS
             logger.log(logger.LogSeverity.DBG, logger.LogEvents.NOTIFICATION_MANAGEMENT, "", "<<<GetNotificationList :: " + iRetValue.ToString());
             return iRetValue;
         }
-        public static int GetNotificationStatistics(ref string NotificationSummaryJSON, string UEClientID = "-1", int NotificationType = -1)
+        public static int GetNotificationStatistics(ref string NotificationSummaryJSON, string CETClientID = "-1", int NotificationType = -1)
         {
        
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.NOTIFICATION_MANAGEMENT, "", ">>>GetNotificationStatistics(" + UEClientID + ", " + NotificationType + ")");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.NOTIFICATION_MANAGEMENT, "", ">>>GetNotificationStatistics(" + CETClientID + ", " + NotificationType + ")");
             int iRetValue = 0;
             int iTemp;
-            if(!Int32.TryParse(UEClientID,out iTemp))
+            if(!Int32.TryParse(CETClientID,out iTemp))
             {
-                logger.log(logger.LogSeverity.INF, logger.LogEvents.NOTIFICATION_MANAGEMENT, "", "GetNotificationStatistics :: Incorrect id - " + UEClientID + ")");
+                logger.log(logger.LogSeverity.INF, logger.LogEvents.NOTIFICATION_MANAGEMENT, "", "GetNotificationStatistics :: Incorrect id - " + CETClientID + ")");
                 return iRetValue;
             }
             SqlConnection dbConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CETRMSDB"].ConnectionString);
@@ -331,7 +331,7 @@ namespace CETRMS
                 dbCommand.Connection = dbConnection;
                 dbCommand.CommandType = CommandType.StoredProcedure;
                 dbCommand.CommandText = "sp_GetNotificationSummary";
-                dbCommand.Parameters.AddWithValue("@UEClientID", UEClientID);
+                dbCommand.Parameters.AddWithValue("@CETClientID", CETClientID);
                 dbCommand.Parameters.AddWithValue("@NotificationType", NotificationType);
                 dbAdapter.SelectCommand = dbCommand;
                 dbAdapter.Fill(dtData);

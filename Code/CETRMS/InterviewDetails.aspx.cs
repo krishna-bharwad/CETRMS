@@ -22,7 +22,7 @@ namespace CETRMS
         {
             try
             {
-                if (Session["uerms_username"] == null)
+                if (Session["cetrms_username"] == null)
                 {
                     Response.Redirect("~/NewIndex.aspx", false);
                 }
@@ -42,7 +42,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
         }
         protected void ScheduledInterviewButtonValidation()
@@ -67,12 +67,12 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
         }
         protected void GetInterviewDetail()
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["uerms_username"].ToString(), ">>>GetInterviewDetail()");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["cetrms_username"].ToString(), ">>>GetInterviewDetail()");
             try
             {
                 string InterviewId = Request.QueryString["InterviewID"];
@@ -87,7 +87,7 @@ namespace CETRMS
                 string VacancyId = jobApplication.VacancyID;
                 VacancyManager.GetVacancyDetails(VacancyId, ref vacancy);
 
-                string EmployerId = vacancy.UEEmployerID;
+                string EmployerId = vacancy.CETEmployerId;
                 EmployerManagement.GetEmployerByID(EmployerId, ref employer, true);
 
                 string locationCode = candidate.ContactDetails.CurrentStateCode;
@@ -369,14 +369,14 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["uerms_username"].ToString(), "<<<GetInterviewDetail()");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["cetrms_username"].ToString(), "<<<GetInterviewDetail()");
         }
 
         protected void ScheduleInterview_btn(object send, EventArgs e)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["uerms_username"].ToString(), ">>>ScheduleInterview_btn()");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["cetrms_username"].ToString(), ">>>ScheduleInterview_btn()");
             try
             {
                 if (MeetingStartTimeTXT.Text != "")
@@ -393,9 +393,9 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["uerms_username"].ToString(), "<<<ScheduleInterview_btn()");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["cetrms_username"].ToString(), "<<<ScheduleInterview_btn()");
         }
         protected void RescheduleInterview_btn(object send, EventArgs e)
         {
@@ -422,7 +422,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
         }
         protected void SendEmailToIndivisuals(object send, EventArgs e)
@@ -441,7 +441,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
         }
 
@@ -457,7 +457,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.INTERVIEW_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
         }
     }

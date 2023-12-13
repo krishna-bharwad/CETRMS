@@ -75,7 +75,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.NOTIFICATION_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.NOTIFICATION_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
             return bRetValue;
         }
@@ -91,7 +91,7 @@ namespace CETRMS
                     {
                         if (VacancyManager.GetVacancyDetails(jobApplication.VacancyID, ref vacancy) == 1)
                         {
-                            if (EmployerManagement.GetEmployerByID(vacancy.UEEmployerID, ref employer) == 1)
+                            if (EmployerManagement.GetEmployerByID(vacancy.CETEmployerId, ref employer) == 1)
                             {
                                 EmployerEmail = employer.email;
                                 if (CandidateManagement.GetCandidatePersonalDetails(jobApplication.CandidateID, ref candidate) == 1)
@@ -109,18 +109,18 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.NOTIFICATION_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.NOTIFICATION_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
             return bRetValue;
         }
-        public bool GetProfileDetail(string _UEClientID, int ClientType)
+        public bool GetProfileDetail(string _CETClientID, int ClientType)
         {
             bool bRetValue = false;
             try
             {
                 if (ClientType == cClientType.Employer)
                 {
-                    if (EmployerManagement.GetEmployerByID(_UEClientID, ref employer) == 1)
+                    if (EmployerManagement.GetEmployerByID(_CETClientID, ref employer) == 1)
                     {
                         ProfileName = employer.BusinessName;
                         EmployerEmail = employer.email;
@@ -129,7 +129,7 @@ namespace CETRMS
                 }
                 else
                 {
-                    if (CandidateManagement.GetCandidatePersonalDetails(_UEClientID, ref candidate) == 1)
+                    if (CandidateManagement.GetCandidatePersonalDetails(_CETClientID, ref candidate) == 1)
                     {
                         ProfileName = candidate.PersonalProfile.Name;
                         CandidateEmail = candidate.PersonalProfile.CandidateEmail;
@@ -142,7 +142,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.NOTIFICATION_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.NOTIFICATION_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
             return bRetValue;
         }
@@ -158,7 +158,7 @@ namespace CETRMS
                     {
                         case cPaymentType.EmployerRegistrationFee:
                             ServiceTypeName = "Employer Registration Fee";
-                            EmployerManagement.GetEmployerByID(payment.UEClientID, ref employer);
+                            EmployerManagement.GetEmployerByID(payment.CETClientID, ref employer);
                             BillingTo = employer.BusinessName + "\r\n";
                             BillingTo = BillingTo + employer.address + "\r\n";
                             BillingTo = BillingTo + LocationManagement.GetStateDetail(employer.LocationStateCode).StateName + ", " + LocationManagement.GetCountryDetail(employer.LocationStateCode).CountryName + "\r\n";
@@ -166,7 +166,7 @@ namespace CETRMS
                             break;
                         case cPaymentType.EmployerRecruitmentFee:
                             ServiceTypeName = "Employer Recruitment Fee";
-                            EmployerManagement.GetEmployerByID(payment.UEClientID, ref employer);
+                            EmployerManagement.GetEmployerByID(payment.CETClientID, ref employer);
                             BillingTo = employer.BusinessName + "\r\n";
                             BillingTo = BillingTo + employer.address + "\r\n";
                             BillingTo = BillingTo + LocationManagement.GetStateDetail(employer.LocationStateCode).StateName + ", " + LocationManagement.GetCountryDetail(employer.LocationStateCode).CountryName + "\r\n";
@@ -174,7 +174,7 @@ namespace CETRMS
                             break;
                         case cPaymentType.EmployerRegistrationRenewal:
                             ServiceTypeName = "Employer Registration Renewal Fee";
-                            EmployerManagement.GetEmployerByID(payment.UEClientID, ref employer);
+                            EmployerManagement.GetEmployerByID(payment.CETClientID, ref employer);
                             BillingTo = employer.BusinessName + "\r\n";
                             BillingTo = BillingTo + employer.address + "\r\n";
                             BillingTo = BillingTo + LocationManagement.GetStateDetail(employer.LocationStateCode).StateName + ", " + LocationManagement.GetCountryDetail(employer.LocationStateCode).CountryName + "\r\n";
@@ -182,7 +182,7 @@ namespace CETRMS
                             break;
                         case cPaymentType.CandidateRegistrationFee:
                             ServiceTypeName = "Candidate Registration Fee";
-                            CandidateManagement.GetCandidateFullDetails(payment.UEClientID, ref candidate);
+                            CandidateManagement.GetCandidateFullDetails(payment.CETClientID, ref candidate);
                             BillingTo = candidate.PersonalProfile.Name + "\r\n";
                             BillingTo = BillingTo + candidate.ContactDetails.CurrentAddress + "\r\n";
                             BillingTo = BillingTo + LocationManagement.GetStateDetail(candidate.ContactDetails.CurrentStateCode).StateName + ", " + LocationManagement.GetCountryDetail(candidate.ContactDetails.CurrentStateCode).CountryName + "\r\n";
@@ -190,7 +190,7 @@ namespace CETRMS
                             break;
                         case cPaymentType.CandidateRecruitmentFee:
                             ServiceTypeName = "Candidate Recruitment Fee";
-                            CandidateManagement.GetCandidateFullDetails(payment.UEClientID, ref candidate);
+                            CandidateManagement.GetCandidateFullDetails(payment.CETClientID, ref candidate);
                             BillingTo = candidate.PersonalProfile.Name + "\r\n";
                             BillingTo = BillingTo + candidate.ContactDetails.CurrentAddress + "\r\n";
                             BillingTo = BillingTo + LocationManagement.GetStateDetail(candidate.ContactDetails.CurrentStateCode).StateName + ", " + LocationManagement.GetCountryDetail(candidate.ContactDetails.CurrentStateCode).CountryName + "\r\n";
@@ -198,7 +198,7 @@ namespace CETRMS
                             break;
                         case cPaymentType.CandidateRegistrationRenewal:
                             ServiceTypeName = "Candidate Registration Renewal Fee";
-                            CandidateManagement.GetCandidateFullDetails(payment.UEClientID, ref candidate);
+                            CandidateManagement.GetCandidateFullDetails(payment.CETClientID, ref candidate);
                             BillingTo = candidate.PersonalProfile.Name + "\r\n";
                             BillingTo = BillingTo + candidate.ContactDetails.CurrentAddress + "\r\n";
                             BillingTo = BillingTo + LocationManagement.GetStateDetail(candidate.ContactDetails.CurrentStateCode).StateName + ", " + LocationManagement.GetCountryDetail(candidate.ContactDetails.CurrentStateCode).CountryName + "\r\n";
@@ -212,7 +212,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.NOTIFICATION_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.NOTIFICATION_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
             return bRetValue;
         }
@@ -269,7 +269,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.NOTIFICATION_MANAGEMENT, Session["uerms_username"].ToString(), Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.NOTIFICATION_MANAGEMENT, Session["cetrms_username"].ToString(), Message);
             }
 
             return bRetValue;

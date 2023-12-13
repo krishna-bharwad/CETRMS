@@ -24,7 +24,7 @@ namespace CETRMS
                 dbCommand.Connection = dbConnection;
                 dbCommand.CommandType = CommandType.StoredProcedure;
                 dbCommand.CommandText = "sp_AddTestimonial";
-                dbCommand.Parameters.AddWithValue("@UEClientID", testimonial.UEClientId);
+                dbCommand.Parameters.AddWithValue("@CETClientID", testimonial.CETClientID);
                 dbCommand.Parameters.AddWithValue("@ResponseDate", testimonial.ResponseDate);
                 dbCommand.Parameters.AddWithValue("@ResponseMessage", testimonial.ResponseMessage);
                 dbCommand.Parameters.AddWithValue("@Rating", testimonial.Rating);
@@ -60,7 +60,7 @@ namespace CETRMS
                 SqlDataAdapter dbAdapter = new SqlDataAdapter();
                 DataTable dtData = new DataTable();
                 dbCommand.Connection = dbConnection;
-                dbCommand.CommandText = "SELECT [RecID], [UEClientID],[ResponseDate],[Rating],[ResponseMessage],[IsShown] FROM [UETestimonials] Where TestimonialId = @TestimonialID";
+                dbCommand.CommandText = "SELECT [RecID], [CETClientID],[ResponseDate],[Rating],[ResponseMessage],[IsShown] FROM [UETestimonials] Where TestimonialId = @TestimonialID";
                 dbCommand.Parameters.AddWithValue("@TestimonialID", TestimonialID);
                 dbAdapter.SelectCommand = dbCommand;
                 dbAdapter.Fill(dtData);
@@ -69,7 +69,7 @@ namespace CETRMS
                     foreach(DataRow row in dtData.Rows)
                     {
                         testimonial.TestimonialID = row["RecID"].ToString();
-                        testimonial.UEClientId = row["UEClientID"].ToString();
+                        testimonial.CETClientID = row["CETClientID"].ToString();
                         testimonial.ResponseDate = Convert.ToDateTime(row["ResponseDate"]);
                         testimonial.ResponseMessage = row["ResponseMessage"].ToString();
                         testimonial.IsShown = (int)row["IsShown"];
@@ -118,7 +118,7 @@ namespace CETRMS
                         Testimonial testimonial = new Testimonial();
 
                         testimonial.TestimonialID = row["RecID"].ToString();
-                        testimonial.UEClientId = row["UEClientID"].ToString();
+                        testimonial.CETClientID = row["CETClientID"].ToString();
                         testimonial.ResponseDate = Convert.ToDateTime(row["ResponseDate"]);
                         testimonial.ResponseMessage = row["ResponseMessage"].ToString();
                         testimonial.IsShown = (int)row["IsShown"];
@@ -169,7 +169,7 @@ namespace CETRMS
                         Testimonial testimonial = new Testimonial();
 
                         testimonial.TestimonialID = row["RecID"].ToString();
-                        testimonial.UEClientId = row["UEClientID"].ToString();
+                        testimonial.CETClientID = row["CETClientID"].ToString();
                         testimonial.ResponseDate = Convert.ToDateTime(row["ResponseDate"]);
                         testimonial.ResponseMessage = row["ResponseMessage"].ToString();
                         testimonial.IsShown = (int)row["IsShown"];

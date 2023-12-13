@@ -50,7 +50,7 @@ namespace CETRMS
         /// </exception>
         public static int AuthenticateUEStaff(string _UserId, string _Password)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", ">>> AuthenticateUEStaff(" + _UserId + ", " + _Password + ")");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", ">>> AuthenticateUEStaff(" + _UserId + ", " + _Password + ")");
             int iRetValue = -1;
             SqlConnection dbConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CETRMSDB"].ConnectionString);
             try
@@ -79,11 +79,11 @@ namespace CETRMS
                             ExceptionMessage = "Incorrect Password";       
                             break;
                     }
-                    logger.log(logger.LogSeverity.INF, logger.LogEvents.UE_LOGIN, "", "AuthenticateEmployer :: " + _UserId + " cannot login. Message: " + ExceptionMessage);
+                    logger.log(logger.LogSeverity.INF, logger.LogEvents.CET_LOGIN, "", "AuthenticateEmployer :: " + _UserId + " cannot login. Message: " + ExceptionMessage);
                     //throw new CETRMSExceptions(ExceptionMessage);   
                 }
                 else
-                    logger.log(logger.LogSeverity.INF, logger.LogEvents.UE_LOGIN, "", "AuthenticateEmployer :: " + _UserId + " successfully loggedIn.");
+                    logger.log(logger.LogSeverity.INF, logger.LogEvents.CET_LOGIN, "", "AuthenticateEmployer :: " + _UserId + " successfully loggedIn.");
             }
             catch (Exception ex)
             {
@@ -91,13 +91,13 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", Message);
             }
             finally
             {
                 dbConnection.Close();
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<AuthenticateEmployer :: " + iRetValue.ToString());
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<AuthenticateEmployer :: " + iRetValue.ToString());
             return iRetValue;
         }
         /// <summary>
@@ -128,7 +128,7 @@ namespace CETRMS
         /// </returns>          
         public static int AddNewUEStaff(ref UEStaffMember NewStaffMember)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", ">>> AddNewUEStaff(" + new JavaScriptSerializer().Serialize(NewStaffMember).ToString() + ")");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", ">>> AddNewUEStaff(" + new JavaScriptSerializer().Serialize(NewStaffMember).ToString() + ")");
 
             int iRetValue = 0;
             SqlConnection dbConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CETRMSDB"].ConnectionString);
@@ -152,7 +152,7 @@ namespace CETRMS
                 dbAdapter.Fill(dtData);
                 iRetValue = (int)dtData.Rows[0][0];
                 NewStaffMember.UserId = dtData.Rows[0][0].ToString();
-                logger.log(logger.LogSeverity.INF, logger.LogEvents.UE_LOGIN, "", "AddNewUEStaff :: New Staff Member " + NewStaffMember.Name + " added successfully.");
+                logger.log(logger.LogSeverity.INF, logger.LogEvents.CET_LOGIN, "", "AddNewUEStaff :: New Staff Member " + NewStaffMember.Name + " added successfully.");
 
             }
             catch (Exception ex)
@@ -161,13 +161,13 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "AddNewUEStaff :: " + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "AddNewUEStaff :: " + Message);
             }
             finally
             {
                 dbConnection.Close();
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<AddNewUEStaff :: " + iRetValue.ToString());
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<AddNewUEStaff :: " + iRetValue.ToString());
             return iRetValue;
         }
         /// <summary>
@@ -218,7 +218,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", Message);
             }
             finally
             {
@@ -254,7 +254,7 @@ namespace CETRMS
         /// </returns> 
         public static int ResetUEStaffPassword(UEStaffMember StaffMemberDetails)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", ">>>ResetUEStaffPassword(" + new JavaScriptSerializer().Serialize(StaffMemberDetails) + ")");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", ">>>ResetUEStaffPassword(" + new JavaScriptSerializer().Serialize(StaffMemberDetails) + ")");
             int iRetValue = 0;
             SqlConnection dbConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CETRMSDB"].ConnectionString);
             try
@@ -266,7 +266,7 @@ namespace CETRMS
                 dbCommand.Parameters.AddWithValue("@UserId", StaffMemberDetails.UserId);
                 dbCommand.ExecuteNonQuery();
                 iRetValue = 1;
-                logger.log(logger.LogSeverity.INF, logger.LogEvents.UE_LOGIN, "", "ResetUEStaffPassword :: UE Staff member details updated successfully.");
+                logger.log(logger.LogSeverity.INF, logger.LogEvents.CET_LOGIN, "", "ResetUEStaffPassword :: UE Staff member details updated successfully.");
             }
             catch (Exception ex)
             {
@@ -274,13 +274,13 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "ResetUEStaffPassword :: " + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "ResetUEStaffPassword :: " + Message);
             }
             finally
             {
                 dbConnection.Close();
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<ResetUEStaffPassword :: " + iRetValue.ToString());
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<ResetUEStaffPassword :: " + iRetValue.ToString());
             return iRetValue;
         }
         /// <summary>
@@ -311,7 +311,7 @@ namespace CETRMS
         /// </returns>
         public static int UpdateUEStaff(UEStaffMember NewStaffMember)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", ">>>UpdateUEStaff(" + new JavaScriptSerializer().Serialize(NewStaffMember) + ")");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", ">>>UpdateUEStaff(" + new JavaScriptSerializer().Serialize(NewStaffMember) + ")");
             int iRetValue = 0;
             SqlConnection dbConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CETRMSDB"].ConnectionString);
             try
@@ -331,7 +331,7 @@ namespace CETRMS
                 dbCommand.Parameters.AddWithValue("@UserStatus", NewStaffMember.UserStatus);
                 dbCommand.ExecuteNonQuery();
                 iRetValue = 1;
-                logger.log(logger.LogSeverity.INF, logger.LogEvents.UE_LOGIN, "", "UpdateUEStaff :: UE Staff member details updated successfully.");
+                logger.log(logger.LogSeverity.INF, logger.LogEvents.CET_LOGIN, "", "UpdateUEStaff :: UE Staff member details updated successfully.");
             }
             catch (Exception ex)
             {
@@ -339,13 +339,13 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "UpdateUEStaff :: " + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "UpdateUEStaff :: " + Message);
             }
             finally
             {
                 dbConnection.Close();
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<UpdateUEStaff :: " + iRetValue.ToString());
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<UpdateUEStaff :: " + iRetValue.ToString());
             return iRetValue;
         }
         /// <summary>
@@ -376,7 +376,7 @@ namespace CETRMS
         /// </returns>
         public static int GetStaffMemberDetails(string userid, ref UEStaffMember StaffMemberDetails)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", ">>>GetStaffMemberDetails("+ userid+", ref UEStaffMember StaffMemberDetails)");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", ">>>GetStaffMemberDetails("+ userid+", ref UEStaffMember StaffMemberDetails)");
             int iRetValue = 0;
             SqlConnection dbConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CETRMSDB"].ConnectionString);
             SqlDataAdapter dbAdapter = new SqlDataAdapter();
@@ -394,7 +394,7 @@ namespace CETRMS
 
                 if(dtData.Rows.Count>0)
                 {
-                    logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "sp_GetStaffDetails:: fetched rows :: " + dtData.Rows.Count.ToString());
+                    logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "sp_GetStaffDetails:: fetched rows :: " + dtData.Rows.Count.ToString());
                     foreach (DataRow row in dtData.Rows)
                     {
                         StaffMemberDetails.UserId = row["userid"].ToString();
@@ -409,10 +409,10 @@ namespace CETRMS
                         StaffMemberDetails.Designation = row["Designation"].ToString();
 
 
-                        // logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "sp_GetStaffDetails:: fetched row :: " + new JavaScriptSerializer().Serialize(StaffMemberDetails).ToString());
+                        // logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "sp_GetStaffDetails:: fetched row :: " + new JavaScriptSerializer().Serialize(StaffMemberDetails).ToString());
                     }
                 }
-                logger.log(logger.LogSeverity.INF, logger.LogEvents.UE_LOGIN, "", "Staff details fetched successfully.");
+                logger.log(logger.LogSeverity.INF, logger.LogEvents.CET_LOGIN, "", "Staff details fetched successfully.");
                 iRetValue = 1;
             }
             catch (Exception ex)
@@ -421,13 +421,13 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "GetStaffMemberDetails :: " + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "GetStaffMemberDetails :: " + Message);
             }
             finally
             {
                 dbConnection.Close();
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<GetStaffMemberDetails :: " + iRetValue.ToString());
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<GetStaffMemberDetails :: " + iRetValue.ToString());
             return iRetValue;
         }
 
@@ -462,7 +462,7 @@ namespace CETRMS
         /// </returns>  
         public static int UpdatePassword(string UserId,string OldPassword, string NewPassword)
         {
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", ">>>UpdatePassword(" + UserId + ",string OldPassword, string NewPassword)");
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", ">>>UpdatePassword(" + UserId + ",string OldPassword, string NewPassword)");
 
             int iRetValue = -1;
             SqlConnection dbConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CETRMSDB"].ConnectionString);
@@ -491,7 +491,7 @@ namespace CETRMS
                 {
                     Message = "Old Password OR UserId is Incorrect";   // if iRetValue=-1 then 
                 }
-                logger.log(logger.LogSeverity.INF, logger.LogEvents.UE_LOGIN, "", "UpdatePassword :: " + Message);
+                logger.log(logger.LogSeverity.INF, logger.LogEvents.CET_LOGIN, "", "UpdatePassword :: " + Message);
             }
             catch (Exception ex)
             {
@@ -499,13 +499,13 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "UpdatePassword :: " + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "UpdatePassword :: " + Message);
             }
             finally
             {
                 dbConnection.Close();
             }
-            logger.log(logger.LogSeverity.DBG, logger.LogEvents.UE_LOGIN, "", "<<<UpdatePassword :: " + iRetValue.ToString());
+            logger.log(logger.LogSeverity.DBG, logger.LogEvents.CET_LOGIN, "", "<<<UpdatePassword :: " + iRetValue.ToString());
             return iRetValue;
         }
         public static int GetVisaTypeList(ref List<VisaType> VisaTypeList, string CountryName = "all")
@@ -547,7 +547,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "UpdatePassword :: " + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "UpdatePassword :: " + Message);
             }
             finally
             {
@@ -596,7 +596,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "UpdatePassword :: " + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "UpdatePassword :: " + Message);
             }
             finally
             {
@@ -641,7 +641,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "AddVisaTypeDetails :: " + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "AddVisaTypeDetails :: " + Message);
             }
             finally
             {
@@ -682,7 +682,7 @@ namespace CETRMS
                 string Message = "Error: " + ex.Message + "\r\n";
                 System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
                 Message = Message + t.ToString();
-                logger.log(logger.LogSeverity.ERR, logger.LogEvents.UE_LOGIN, "", "AddVisaTypeDetails :: " + Message);
+                logger.log(logger.LogSeverity.ERR, logger.LogEvents.CET_LOGIN, "", "AddVisaTypeDetails :: " + Message);
             }
             finally
             {

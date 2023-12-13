@@ -125,12 +125,12 @@ namespace CETRMS
 #endif
 
             string sRetValue = "";
-            string UEClientId = string.Empty;
-            int RetValue = CandidateManagement.GetUEClientIdByAuthenticatorId(AuthenticatorID, ref UEClientId);
+            string CETClientID = string.Empty;
+            int RetValue = CandidateManagement.GetCETClientIDByAuthenticatorId(AuthenticatorID, ref CETClientID);
             switch (RetValue)
             {
                 case 1:
-                    sRetValue = UEClientId;
+                    sRetValue = CETClientID;
                     break;
                 case 0:
                     sRetValue = "AuthenticatorID not registered";
@@ -644,7 +644,7 @@ namespace CETRMS
         }
         [WebMethod]
         [SoapHeader("SoapHeader")]
-        public string GetNotificationSummary(string UEClientID)
+        public string GetNotificationSummary(string CETClientID)
         {
 
 #if SECURE            
@@ -656,7 +656,7 @@ namespace CETRMS
 
             string sRetValue = "";
             int RetValue;
-            RetValue = NotificationManagement.GetNotificationStatistics(ref sRetValue, UEClientID);
+            RetValue = NotificationManagement.GetNotificationStatistics(ref sRetValue, CETClientID);
             switch (RetValue)
             {
                 case 1:
@@ -672,7 +672,7 @@ namespace CETRMS
         }
         [WebMethod]
         [SoapHeader("SoapHeader")]
-        public string GetAllNotificaitonList(string UEClientID)
+        public string GetAllNotificaitonList(string CETClientID)
         {
 
 #if SECURE            
@@ -685,7 +685,7 @@ namespace CETRMS
             string sRetValue = "";
             List<Notification> notificationList = new List<Notification>();
             int RetValue;
-            RetValue = NotificationManagement.GetNotificationList(ref notificationList, UEClientID, cNotificationType.AllNotifications, cNotificationStatus.AllNotifications);
+            RetValue = NotificationManagement.GetNotificationList(ref notificationList, CETClientID, cNotificationType.AllNotifications, cNotificationStatus.AllNotifications);
             switch (RetValue)
             {
                 case 1:
@@ -703,7 +703,7 @@ namespace CETRMS
         }
         [WebMethod]
         [SoapHeader("SoapHeader")]
-        public string GetUnreadNotificaitonList(string UEClientID)
+        public string GetUnreadNotificaitonList(string CETClientID)
         {
 
 #if SECURE            
@@ -716,7 +716,7 @@ namespace CETRMS
             string sRetValue = "";
             List<Notification> notificationList = new List<Notification>();
             int RetValue;
-            RetValue = NotificationManagement.GetNotificationList(ref notificationList, UEClientID, cNotificationType.AllNotifications, cNotificationStatus.NotificationUnread);
+            RetValue = NotificationManagement.GetNotificationList(ref notificationList, CETClientID, cNotificationType.AllNotifications, cNotificationStatus.NotificationUnread);
             switch (RetValue)
             {
                 case 1:
@@ -928,7 +928,7 @@ namespace CETRMS
         }
         [WebMethod]
         [SoapHeader("SoapHeader")]
-        public string GetPaymentLog(string UEClientID)
+        public string GetPaymentLog(string CETClientID)
         {
 #if SECURE
             if (SoapHeader == null)
@@ -939,7 +939,7 @@ namespace CETRMS
             string sRetValue = string.Empty;
             List<PaymentLog> paymentlog = new List<PaymentLog>();
             int RetValue;
-            RetValue = PaymentManagement.GetPaymentLogByClientId(UEClientID, ref paymentlog);
+            RetValue = PaymentManagement.GetPaymentLogByClientId(CETClientID, ref paymentlog);
             switch (RetValue)
             {
                 case 1:
@@ -947,7 +947,7 @@ namespace CETRMS
                     sRetValue = json.Replace("},{", ",").Replace("[", "").Replace("]", "");
                     break;
                 case -2:
-                    sRetValue = "UEClientId does not matched";
+                    sRetValue = "CETClientID does not matched";
                     break;
                 case -1:
                     sRetValue = "Error: Payment log Cannot be fetched";
@@ -1147,7 +1147,7 @@ namespace CETRMS
         }
         [WebMethod]
         [SoapHeader("SoapHeader")]
-        public string GetPaymentList(string UEClientID, int PaymentStatus, int PaymentType)
+        public string GetPaymentList(string CETClientID, int PaymentStatus, int PaymentType)
         {
 #if SECURE
             if (SoapHeader == null)
@@ -1160,7 +1160,7 @@ namespace CETRMS
             try
             {
                 List<Payment> payments = new List<Payment>();
-                RetValue = PaymentManagement.GetPaymentList(ref payments, UEClientID, PaymentStatus, PaymentType);
+                RetValue = PaymentManagement.GetPaymentList(ref payments, CETClientID, PaymentStatus, PaymentType);
                 switch (RetValue)
                 {
                     case 1:

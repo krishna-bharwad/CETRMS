@@ -46,7 +46,7 @@ namespace CETRMS
                     DataTable dtData = new DataTable();
                     dbCommand.Connection = dbConnection;//krishna
                     dbCommand.CommandType = CommandType.Text; //Krishna
-                    dbCommand.CommandText = "select StateName, CountryName, CurrencyName, CurrencySymbol from UEStates where StateCode = @StateCode"; // Add s in UEStates
+                    dbCommand.CommandText = "select StateName, CountryName, CurrencyName, CurrencySymbol from CETStates where StateCode = @StateCode"; // Add s in UEStates
                     dbCommand.Parameters.AddWithValue("@StateCode", LocationCode);
                     dbAdapter.SelectCommand = dbCommand;
                     dbAdapter.Fill(dtData);
@@ -110,7 +110,7 @@ namespace CETRMS
                 DataTable dtData = new DataTable();
                 dbCommand.Connection = dbConnection;//krishna
                 dbCommand.CommandType = CommandType.Text; //Krishna
-                dbCommand.CommandText = "select distinct CountryName, CurrencyName, CurrencySymbol from UEStates where StateCode = @StateCode";
+                dbCommand.CommandText = "select distinct CountryName, CurrencyName, CurrencySymbol from CETStates where StateCode = @StateCode";
                 dbCommand.Parameters.AddWithValue("@StateCode", LocationCode);
                 dbAdapter.SelectCommand = dbCommand;
                 dbAdapter.Fill(dtData);
@@ -165,9 +165,9 @@ namespace CETRMS
                 DataTable dtData = new DataTable();
                 dbCommand.Connection = dbConnection;//krishna
                 dbCommand.CommandType = CommandType.Text; //Krishna
-                dbCommand.CommandText = "SELECT [CityCode], [CityName], UECity.[StateCode], UEStates.StateName, UEStates.CountryName, UEStates.CurrencySymbol, UEStates.CurrencyName"
-                             + " FROM [UECity] "
-                             + "inner join UEStates on UEStates.StateCode = UECity.StateCode where CityCode = @CityCode and UECity.StateCode = @StateCode";
+                dbCommand.CommandText = "SELECT [CityCode], [CityName], CETCity.[StateCode], CETStates.StateName, CETStates.CountryName, CETStates.CurrencySymbol, CETStates.CurrencyName"
+                             + " FROM [CETCity] "
+                             + "inner join CETStates on CETStates.StateCode = CETCity.StateCode where CityCode = @CityCode and CETCity.StateCode = @StateCode";
                 dbCommand.Parameters.AddWithValue("@CityCode", CityCode);
                 dbCommand.Parameters.AddWithValue("@StateCode", StateCode);
                 dbAdapter.SelectCommand = dbCommand;
@@ -330,9 +330,9 @@ namespace CETRMS
                 SqlCommand dbCommand = new SqlCommand();
                 SqlDataAdapter dbAdapter = new SqlDataAdapter();
                 DataTable dtData = new DataTable();
-                dbCommand.CommandText = "SELECT [CityCode], [CityName], UECity.[StateCode], UEStates.StateName, UEStates.CountryName, UEStates.CurrencySymbol, UEStates.CurrencyName"
-                    + " FROM [UECity] "
-                    + "inner join UEStates on UEStates.StateCode = UECity.StateCode where CityName LIKE @CityName + '%' and UECity.StateCode = @StateCode";
+                dbCommand.CommandText = "SELECT [CityCode], [CityName], UECity.[StateCode], CETStates.StateName, CETStates.CountryName, CETStates.CurrencySymbol, CETStates.CurrencyName"
+                    + " FROM [CETCity] "
+                    + "inner join CETStates on CETStates.StateCode = CETCity.StateCode where CityName LIKE @CityName + '%' and CETCity.StateCode = @StateCode";
                 dbCommand.Parameters.AddWithValue("@CityName", CityName);
                 dbCommand.Parameters.AddWithValue("@StateCode", StateCode);
                 dbAdapter.SelectCommand = dbCommand;
@@ -413,9 +413,9 @@ namespace CETRMS
                 SqlCommand dbCommand = new SqlCommand();
                 SqlDataAdapter dbAdapter = new SqlDataAdapter();
                 DataTable dtData = new DataTable();
-                dbCommand.CommandText = "SELECT [CityCode], [CityName], UECity.[StateCode], UEStates.StateName, UEStates.CountryName, UEStates.CurrencySymbol, UEStates.CurrencyName"
-                    + " FROM [UECity] "
-                    + "inner join UEStates on UEStates.StateCode = UECity.StateCode where UECity.StateCode = @StateCode";
+                dbCommand.CommandText = "SELECT [CityCode], [CityName], CETCity.[StateCode], CETStates.StateName, CETStates.CountryName, CETStates.CurrencySymbol, CETStates.CurrencyName"
+                    + " FROM [CETCity] "
+                    + "inner join UEStates on CETStates.StateCode = CETCity.StateCode where CETCity.StateCode = @StateCode";
                 dbCommand.Parameters.AddWithValue("@StateCode", StateCode);
                 dbAdapter.SelectCommand = dbCommand;
                 dbAdapter.Fill(dtData);
@@ -940,9 +940,9 @@ namespace CETRMS
                 SqlDataAdapter dbAdapter = new SqlDataAdapter();
                 DataTable dtData = new DataTable();
                 dbCommand.Connection = dbConnection;
-                dbCommand.CommandText = "SELECT [CityCode], [CityName], UECity.[StateCode], UEStates.StateName, UEStates.CountryName"
-                    + " FROM [UECity] "
-                    + "inner join UEStates on UEStates.StateCode = UECity.StateCode where CityName LIKE @CityName + '%' and UECity.StateCode = @StateCode";
+                dbCommand.CommandText = "SELECT [CityCode], [CityName], CETCity.[StateCode], CETStates.StateName, CETStates.CountryName"
+                    + " FROM [CETCity] "
+                    + "inner join CETStates on CETStates.StateCode = CETCity.StateCode where CityName LIKE @CityName + '%' and CETCity.StateCode = @StateCode";
                 dbCommand.Parameters.AddWithValue("@CityName", CityName);
                 dbCommand.Parameters.AddWithValue("@StateCode", StateCode);
                 dbAdapter.SelectCommand = dbCommand;
@@ -1427,7 +1427,7 @@ namespace CETRMS
                 SqlCommand dbCommand = new SqlCommand();
                 dbCommand.Connection = dbConnection;
                 dbCommand.CommandType = CommandType.Text;
-                dbCommand.CommandText = "update UEStates SET StateName = @StateName where StateCode = @StateCode";
+                dbCommand.CommandText = "update CETStates SET StateName = @StateName where StateCode = @StateCode";
                 dbCommand.Parameters.AddWithValue("@StateName", state.StateName);
                 dbCommand.Parameters.AddWithValue("@StateCode", state.StateCode);
                 dbCommand.ExecuteNonQuery();

@@ -22,7 +22,7 @@ namespace CETRMS
         public static GoogleUserclass GoogleProfile = new GoogleUserclass();
         public static FacebookUserclass FacebookProfile = new FacebookUserclass();
 
-        public static string UEClientID;
+        public static string CETClientID;
         public static int UEClientStatus;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -37,7 +37,7 @@ namespace CETRMS
                         {
                             if (Request.QueryString["code"] != null)
                             {
-                                if (GetGoogleToken(Request.QueryString["code"])) if (GetuserGoogleProfile(GoogleToken.access_token)) EmployerManagement.EmployerGoogleSignIn(GoogleProfile, ref UEClientID, ref UEClientStatus);
+                                if (GetGoogleToken(Request.QueryString["code"])) if (GetuserGoogleProfile(GoogleToken.access_token)) EmployerManagement.EmployerGoogleSignIn(GoogleProfile, ref CETClientID, ref UEClientStatus);
 
                             }
                         }
@@ -45,7 +45,7 @@ namespace CETRMS
                         {
                             if (Request.QueryString["code"] != null)
                             {
-                                if (GetFacebookOauthTokens(Request.QueryString["code"])) if (GetFacebookuserProfile(FacebookToken.access_token)) EmployerManagement.EmployerfacebookSignIn(FacebookProfile, ref UEClientID, ref UEClientStatus);
+                                if (GetFacebookOauthTokens(Request.QueryString["code"])) if (GetFacebookuserProfile(FacebookToken.access_token)) EmployerManagement.EmployerfacebookSignIn(FacebookProfile, ref CETClientID, ref UEClientStatus);
                             }
                         }
                     }

@@ -29,11 +29,11 @@ namespace CETRMS
         {
             try
             {
-                if (Session["uerms_username"] == null)
+                if (Session["cetrms_username"] == null)
                 {
                     Response.Redirect("~/NewIndex.aspx", false);
                 }
-                logger.log(logger.LogSeverity.INF, logger.LogEvents.VACANCY_MANAGEMENT, Session["uerms_username"].ToString(), "VacancyList Page opened.");
+                logger.log(logger.LogSeverity.INF, logger.LogEvents.VACANCY_MANAGEMENT, Session["cetrms_username"].ToString(), "VacancyList Page opened.");
 
                 VacanyStatus = Request.QueryString.Get("VacancyStatus");
 
@@ -176,7 +176,7 @@ namespace CETRMS
 
                     if (oVacancyList[i].VacancyStatusTypeID == VacancyLitstTabDDL.SelectedValue.ToString() || VacancyLitstTabDDL.SelectedValue.ToString() == "0")
                     {
-                        string EmployerId = oVacancyList[i].UEEmployerID;
+                        string EmployerId = oVacancyList[i].CETEmployerId;
                         EmployerManagement.GetEmployerByID(EmployerId, ref oEmployer, true);
 
                         string EmployerBusinessLogo = string.Empty;
@@ -278,7 +278,7 @@ namespace CETRMS
 
                     if (oVacancyList[i].VacancyStatusTypeID == VacancyLitstTabDDL.SelectedValue.ToString() || VacancyLitstTabDDL.SelectedValue.ToString() == "0")
                     {
-                        string EmployerId = oVacancyList[i].UEEmployerID;
+                        string EmployerId = oVacancyList[i].CETEmployerId;
                         EmployerManagement.GetEmployerByID(EmployerId, ref oEmployer, true);
 
                         string EmployerBusinessLogo = string.Empty;
@@ -390,7 +390,7 @@ namespace CETRMS
 
                     if (oVacancyList[i].VacancyStatusTypeID == VacancyLitstTabDDL.SelectedValue.ToString() || VacancyLitstTabDDL.SelectedValue.ToString() == "0")
                     {
-                        string EmployerId = oVacancyList[i].UEEmployerID;
+                        string EmployerId = oVacancyList[i].CETEmployerId;
                         EmployerManagement.GetEmployerByID(EmployerId, ref oEmployer, true);
 
                         string EmployerBusinessLogo = string.Empty;

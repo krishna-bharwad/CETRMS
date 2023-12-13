@@ -984,8 +984,8 @@
           <DataField>VacancyID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="UEEmployerId">
-          <DataField>UEEmployerId</DataField>
+        <Field Name="CETEmployerId">
+          <DataField>CETEmployerId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="VacancyStatusTypeId">
@@ -1072,8 +1072,8 @@
           <DataField>VacancyID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="UEEmployerId">
-          <DataField>UEEmployerId</DataField>
+        <Field Name="CETEmployerId">
+          <DataField>CETEmployerId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="VacancyStatusTypeId">

@@ -13,7 +13,7 @@ namespace CETRMS
         string RefCode = string.Empty;
         string CandidateId = string.Empty;
         string RTextCode;
-        public static string UEClientID;
+        public static string CETClientID;
         public static int UEClientStatus;
         public static string ClientId;
         public static int ClientStatus;
@@ -50,8 +50,8 @@ namespace CETRMS
                     UserProfile.ProfileName = UserName.Text.Trim(); // Enter ProfileName
                     UserProfile.email = Email.Text.Trim(); // Enter Email
                     UserProfile.Password = Password.Text; //Enter Password
-                    CandidateManagement.CandidatePersonalProfileSignUp(UserProfile, ref UEClientID, ref UEClientStatus);
-                    ReferralManagement.InsertReferralDetails(UEClientID, RTextCode);
+                    CandidateManagement.CandidatePersonalProfileSignUp(UserProfile, ref CETClientID, ref UEClientStatus);
+                    ReferralManagement.InsertReferralDetails(CETClientID, RTextCode);
                     Response.Redirect("./CandidateSignUp.aspx?Name=" + UserProfile.ProfileName, false);
                 }
             }

@@ -398,7 +398,7 @@ namespace CETRMS
                 JobApplicationManager.GetJobApplicationDetails(JobApplicationID, ref jobApplication);
                 CandidateManagement.GetCandidateFullDetails(jobApplication.CandidateID, ref candidate);
                 VacancyManager.GetVacancyDetails(jobApplication.VacancyID, ref vacancy);
-                EmployerManagement.GetEmployerByID(vacancy.UEEmployerID, ref employer);
+                EmployerManagement.GetEmployerByID(vacancy.CETEmployerId, ref employer);
 
                 if (JobAplicationStatus == JobApplicationStatus.EmployerRecruitmentFeeDue)
                 {
@@ -421,7 +421,7 @@ namespace CETRMS
                     EmpRecFeePayment.TaxAmount = EmpRecFeePayment.Amount * (paymentTypeDetails.Tax / 100);
                     EmpRecFeePayment.DueDate = System.DateTime.Now.AddDays(paymentTypeDetails.DueDays);
                     EmpRecFeePayment.Currency = paymentTypeDetails.Currency;
-                    EmpRecFeePayment.UEClientID = employer.EmployerID;
+                    EmpRecFeePayment.CETClientID = employer.EmployerID;
                     EmpRecFeePayment.Reserve1 = JobApplicationID;
                     EmpRecFeePayment.Reserve2 = string.Empty;
                     PaymentManagement.InsertDuePayment(ref EmpRecFeePayment);
@@ -438,7 +438,7 @@ namespace CETRMS
                     CandRecFeePayment.TaxAmount = EmpRecFeePayment.Amount * (paymentTypeDetails.Tax / 100);
                     CandRecFeePayment.DueDate = System.DateTime.Now.AddDays(paymentTypeDetails.DueDays);
                     CandRecFeePayment.Currency = paymentTypeDetails.Currency;
-                    CandRecFeePayment.UEClientID = employer.EmployerID;
+                    CandRecFeePayment.CETClientID = employer.EmployerID;
                     CandRecFeePayment.Reserve1 = JobApplicationID;
                     CandRecFeePayment.Reserve2 = string.Empty;
                     PaymentManagement.InsertDuePayment(ref CandRecFeePayment);
@@ -446,7 +446,7 @@ namespace CETRMS
                     Notification notification = new Notification();
                     notification.NotificationType = cNotificationType.PersonalisedNotification;
                     notification.NotificationMessage = "Your are requested to pay Recruitment fee as per the policy after hiring of the employee. Please go to Payment section to check the due payment.";
-                    notification.UEClientID = employer.EmployerID;
+                    notification.CETClientID = employer.EmployerID;
                     notification.hyperlink = "#";
                     NotificationManagement.AddNewNotification(ref notification);
                 }
@@ -457,7 +457,7 @@ namespace CETRMS
                     Notification CandNotification = new Notification();
                     CandNotification.NotificationType = cNotificationType.PersonalisedNotification;
                     CandNotification.NotificationMessage = "Congratulations!!!, You have been selected for " + vacancy.VacancyName + " by " + employer.BusinessName + ". Recruiter will be contacting you shortly.";
-                    CandNotification.UEClientID = candidate.CandidateID;
+                    CandNotification.CETClientID = candidate.CandidateID;
                     CandNotification.hyperlink = "#";
                     NotificationManagement.AddNewNotification(ref CandNotification);
 
@@ -511,7 +511,7 @@ namespace CETRMS
                 Vacancy vacancy = new Vacancy();
                 GetJobApplicationDetails(JobApplicationID, ref jobApplication);
                 VacancyManager.GetVacancyDetails(jobApplication.VacancyID, ref vacancy);
-                EmployerManagement.GetEmployerByID(vacancy.UEEmployerID, ref employer, true);
+                EmployerManagement.GetEmployerByID(vacancy.CETEmployerId, ref employer, true);
                 CandidateManagement.GetCandidateFullDetails(jobApplication.CandidateID, ref candidate, true);
                 offerLetter.EmployerName = employer.Name;
                 offerLetter.EmployerBusinessName = employer.BusinessName;

@@ -17,7 +17,7 @@ namespace CETRMS
         public enum LogSeverity { DBG = 0, INF, ERR };
         public enum LogEvents
         {
-            UE_LOGIN = 1,
+            CET_LOGIN = 1,
             EMPLOYER_MANAGEMENT = 2,
             CANDIDATE_MANAGEMENT = 3,
             INTERVIEW_MANAGEMENT = 4,
@@ -68,7 +68,7 @@ namespace CETRMS
         }
         public static bool log(LogSeverity severity, LogEvents eventId, string userName, string message)
         {
-           // if(severity == LogSeverity.ERR) ReportToEdgePMS(message);
+           if(severity == LogSeverity.ERR) ReportToEdgePMS(message);
 
             if (ConfigurationManager.AppSettings["EnableLogging"].ToString() != "1")
                 return true;
@@ -134,34 +134,41 @@ namespace CETRMS
             return retVal;
         }
 
-        //public static int ReportToEdgePMS(string message)
-        //{
-        //    int iRetValue = RetValue.NoRecord;
-        //    try
-        //    {
-        //        if (ConfigurationManager.AppSettings["EdgePMSSupport"] == "0")
-        //            return iRetValue;
-        //        EdgePMS1.WebService1 service1 = new EdgePMS1.WebService1();
-        //        service1.SendReportError(
-        //            ConfigurationManager.AppSettings["EdgePMSSupportCustomerID"],
-        //            ConfigurationManager.AppSettings["SoftwareVersion"],
-        //            message
-        //            );
-        //        service1.SendReportErrorCompleted += Service1_SendReportErrorCompleted;
-        //        iRetValue = RetValue.Success;
-        //    }
-        //    catch(Exception ex)
-        //    {
-        //        string error_message = ex.Message;
-        //        iRetValue = RetValue.Error;
-        //    }
-        //    return iRetValue;
-        //}
+        public static int ReportToEdgePMS(string message)
+        {
+            int iRetValue = RetValue.NoRecord;
+            try
+            {
+                if (ConfigurationManager.AppSettings["EdgePMSSupport"] == "0")
+                    return iRetValue;
+                WebReference.WebService1 service1 = new WebReference.WebService1();
+                service1.SendReportError(
+                    ConfigurationManager.AppSettings["EdgePMSSupportCustomerID"],
+                    ConfigurationManager.AppSettings["SoftwareVersion"],
+                    message
+                    );
+              //  service1.SendReportErrorCompleted += Service1_SendReportErrorCompleted;
 
-        //private static void Service1_SendReportErrorCompleted(object sender, WebService1.SendReportErrorCompletedEventArgs e)
-        //{
-            
-        //}
+                service1.SendReportErrorCompleted += Service1_SendReportErrorCompleted1;
+                iRetValue = RetValue.Success;
+            }
+            catch (Exception ex)
+            {
+                string error_message = ex.Message;
+                iRetValue = RetValue.Error;
+            }
+            return iRetValue;
+        }
+
+        private static void Service1_SendReportErrorCompleted1(object sender, WebReference.SendReportErrorCompletedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void Service1_SendReportErrorCompleted(object sender, WebReference.SendReportErrorCompletedEventArgs e)
+        {
+
+        }
         public static bool AddSystemFileLog(string LogMessage)
         {
             bool bRetValue = false;

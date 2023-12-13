@@ -19,7 +19,7 @@ namespace CETRMS
         {
             try
             {
-                if (Session["uerms_username"] == null)
+                if (Session["cetrms_username"] == null)
                 {
                     Response.Redirect("~/NewIndex.aspx", false);
                 }
@@ -62,7 +62,7 @@ namespace CETRMS
         {
             try
             {
-                EmployerManagement.GetEmployerByID(vacancy.UEEmployerID, ref employer, true);
+                EmployerManagement.GetEmployerByID(vacancy.CETEmployerId, ref employer, true);
 
                 string EmployerBusinessLogo = string.Empty;
                 string imagetag = string.Empty;

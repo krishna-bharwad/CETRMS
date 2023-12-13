@@ -81,10 +81,10 @@ namespace CETRMS
 
                         JobApplicationManager.GetJobApplicationDetails(InterviewDetail.JobApplicationID, ref JADetails);
                         VacancyManager.GetVacancyDetails(JADetails.VacancyID, ref VacancyDetails);
-                        EmployerManagement.GetEmployerByID(VacancyDetails.UEEmployerID, ref EmployerDetails);
+                        EmployerManagement.GetEmployerByID(VacancyDetails.CETEmployerId, ref EmployerDetails);
 
                         notification.NotificationType = cNotificationType.AdminNotification;
-                        notification.UEClientID = "-1";
+                        notification.CETClientID = "-1";
                         notification.NotificationMessage = "New interview schedule request received from " + EmployerDetails.BusinessName;
                         notification.hyperlink = URLs.InterviewDetailsURL+iRetValue;
                         NotificationManagement.AddNewNotification(ref notification);
@@ -232,7 +232,7 @@ namespace CETRMS
                     dbCommand.CommandType = CommandType.StoredProcedure;
                     dbCommand.CommandText = "sp_CreateNewZoomMeeting";
                     dbCommand.Parameters.AddWithValue("@InterviewID", InterviewDetails.InterviewID);
-                    dbCommand.Parameters.AddWithValue("@UERemarks", InterviewDetails.UERemarks);
+                    dbCommand.Parameters.AddWithValue("@CETRemarks", InterviewDetails.CETRemarks);
                     dbCommand.Parameters.AddWithValue("@PreferredDateTime", InterviewDetails.PreferredDateTime);
                     dbCommand.Parameters.AddWithValue("@ZVCRQ_duration", InterviewDetails.ZoomVCMeetingRequest.duration);
                     dbCommand.Parameters.AddWithValue("@ZVCRQ_start_time", InterviewDetails.ZoomVCMeetingRequest.start_time);
@@ -332,7 +332,7 @@ namespace CETRMS
                         InterviewDetails.PreferredDateTime = (DateTime)row["PreferredDateTime"];
                         InterviewDetails.InterviewStatus = (int)row["InterviewStatus"];
                         InterviewDetails.EmployerRemarks = row["EmployerRemarks"].ToString();
-                        InterviewDetails.UERemarks = row["UERemarks"].ToString();
+                        InterviewDetails.CETRemarks = row["CETRemarks"].ToString();
                         InterviewDetails.CandidateRemarks = row["CandidateRemarks"].ToString();
                         if(row["ZVCRQ_duration"] != DBNull.Value)
                         InterviewDetails.ZoomVCMeetingRequest.duration = Convert.ToInt32(row["ZVCRQ_duration"]);
@@ -575,8 +575,8 @@ namespace CETRMS
 
                         if (row["EmployerRemarks"] != DBNull.Value)
                             InterviewDetails.EmployerRemarks = row["EmployerRemarks"].ToString();
-                        if (row["UERemarks"] != DBNull.Value)
-                            InterviewDetails.UERemarks = row["UERemarks"].ToString();
+                        if (row["CETRemarks"] != DBNull.Value)
+                            InterviewDetails.CETRemarks = row["CETRemarks"].ToString();
                         if (row["CandidateRemarks"] != DBNull.Value)
                             InterviewDetails.CandidateRemarks = row["CandidateRemarks"].ToString();
                         if (row["ZVCRQ_duration"] != DBNull.Value)
@@ -773,7 +773,7 @@ namespace CETRMS
                         InterviewDetails.PreferredDateTime = (DateTime)row["PreferredDateTime"];
                         InterviewDetails.InterviewStatus = (int)row["InterviewStatus"];
                         InterviewDetails.EmployerRemarks = row["EmployerRemarks"].ToString();
-                        InterviewDetails.UERemarks = row["UERemarks"].ToString();
+                        InterviewDetails.CETRemarks = row["CETRemarks"].ToString();
                         InterviewDetails.CandidateRemarks = row["CandidateRemarks"].ToString();
                         InterviewDetails.ZoomVCMeetingRequest.duration = (int)row["ZVCRQ_duration"];
                         //InterviewDetails.ZoomVCMeetingRequest.password = row["ZVCRQ_password"].ToString();
@@ -931,7 +931,7 @@ namespace CETRMS
                         InterviewDetails.PreferredDateTime = (DateTime)row["PreferredDateTime"];
                         InterviewDetails.InterviewStatus = (int)row["InterviewStatus"];
                         InterviewDetails.EmployerRemarks = row["EmployerRemarks"].ToString();
-                        InterviewDetails.UERemarks = row["UERemarks"].ToString();
+                        InterviewDetails.CETRemarks = row["CETRemarks"].ToString();
                         InterviewDetails.CandidateRemarks = row["CandidateRemarks"].ToString();
                         if(row["ZVCRQ_duration"] != DBNull.Value)                               //Edited by Durgesh
                         InterviewDetails.ZoomVCMeetingRequest.duration = (int)row["ZVCRQ_duration"];
@@ -1091,7 +1091,7 @@ namespace CETRMS
                         InterviewDetails.PreferredDateTime = (DateTime)row["PreferredDateTime"];
                         InterviewDetails.InterviewStatus = (int)row["InterviewStatus"];
                         InterviewDetails.EmployerRemarks = row["EmployerRemarks"].ToString();
-                        InterviewDetails.UERemarks = row["UERemarks"].ToString();
+                        InterviewDetails.CETRemarks = row["CETRemarks"].ToString();
                         InterviewDetails.CandidateRemarks = row["CandidateRemarks"].ToString();
                         if(row["ZVCRQ_duration"] != DBNull.Value)
                             InterviewDetails.ZoomVCMeetingRequest.duration = Convert.ToInt32(row["ZVCRQ_duration"]);
@@ -1252,7 +1252,7 @@ namespace CETRMS
                         InterviewDetails.PreferredDateTime = (DateTime)row["PreferredDateTime"];
                         InterviewDetails.InterviewStatus = (int)row["InterviewStatus"];
                         InterviewDetails.EmployerRemarks = row["EmployerRemarks"].ToString();
-                        InterviewDetails.UERemarks = row["UERemarks"].ToString();
+                        InterviewDetails.CETRemarks = row["CETRemarks"].ToString();
                         InterviewDetails.CandidateRemarks = row["CandidateRemarks"].ToString();
 
                         if (row["ZVCRQ_duration"] != DBNull.Value)
@@ -1356,7 +1356,7 @@ namespace CETRMS
             JobApplicationManager.GetJobApplicationDetails(interview.JobApplicationID, ref JADetails);
             VacancyManager.GetVacancyDetails(JADetails.VacancyID, ref VacancyDetails);
             CandidateManagement.GetCandidatePersonalDetails(JADetails.CandidateID, ref CandidateDetails);
-            EmployerManagement.GetEmployerByID(VacancyDetails.UEEmployerID, ref EmployerDetails);
+            EmployerManagement.GetEmployerByID(VacancyDetails.CETEmployerId, ref EmployerDetails);
 
             interview.ZoomVCMeetingRequest.topic = "Interview of Mr. " + CandidateDetails.PersonalProfile.Name + " with " + EmployerDetails.BusinessName;
             interview.ZoomVCMeetingRequest.timezone = interview.ChosenTimeZone;
@@ -1381,7 +1381,7 @@ namespace CETRMS
                     dbCommand.CommandType = CommandType.StoredProcedure;
                     dbCommand.CommandText = "sp_CreateNewZoomMeeting";
                     dbCommand.Parameters.AddWithValue("@InterviewID", interview.InterviewID);
-                    dbCommand.Parameters.AddWithValue("@UERemarks", interview.UERemarks);
+                    dbCommand.Parameters.AddWithValue("@CETRemarks", interview.CETRemarks);
                     dbCommand.Parameters.AddWithValue("@PreferredDateTime", interview.PreferredDateTime);
                     dbCommand.Parameters.AddWithValue("@ZVCRQ_duration", interview.ZoomVCMeetingRequest.duration);
                     dbCommand.Parameters.AddWithValue("@ZVCRQ_start_time", interview.ZoomVCMeetingRequest.start_time);
@@ -1418,7 +1418,7 @@ namespace CETRMS
 
                     Notification notification = new Notification();
                     notification.NotificationType = cNotificationType.PersonalisedNotification;
-                    notification.UEClientID = EmployerDetails.EmployerID;
+                    notification.CETClientID = EmployerDetails.EmployerID;
                     notification.NotificationMessage = "Video call for interview request processed.";
                     notification.hyperlink = URLs.InterviewDetailsURL + iRetValue;
                     NotificationManagement.AddNewNotification(ref notification);
@@ -1426,7 +1426,7 @@ namespace CETRMS
 
                     Notification CandNotification = new Notification();
                     CandNotification.NotificationType = cNotificationType.PersonalisedNotification;
-                    CandNotification.UEClientID = CandidateDetails.CandidateID;
+                    CandNotification.CETClientID = CandidateDetails.CandidateID;
                     CandNotification.NotificationMessage = "An interview is scheduled with "+EmployerDetails.BusinessName+" for your job application for the post of "+VacancyDetails.VacancyName;
                     CandNotification.hyperlink = URLs.InterviewDetailsURL + iRetValue;
                     NotificationManagement.AddNewNotification(ref CandNotification);
