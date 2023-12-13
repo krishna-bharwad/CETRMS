@@ -57,7 +57,7 @@
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
             border-color: transparent;
-            color:black;
+            color:#fff;
         }
         .input-group > .custom-file, .input-group > .custom-select, .input-group > .form-control {
             position: relative;
@@ -368,7 +368,7 @@
             <!-- ***** Preloader End ***** -->
            <%-- <div class="mydiv1">--%>
                 <!-- ***** Header Area Start ***** -->
-                <header class="header-area">
+                <header class="header-area header-sticky background-header">
                     <div class="container">
                         <div class="row">
                             <div class="col-12">
@@ -384,13 +384,12 @@
                                     <!-- ***** Menu Start ***** -->
 
                                     <ul class="nav">
-                                        <li class="scroll-to-section"><a href="NewIndex.aspx" class="navA active">Home</a></li>
-                                        <li class="scroll-to-section"><a href="CandidateMobileApplication.aspx" class="navA">Candidate</a></li>
+                                        <li class="scroll-to-section"><a href="CandidateMobileApplication.aspx" class="active">Candidate</a></li>
                                         <li class="scroll-to-section">
-                                            <a href="CandidateMobileApplication.aspx" aria-haspopup="true" class="navA" aria-expanded="false">Employer</a>                                            
+                                            <a href="CandidateMobileApplication.aspx" aria-haspopup="true" aria-expanded="false">Employer</a>                                            
                                         </li>
                                                                                                                   
-                                        <li class="scroll-to-section"><a href="Aboutus.aspx"class="navA">Company</a></li>
+                                        <li class="scroll-to-section"><a href="Aboutus.aspx">Company</a></li>
                                         <li class="scroll-to-section">
                                             <asp:LinkButton ID="LoginModalLB" runat="server" type="button" title="Log In" OnClick="LoginModalLB_Click">
                                               MIS SignIn
@@ -423,13 +422,12 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="item item-1">
-                                    <div class="opacDiv"></div>
                                     <div class="header-text">
                                         <%--<span class="category">Hire Now!</span>--%>
-                                        <h2 class="text-center">Lorem Ipsum Jobs</h2>
+                                        <h2>Lorem Ipsum Jobs</h2>
                                         <p>Get your dream job and better placement!
-                                            <%--<br />--%>
-                                            The standard chunk of <%--<br />--%>
+                                            <br />
+                                            The standard chunk of <br />
                                             Lorem Ipsum!!!</p>
                                         <div class="buttons">
                                             <div class="main-button">
@@ -447,87 +445,54 @@
                 </div>
            <%-- </div>--%>
 
-                 <div class="section fun-facts">
-     <div class="container">
-         <div class="row">
-             <div class="col-lg-12">
-                 <div class="wrapper">
-                     <div class="row">
-                         <div class="col-lg-4 col-md-6">
-                             <div class="counter">
-                                 <h2><asp:Label ID="VacanciesPublishedLBL" runat="server"></asp:Label></h2>
-                                 <p class="count-text ">Vacancies Published</p>
-                             </div>
-                         </div>
-                         <div class="col-lg-4 col-md-6">
-                             <div class="counter">
-                                 <h2><asp:Label ID="ScheduledInterviewsLBL" runat="server"></asp:Label></h2>
-                                 <p class="count-text ">Scheduled Interviews</p>
-                             </div>
-                         </div>
-                         <div class="col-lg-4 col-md-6">
-                             <div class="counter">
-                                 <h2><asp:Label ID="JobApplicationLBL" runat="server"></asp:Label></h2>
-                                 <p class="count-text ">Job Applications</p>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
- </div>
-
-
             <div class="services section" id="#Services">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="service-item siCardChng">
+                            <div class="service-item">
                                 <div class="icon1">
                                     <img src="IndexAssets/images/Qualified-Candidates-1681117735171.png" alt="online degrees"/>
                                 </div>
                                 <div class="main-content card text-center h-100">
                                     <div class="clearfix"><br/></div>
                                     <h4>Qualified Candidates</h4>
-                                    <span><strong style="font-size:50px;color: var(--dark);"><asp:Label ID="CandidateCountLBL" runat="server"></asp:Label>78</strong></span>                                   
+                                    <span><strong style="font-size:50px;color: var(--dark);"><asp:Label ID="CandidateCountLBL" runat="server"></asp:Label></strong></span>                                   
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="service-item siCardChng">
+                            <div class="service-item">
                                 <div class="icon1">
                                     <img src="IndexAssets/images/Interviews-1681117748393.png" alt="short courses"/>
                                 </div>
                                 <div class="main-content card text-center h-100">
                                     <div class="clearfix"><br/></div>
                                     <h4>On board Employers</h4>
-                                     <span><strong style="font-size:50px;color: var(--dark);"><asp:Label ID="EmployerCountLBL" runat="server"></asp:Label>54</strong></span>                                  
+                                     <span><strong style="font-size:50px;color: var(--dark);"><asp:Label ID="EmployerCountLBL" runat="server"></asp:Label></strong></span>                                  
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="service-item siCardChng">
+                            <div class="service-item">
                                 <div class="icon1">
                                     <img src="IndexAssets/images/Across-World.png" alt="web experts"/>
                                 </div>
                                 <div class="main-content card text-center h-100">
                                     <div class="clearfix"><br/></div>
                                     <h4>Locations</h4>
-                                     <span><strong style="font-size:50px;color: var(--dark);"><asp:Label ID="LocationsLBL" runat="server"></asp:Label>32</strong></span>                                   
+                                     <span><strong style="font-size:50px;color: var(--dark);"><asp:Label ID="LocationsLBL" runat="server"></asp:Label></strong></span>                                   
                                 </div>
                             </div>
-                        </div>                                               
+                        </div>
                     </div>
                 </div>
             </div>
 
-
-            <div class="services section servSec" id="services">
+            <div class="services section" id="services">
                 <div class="container">
                     <h1>Get Started in 3 easy steps</h1>
                     <div class="row mt-5">
-                       <%-- <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="col-lg-4 col-md-6 mb-4">
                             <div class="service-item">
                                 <div class="icon">
                                     <img src="IndexAssets/images/Employer-1681117817999.png" alt="online degrees" />
@@ -537,7 +502,10 @@
                                     <h4>For Empolyer</h4>
                                     <p>*Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                                     <p>*Lorem Ipsum has been the industry's standard .</p>
-                                    <p>*dummy text ever since the 1500s, </p>                                
+                                    <p>*dummy text ever since the 1500s, </p>
+                                    <%--<div class="main-button bottom">
+                                        <a href="#">Read More</a>         
+                                    </div>--%>
                                 </div>
                             </div>
                         </div>
@@ -551,7 +519,11 @@
                                     <h4>For Job Seekers</h4>
                                     <p>*Content here,</p>
                                     <p>*Making it look like readable English.</p>
-                                    <p>*Many desktop publishing packages and web page</p>                         </div>
+                                    <p>*Many desktop publishing packages and web page</p>
+                                    <%--<div class="main-button bottom">
+                                        <a href="#">Read More</a>  ' 
+                                    </div>--%>
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 mb-4">
@@ -563,51 +535,12 @@
                                     <div class="clearfix"><br/></div>
                                     <h4>Get calls. Hire.</h4>
                                     <p>Editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum will uncover many websites.</p>
+                                    <%--<div class="main-button bottom">
+                                        <a href="#">Read More</a>
+                                    </div>--%>
                                 </div>
                             </div>
-                        </div>--%>
-
-                        <div class="col-sm-4 iconCol">
-                            <div class="icon">
-                                <img src="IndexAssets/images/Employer-1681117817999.png" alt="online degrees" />
-                            </div>
-                            <div class="icon" style="margin-left: 4rem;">
-                                <img src="IndexAssets/images/Job-Seekers-1681117733444.png" alt="short courses" />
-                            </div>
-                            <div class="icon" style="margin-left: 8rem;">
-                                <img src="IndexAssets/images/Get-Calls-1681117754183.png" alt="web experts" />
-                            </div>
                         </div>
-                        <div class="col-sm-8 infoCol">
-                            <div class="main-content card" style="margin-left: -8rem;">
-                                <%--<div class="clearfix">
-                                    <br />
-                                </div>--%>
-                                <h4>For Empolyer</h4>
-                                <p>*Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                <p>*Lorem Ipsum has been the industry's standard .</p>
-                                <p>*dummy text ever since the 1500s, </p>
-                            </div>
-                            <div class="main-content card" style="margin-left: -4rem;">
-                                <%--<div class="clearfix">
-                                    <br />
-                                </div>--%>
-                                <h4>For Job Seekers</h4>
-                                <p>*Content here,</p>
-                                <p>*Making it look like readable English.</p>
-                                <p>*Many desktop publishing packages and web page</p>
-                            </div>
-                            <div class="main-content card">
-                               <%-- <div class="clearfix">
-                                    <br />
-                                </div>--%>
-                                <h4>Get calls. Hire.</h4>
-                                <p>Editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum will uncover many websites.</p>
-                            </div>
-                        </div>
-
-
-
                     </div>
                 </div>
             </div>
@@ -884,7 +817,7 @@
     </div>
   </section>--%>
 
-           <%-- <div class="section fun-facts">
+            <div class="section fun-facts">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
@@ -908,12 +841,18 @@
                                             <p class="count-text ">Job Applications</p>
                                         </div>
                                     </div>
+<%--                                    <div class="col-lg-3 col-md-6">
+                                        <div class="counter end">
+                                            <h2 class="timer count-title count-number" data-to="15" data-speed="1000"><asp:Label ID="YearsExperience" runat="server"></asp:Label></h2>
+                                            <p class="count-text ">Years Experience</p>
+                                        </div>
+                                    </div>--%>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>--%>
+            </div>
 
             <div class="team section" id="team">
                 <div class="container">
@@ -983,12 +922,8 @@
                     <div class="row">
                         <div class="col-lg-7">
                             <div class="owl-carousel owl-testimonials">
-                                      
-                                 <div class="section-heading">
-     <h6>Candidate Review</h6>
-     <h2>What they say about us?</h2>
-     <p>Lorem Ipsum is platform to develop skills and show the telent by get hire and hiring. Very easy to get hiried and Hiring system.</p>
- </div>
+                                <asp:Literal ID="TestimonialLit" runat="server">                                    
+                                </asp:Literal>                              
 <%--                                <div class="item">
                                     <p>“Please tell your friends or collegues about TemplateMo website. Anyone can access the website to download free templates. Thank you for visiting.”</p>
                                     <div class="author">
@@ -1016,42 +951,11 @@
                             </div>
                         </div>
                         <div class="col-lg-5 align-self-center">
-                           <%-- <div class="section-heading">
+                            <div class="section-heading">
                                 <h6>Candidate Review</h6>
                                 <h2>What they say about us?</h2>
                                 <p>Lorem Ipsum is platform to develop skills and show the telent by get hire and hiring. Very easy to get hiried and Hiring system.</p>
-                            </div>--%>
-
-                            <asp:Literal ID="TestimonialLit" runat="server">                                    
-</asp:Literal> 
-
-                            <div class="owl-carousel owl-testimonials">
-                             <div class="item">
-                                    <p>“Please tell your friends or collegues about TemplateMo website. Anyone can access the website to download free templates. Thank you for visiting.”</p>
-                                    <div class="author">
-                                        <img src="IndexAssets/images/testimonial-author.jpg" alt=""/>
-                                        <span class="category">Full Stack Master</span>
-                                        <h4>Claude David</h4>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravid.”</p>
-                                    <div class="author">
-                                        <img src="IndexAssets/images/testimonial-author.jpg" alt=""/>
-                                        <span class="category">UI Expert</span>
-                                        <h4>Thomas Jefferson</h4>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <p>“Scholar is free website template provided by TemplateMo for educational related websites. This CSS layout is based on Bootstrap v5.3.0 framework.”</p>
-                                    <div class="author">
-                                        <img src="IndexAssets/images/testimonial-author.jpg" alt=""/>
-                                        <span class="category">Digital Animator</span>
-                                        <h4>Stella Blair</h4>
-                                    </div>
-                                </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -1129,7 +1033,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="contact-us-content">
-                                <img src="cetimages/cetMobile.svg" class="img-fluid" style="margin-left: 2rem;"/>
+                                <img src="cetimages/cetMobile.svg" class="img-fluid"/>
                             </div>
                            <%-- <div class="contact-us-content">
                                 <div class="contactAbstract">
@@ -1264,7 +1168,7 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-5">
-                                    <label class="text-nowrap remMBox">Remember me</label>
+                                    <label class="text-nowrap">Remember me</label>
                                 </div>
                             </div>
                                        

@@ -323,7 +323,6 @@
     <Content Include="CandidateProfile.aspx" />
     <Content Include="CandidateSignUp.aspx" />
     <Content Include="cetimages\abstarct.png" />
-    <Content Include="cetimages\business-people-casual-meeting.jpg" />
     <Content Include="cetimages\CET-LOGO.png" />
     <Content Include="cetimages\cetMobile.svg" />
     <Content Include="Contact.aspx" />
