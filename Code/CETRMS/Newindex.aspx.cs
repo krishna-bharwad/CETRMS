@@ -8,14 +8,15 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using CETRMS;
+using Microsoft.Ajax.Utilities;
 
 namespace CETRMS
 {
     public partial class Newindex : System.Web.UI.Page
     {
         //string EmployerSignUpRedirection_url = "https://localhost:44342/EmployerSigUp.aspx";
-        string EmployerSignUpRedirection_url = "https://localhost:44382/EmployerSignUp.aspx";
-        string CandidateSignUpRedirection_url = "https://localhost:44382/CandidateSignUp.aspx";
+        string EmployerSignUpRedirection_url = "https://localhost:44392/EmployerSignUp.aspx";
+        string CandidateSignUpRedirection_url = "https://localhost:44392/CandidateSignUp.aspx";
         public static string CETClientID;
         public static int UEClientStatus;
 
@@ -23,8 +24,8 @@ namespace CETRMS
         {
             try
             {
-                EmployerSignUpRedirection_url = ConfigurationManager.AppSettings["EmpSignUpRedirectURL"].ToString();
-                CandidateSignUpRedirection_url = ConfigurationManager.AppSettings["CandSignUpRedirectURL"].ToString();
+              EmployerSignUpRedirection_url = ConfigurationManager.AppSettings["EmpSignUpRedirectURL"].ToString();
+              CandidateSignUpRedirection_url = ConfigurationManager.AppSettings["CandSignUpRedirectURL"].ToString();
 
                 if (!IsPostBack)
                 {
@@ -189,6 +190,7 @@ namespace CETRMS
 
         protected void CETSigninLB_Click(object sender, EventArgs e)
         {
+            
             try
             {
                 int iRetValue = 0;

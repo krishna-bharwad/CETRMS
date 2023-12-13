@@ -493,6 +493,7 @@
     <Content Include="IndexAssets\Modal.js" />
     <Content Include="IndexAssets\Scripts\bootstrap.js" />
     <Content Include="IndexAssets\Scripts\bootstrap.min.js" />
+    <Content Include="BlankDBBackUp\CETRMS.bak" />
     <None Include="IndexAssets\Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="IndexAssets\Scripts\jquery-3.4.1.js" />
     <Content Include="IndexAssets\Scripts\jquery-3.4.1.min.js" />
